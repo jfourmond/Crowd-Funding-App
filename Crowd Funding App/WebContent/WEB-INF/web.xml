@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Crowd Funding App</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <display-name>pro</display-name>
+	<!-- Serlvet Home -->
 	<servlet>
-		<servlet-name>Accueil</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.Accueil</servlet-class>
+		<servlet-name>Home</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.Home</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>Accueil</servlet-name>
+		<servlet-name>Home</servlet-name>
 		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Sign Up -->
+	<servlet>
+		<servlet-name>SignUp</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.SignUp</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Sign Up</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Log On -->
+	<servlet>
+		<servlet-name>LogOn</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.LogOn</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Log On</servlet-name>
+		<url-pattern>/logon</url-pattern>
 	</servlet-mapping>
 </web-app>
