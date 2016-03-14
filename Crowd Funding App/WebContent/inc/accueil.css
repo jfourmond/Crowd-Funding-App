@@ -1,0 +1,17 @@
+div#bandeau {
+	height:50px;
+	background-color:#F8F8FF;
+}
+
+.boutonConnexion {
+	float:right;
+}
+
+
+.boutonInscription {
+	float:right;
+}
+
+.decouvrir {
+	float: left;
+}
