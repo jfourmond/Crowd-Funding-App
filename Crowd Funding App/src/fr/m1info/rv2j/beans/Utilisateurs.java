@@ -1,4 +1,4 @@
-package fr.m1info.r2vj.beans;
+package fr.m1info.rv2j.beans;
 
 public class Utilisateurs {
 	/* champs */
