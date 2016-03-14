@@ -11,7 +11,7 @@ public class Home extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public final static String view = "/WEB-INF/accueil.jsp";
+	public final static String view = "/accueil.jsp";
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
