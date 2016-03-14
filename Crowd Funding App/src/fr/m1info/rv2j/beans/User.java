@@ -13,7 +13,7 @@ public class User {
 	private Date inscription_date;
 	
 	/*	GETTERS	*/
-	public int getId() { return id; }
+	public int getID() { return id; }
 	
 	public String getName() { return name; }
 	
