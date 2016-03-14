@@ -1,4 +1,9 @@
-/* DROP si existe */
+/* DROP DATABASE si existe */
+DROP DATABASE IF EXISTS fr_m1info_rv2j;
+CREATE DATABASE fr_m1info_rv2j;
+USE fr_m1info_rv2j;
+
+/* DROP TABLE si existe */
 DROP TABLE IF EXISTS compensations;
 DROP TABLE IF EXISTS commentary;
 DROP TABLE IF EXISTS projects;
