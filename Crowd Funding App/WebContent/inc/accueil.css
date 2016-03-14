@@ -1,6 +1,6 @@
-div#bandeau {
+div.bandeau {
 	height:50px;
-	background-color:#F8F8FF;
+	background-color:#DC143C;
 }
 
 .boutonConnexion {
