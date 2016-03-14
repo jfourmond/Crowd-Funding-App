@@ -19,7 +19,7 @@
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>Sign Up</servlet-name>
+		<servlet-name>SignUp</servlet-name>
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
 	
@@ -30,7 +30,7 @@
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>Log On</servlet-name>
+		<servlet-name>LogOn</servlet-name>
 		<url-pattern>/logon</url-pattern>
 	</servlet-mapping>
 </web-app>
