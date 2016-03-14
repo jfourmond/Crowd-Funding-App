@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <display-name>pro</display-name>
+	<servlet>
+		<servlet-name>Accueil</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.Accueil</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Accueil</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 </web-app>
