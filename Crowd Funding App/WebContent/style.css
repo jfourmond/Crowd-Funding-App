@@ -5,19 +5,19 @@
 
 .boutonConnexion {
 	float:right;
-  margin: 10px;
+  	margin: 10px;
 }
 
 
 .boutonInscription {
 	float:right;
-  margin: 10px;
+  	margin: 10px;
 }
 
 .Decouvrir {
-  font-family: Arial;
+  	font-family: Arial;
 	float: left;
-  margin:15px;
+  	margin:15px;
 }
 
 .logo {
@@ -39,4 +39,8 @@ p {
 #fond, #fond img {
   width: 100%;
   height: 100%;
+}
+
+body {
+	background: #F0F;	
 }
