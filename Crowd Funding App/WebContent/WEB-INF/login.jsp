@@ -38,8 +38,8 @@
 							<label class="mdl-textfield__label" for="username">Utilisateur</label>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="password" id="userpass" />
-							<label class="mdl-textfield__label" for="userpass">Mot de passe</label>
+							<input class="mdl-textfield__input" type="password" id="password" />
+							<label class="mdl-textfield__label" for="password">Mot de passe</label>
 						</div>
 						<div class="mdl-card__actions mdl-card--border ">
 							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>
