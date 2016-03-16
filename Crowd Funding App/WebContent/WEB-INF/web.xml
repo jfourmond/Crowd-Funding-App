@@ -32,12 +32,12 @@
 	
 	<!-- Servlet Log On -->
 	<servlet>
-		<servlet-name>LogOn</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.LogOn</servlet-class>
+		<servlet-name>LogIn</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.LogIn</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>LogOn</servlet-name>
-		<url-pattern>/logon</url-pattern>
+		<servlet-name>LogIn</servlet-name>
+		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 </web-app>
