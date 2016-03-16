@@ -11,7 +11,12 @@ public class SignUp extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-public final static String view = "/WEB-INF/signup.jsp";
+	public final static String view = "/WEB-INF/signup.jsp";
+	public static String username;
+	public static String email;
+	public static String password;
+	public static String password_conf;
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
