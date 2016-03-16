@@ -18,7 +18,7 @@
 			}
 			
 			body {
-				background-image: url("login.jpg");
+				background-image: url("resources/login.jpg");
 				background-repeat: no-repeat;
 				background-attachment: fixed;
 				background-position: center;
