@@ -1,3 +1,6 @@
+/*	DELETE USER si existe	*/
+DROP USER 'crowdfunding'@'localhost';
+
 /* DROP DATABASE si existe */
 DROP DATABASE IF EXISTS fr_m1info_rv2j;
 CREATE DATABASE fr_m1info_rv2j;
@@ -57,3 +60,10 @@ CREATE TABLE compensations(
 	PRIMARY KEY (id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
+
+/*	CREATE USER FOR DATABASE	*/
+CREATE USER 'crowdfunding'@'localhost' IDENTIFIED BY 'rv2j';
+
+GRANT ALL PRIVILEGES ON fr_m1info_rv2j.* TO 'crowdfunding'@'localhost';
+
+FLUSH PRIVILEGES;
