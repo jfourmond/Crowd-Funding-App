@@ -13,7 +13,9 @@ public class User {
 	private Date inscription_date;
 	
 	/* Constructeurs */
-	User(String n, String p, String e, Date date){
+	public User() {};
+	
+	public User(String n, String p, String e, Date date){
 		name = n;
 		pw = p;
 		email = e;
