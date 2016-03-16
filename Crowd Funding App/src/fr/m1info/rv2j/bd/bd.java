@@ -68,26 +68,15 @@ public class bd {
 
 	//ajoute un user passé en parametre a la db user
 	public void reqInsUser(User usr){
-		reqInsUpd("INSERT INTO users(name, pw, email, inscription_date) VALUES ("
-				+usr.getName()+", "
-				+usr.getPassword()+", "
-				+usr.getEmail()+", "
-				+usr.getInscriptionDate()+")");
+		reqInsUpd("INSERT INTO users(name, pw, email, inscription_date) VALUES ('"
+				+usr.getName()+"', '"
+				+usr.getPassword()+"', '"
+				+usr.getEmail()+"', '"
+				+usr.getInscriptionDate()+"')");
 	}
 	
 	//ajoute un projet passé en parametre a la db user
 	public void reqInsProj(Project proj){
-		//serialisation des listes
-
-		//requete
-		reqInsUpd("INSERT INTO projects(author_id, name, presentation, goal, contributors, compensations, "
-					+ "commentaries, creation_date, last_update) VALUES ("
-						/*+proj.getAuthor_id()+", "
-						+proj.getName()+", "
-						+proj.getGoal()+", "
-						+proj.toStringContributors()+", "
-						+""+",*/ );
-						
 	}
 
 }

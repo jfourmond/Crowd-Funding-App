@@ -35,8 +35,7 @@ public class SignUp extends HttpServlet{
 		req.setAttribute(USER, user);
 		req.setAttribute(FORM, form);
 
-		// TODO Ajouter utilisateur à la base
-		bd bdUsr = new bd("root", "root");
+		bd bdUsr = new bd("crowdfunding", "rv2j");
 		bdUsr.dbConnect();
 		bdUsr.reqInsUser(user);
 		bdUsr.dbClose();

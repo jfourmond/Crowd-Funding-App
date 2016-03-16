@@ -7,6 +7,7 @@ CREATE DATABASE fr_m1info_rv2j;
 USE fr_m1info_rv2j;
 
 /* DROP TABLE si existe */
+DROP TABLE IF EXISTS contributors;
 DROP TABLE IF EXISTS compensations;
 DROP TABLE IF EXISTS commentary;
 DROP TABLE IF EXISTS projects;
@@ -29,8 +30,6 @@ CREATE TABLE projects(
 	name VARCHAR(20) NOT NULL,
 	presentation VARCHAR(500),
 	goal INT(10) NOT NULL,
-	contributors VARCHAR(500), 		/* faire une nouvelle table */
-	compensations VARCHAR(500), 	/* faire une nouvelle table */
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
@@ -44,6 +43,7 @@ CREATE TABLE commentary(
 	project_id INT(10) NOT NULL,
 	text VARCHAR(140) NOT NULL, 	/* Comme un tweet :D */ 
 	creation_date DATE NOT NULL,
+	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (author_id) REFERENCES users(id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
@@ -56,14 +56,22 @@ CREATE TABLE compensations(
 	project_id INT(10) NOT NULL,
 	text VARCHAR(250) NOT NULL,
 	contributor_limit INT(10) NOT NULL, 	/* 0 = illimité */
-	contributors VARCHAR(500), 				/* faire une nouvelle table */
 	PRIMARY KEY (id),
+	FOREIGN KEY (project_id) REFERENCES projects(id)
+);
+
+/* BDD des contributeurs */
+CREATE TABLE contributors(
+	contributor_id INT(10) NOT NULL,
+	project_id INT(10) NOT NULL,
+	compensation_id INT(10) NOT NULL,
+	donation FLOAT(10) NOT NULL,
+	FOREIGN KEY (contributor_id) REFERENCES users(id),
+	FOREIGN KEY (compensation_id) REFERENCES compensations(id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
 /*	CREATE USER FOR DATABASE	*/
 CREATE USER 'crowdfunding'@'localhost' IDENTIFIED BY 'rv2j';
-
 GRANT ALL PRIVILEGES ON fr_m1info_rv2j.* TO 'crowdfunding'@'localhost';
-
 FLUSH PRIVILEGES;

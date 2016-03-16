@@ -1,6 +1,6 @@
 package fr.m1info.rv2j.beans;
 
-import org.joda.time.DateTime;
+import java.sql.Date;
 
 /**
  * Représentation d'un Utilisateur
@@ -10,19 +10,21 @@ public class User {
 	private String name;
 	private String pw;
 	private String email;
-	private DateTime inscription_date;
+	private Date inscription_date;
 	
 	/* Constructeurs */
-	public User() { inscription_date = new DateTime(); };
+	public User() { 
+		inscription_date = new Date(System.currentTimeMillis()); 
+	};
 	
 	public User(String name, String pw, String email) {
 		this.name = name;
 		this.pw = pw;
 		this.email = email;
-		this.inscription_date = new DateTime();
+		this.inscription_date = new Date(System.currentTimeMillis());
 	}
 	
-	public User(String name, String pw, String email, DateTime date){
+	public User(String name, String pw, String email, Date date){
 		this.name = name;
 		this.pw = pw;
 		this.email = email;
@@ -38,7 +40,7 @@ public class User {
 	
 	public String getEmail() { return email; }
 	
-	public DateTime getInscriptionDate() { return inscription_date; }
+	public Date getInscriptionDate() { return inscription_date; }
 	
 	/*	SETTERS	*/
 	public void setID(int id) { this.id = id; }
@@ -49,5 +51,5 @@ public class User {
 	
 	public void setEmail(String email) { this.email = email; }
 	
-	public void setInscriptionDate(DateTime date) { this.inscription_date = date; }
+	public void setInscriptionDate(Date date) { this.inscription_date = date; }
 }
