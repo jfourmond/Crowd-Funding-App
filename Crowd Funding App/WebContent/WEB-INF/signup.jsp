@@ -36,6 +36,7 @@
 						<div class="mdl-textfield mdl-js-textfield">
 							<input class="mdl-textfield__input" type="text" id="username" name="username" pattern=".{5,}" required title="5 caractères minimum"/>
 							<label class="mdl-textfield__label" for="username">Utilisateur</label>
+							<p style="color: red;">${errors["username"]}</p>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
 							<input class="mdl-textfield__input" type="email" id="email" name="email" pattern=".{6,}" required/>
