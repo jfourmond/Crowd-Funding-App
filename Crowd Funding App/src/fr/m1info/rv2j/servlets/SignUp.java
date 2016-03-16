@@ -36,12 +36,12 @@ public class SignUp extends HttpServlet{
 		req.setAttribute(FORM, form);
 
 		// TODO Ajouter utilisateur à la base
-
+/*
 		bd bdUsr = new bd("root", "");
 		bdUsr.dbConnect();
 		bdUsr.reqInsUser(user);
 		bdUsr.dbClose();
-		
+		*/
 		if ( form.getErrors().isEmpty() )
 			this.getServletContext().getRequestDispatcher( view_success).forward(req, resp);
 		else
