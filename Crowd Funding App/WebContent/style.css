@@ -26,17 +26,16 @@
   height: 50px;
 }
 
+
+.presentation {
+  margin-top:50px;
+  
+}
+
 p {
   font-family: Arial;
 }
 
-#fond {
-  position:absolute;
-  top:0;
-  left:0;
-}
-
-#fond, #fond img {
-  width: 100%;
-  height: 100%;
+body {
+  background-image:url(http://cdn.desktopwallpapers4.me/wallpapers/photography/1680x1050/3/23991-lego-stormtroopers-1680x1050-photography-wallpaper.jpg);
 }
