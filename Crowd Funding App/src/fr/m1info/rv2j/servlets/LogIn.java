@@ -23,7 +23,22 @@ public class LogIn extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		String message_username = "";
+		String message_password = "";
+		username = req.getParameter("username");
+		password = req.getParameter("password");
+		
+		if (username.trim().equals("a")) {
+			message_username = "Identifiant inconnu !";
+		}
+		if (password.trim().equals("a")) {
+			message_password = "Mot de passe incorrecte !";
+		}
+		
+		req.setAttribute("message_username", message_username);
+		req.setAttribute("message_password", message_password);
+		this.getServletContext().getRequestDispatcher(view).forward( req, resp );
+		//super.doPost(req, resp);
 	}
 	
 }
