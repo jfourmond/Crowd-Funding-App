@@ -26,8 +26,8 @@ CREATE TABLE projects(
 	name VARCHAR(20) NOT NULL,
 	presentation VARCHAR(500),
 	goal INT(10) NOT NULL,
-	contributors VARCHAR(500), 		/* Serialisable */
-	compensations VARCHAR(500), 	/* Serialisable */
+	contributors VARCHAR(500), 		/* faire une nouvelle table */
+	compensations VARCHAR(500), 	/* faire une nouvelle table */
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
@@ -53,7 +53,7 @@ CREATE TABLE compensations(
 	project_id INT(10) NOT NULL,
 	text VARCHAR(250) NOT NULL,
 	contributor_limit INT(10) NOT NULL, 	/* 0 = illimité */
-	contributors VARCHAR(500), 				/* Serialisable */
+	contributors VARCHAR(500), 				/* faire une nouvelle table */
 	PRIMARY KEY (id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
