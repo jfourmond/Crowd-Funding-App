@@ -5,7 +5,14 @@
   		<!-- <welcome-file>/accueil.jsp</welcome-file> -->
   		<welcome-file>home</welcome-file>
   	</welcome-file-list>
-  
+
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+	
 	<!-- Serlvet Home -->
 	<servlet>
 		<servlet-name>Home</servlet-name>
