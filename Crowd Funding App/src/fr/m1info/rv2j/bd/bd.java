@@ -28,7 +28,7 @@ public class bd {
 	public Boolean dbConnect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-           	conn = DriverManager.getConnection("jdbc:mysql:" + url, user, pw);
+           	conn = DriverManager.getConnection(url, user, pw);
            	stmt = conn.createStatement();
            	return true;
 		}catch(Exception E){
