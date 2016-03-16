@@ -1,17 +1,66 @@
 <%@ page pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 	<head>
-		<meta content="text/html; charset=UTF-8">
-		<title>Sign Up</title>
-		<link type="text/css" rel="stylesheet" href="style.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Inscription</title>
+		<link rel="stylesheet" href="css/material.min.css">
+		<script src="js/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<style>
+			.mdl-layout {
+				align-items: center;
+			  justify-content: center;
+			}
+			.mdl-layout__content {
+				padding: 24px;
+				flex: none;
+			}
+			
+			body {
+				background-image: url("resources/signup.jpg");
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: center;
+			}
+		</style>
 	</head>
 	<body>
-		<form method="post" action="inscription">
-			<fieldset>
-				<legend>Inscription</legend>
-				<p>Vous pouvez vous inscrire via ce formulaire.</p>
-			</fieldset>
-		</form>
+		<div class="mdl-layout mdl-js-layout is-upgraded">
+			<div class="mdl-card mdl-shadow--6dp">
+					<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+						<h2 class="mdl-card__title-text">Inscription</h2>
+					</div>
+				<div class="mdl-card__supporting-text">
+					<form method="post" action="signup">
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="text" id="username" />
+							<label class="mdl-textfield__label" for="username">Utilisateur</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="email" id="email" />
+							<label class="mdl-textfield__label" for="email">Adresse E-mail</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="password" id="password" />
+							<label class="mdl-textfield__label" for="password">Mot de passe</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="password" id="password_conf" />
+							<label class="mdl-textfield__label" for="password_conf">Confirmation mot de passe</label>
+						</div>
+						<div class="mdl-card__actions mdl-card--border ">
+							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Inscription</button>
+						</div>
+					</form>
+					<a href="login">
+						<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+							Se connecter
+						</button>
+					</a>
+				</div>
+				
+			</div>
+		</div>
 	</body>
 </html>

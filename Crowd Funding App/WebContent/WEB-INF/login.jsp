@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Formulaire de connexion</title>
+		<title>Connexion</title>
 		<link rel="stylesheet" href="css/material.min.css">
 		<script src="js/material.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
