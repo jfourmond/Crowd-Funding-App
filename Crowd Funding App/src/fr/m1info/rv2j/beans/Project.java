@@ -59,4 +59,21 @@ public class Project {
 	public void setCreationDate(Date date) { this.creation_date = date; }
 
 	public void setLastUpdateDate(Date date) { this.last_update_date = date; }
+	
+	/* methodes */
+	/* non fonctionnel
+	public String toStringContributors(){
+		String res = "";
+		for(int i=0; i<contributors.size();i++)
+			res += Integer.toString(contributors.get(i))+"+";
+		return res;
+	}
+	
+	public void fromStringContributors(String s){
+		String[] tabSplit = s.split("+");
+		contributors.clear();
+		for(int i=0; i<tabSplit.length; ++i)
+			contributors.add(Integer.parseInt(tabSplit[i]));
+	}
+	*/
 }
