@@ -55,5 +55,3 @@ CREATE TABLE compensations(
 	PRIMARY KEY (id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
-
-/* Ajout pour des tests */
