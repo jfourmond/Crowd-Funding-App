@@ -12,6 +12,8 @@ public class LogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public final static String view = "/WEB-INF/login.jsp";
+	public static String username;
+	public static String password;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
