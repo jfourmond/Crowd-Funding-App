@@ -15,7 +15,7 @@
 				</br>
 			</div>
 			<div class="presentation">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac molestie mauris. Aenean id erat mollis 
+				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac molestie mauris. Aenean id erat mollis 
 				velit malesuada mattis. Nunc lorem ipsum, eleifend ut nunc vitae, lobortis accumsan orci. Class aptent taciti 
 				sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla rhoncus erat vitae metus lobortis 
 				aliquam. Praesent consequat porta velit, vitae tristique sapien elementum ac. Pellentesque sit amet odio vel 
