@@ -1,8 +1,10 @@
 package fr.m1info.rv2j.bd;
 
-import java.io.ByteArrayOutputStream;
+import java.io.*;
 import java.sql.*;
+import java.util.*;
 
+import fr.m1info.rv2j.beans.Compensation;
 import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
 
@@ -15,7 +17,7 @@ public class bd {
 	private String pw;
 		   
 	//constructeur
-	bd(String usr, String p){
+	public bd(String usr, String p){
 		user=usr;
 		pw=p;
 	}
@@ -75,16 +77,16 @@ public class bd {
 	
 	//ajoute un projet passé en parametre a la db user
 	public void reqInsProj(Project proj){
-		//serialisation des tableaux
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		//serialisation des listes
+
 		//requete
 		reqInsUpd("INSERT INTO projects(author_id, name, presentation, goal, contributors, compensations, "
-					+ "	creation_date, last_update) VALUES ("
-						+proj.getAuthor_id()+", "
+					+ "commentaries, creation_date, last_update) VALUES ("
+						/*+proj.getAuthor_id()+", "
 						+proj.getName()+", "
 						+proj.getGoal()+", "
-						+proj.serialize(getContributors())+", "
-						+ +", "
+						+proj.toStringContributors()+", "
+						+""+",*/ );
 						
 	}
 
