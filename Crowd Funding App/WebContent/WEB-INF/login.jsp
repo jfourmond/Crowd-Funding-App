@@ -23,10 +23,6 @@
 				background-attachment: fixed;
 				background-position: center;
 			}
-			
-			.mdl-card {
-				margin: 20px;
-			}
 		</style>
 	</head>
 	<body>
@@ -36,7 +32,7 @@
 					<h2 class="mdl-card__title-text">Connexion</h2>
 				</div>
 				<div class="mdl-card__supporting-text">
-					<form action="#">
+					<form method="post" action="login">
 						<div class="mdl-textfield mdl-js-textfield">
 							<input class="mdl-textfield__input" type="text" id="username" />
 							<label class="mdl-textfield__label" for="username">Utilisateur</label>
@@ -45,12 +41,16 @@
 							<input class="mdl-textfield__input" type="password" id="userpass" />
 							<label class="mdl-textfield__label" for="userpass">Mot de passe</label>
 						</div>
+						<div class="mdl-card__actions mdl-card--border ">
+							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>
+							<!-- <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Oubli ?</button> -->
+						</div>
 					</form>
-				</div>
-				<div class="mdl-card__actions mdl-card--border ">
-					<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>
-					<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Oubli ?</button>
-					<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Créer un compte</button>
+					<a href="signup">
+						<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+							Créer un compte
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>
