@@ -12,6 +12,14 @@ public class User {
 	private String email;
 	private Date inscription_date;
 	
+	/* Constructeurs */
+	User(String n, String p, String e, Date date){
+		name = n;
+		pw = p;
+		email = e;
+		inscription_date=date;
+	}
+	
 	/*	GETTERS	*/
 	public int getID() { return id; }
 	

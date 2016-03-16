@@ -1,6 +1,7 @@
 package fr.m1info.rv2j.bd;
 
 import java.sql.*;
+import fr.m1info.rv2j.beans.User;
 
 public class bd {
 	//variables
@@ -17,6 +18,8 @@ public class bd {
 	}
 	
 	//methodes
+	
+	//se connecte a la db
 	public Boolean dbConnect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -29,6 +32,7 @@ public class bd {
         }
 	}
 	
+	//ferme la connexion a la db
 	public void dbClose(){
 		try{
 	        stmt.close();
@@ -38,6 +42,7 @@ public class bd {
 		}
 	}
 	
+	// execute une requete avec un SELECT passé en parametre
 	public ResultSet reqSelect(String req){
 		try {
 			return stmt.executeQuery(req);
@@ -47,6 +52,7 @@ public class bd {
 		return null;
 	}
 	
+	//execute une requete avec un INSERT ou UPDATE ou CREATE passé en parametre
 	public void reqInsUpd(String req){
 		try {
 			stmt.executeUpdate(req);
@@ -55,21 +61,12 @@ public class bd {
 		}
 	}
 
-	/*public static void main(String[] args) {
-		test T = new test("root", "root");
-		T.dbConnect();
-		T.reqInsUpd("INSERT INTO users (name, pw, email, inscription_date) VALUES (testname, testpw, testmail@mail.fr, 03/16/2016)");
-		ResultSet rs = T.reqSelect("SELECT * FROM users");
-		T.dbClose();
-		
-        if (rs != null) {
-	        try{
-	            while (rs.next()) 
-	                System.out.println("Valeur: " + rs.getString(1));
-        	}catch(Exception E){
-        		E.printStackTrace();
-        	}
-        }
-	}*/
+	public void reqInsUser(User usr){
+		reqInsUpd("INSERT INTO users(name, pw, email, inscription_date) VALUES ("
+				+usr.getName()+", "
+				+usr.getPassword()+", "
+				+usr.getEmail()+", "
+				+usr.getInscriptionDate()+")");
+	}
 
 }
