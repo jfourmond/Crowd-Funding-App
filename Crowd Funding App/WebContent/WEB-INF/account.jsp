@@ -20,7 +20,7 @@
 					<p>Vous êtes connecté(e) avec l'adresse ?</p>
 				</c:when>
 				<c:otherwise>
-					<p>Pas connecté ? Direction la connexion ! </p>
+					<p>Pas connecté ? Direction la page de connexion ! </p>
 					<c:redirect url="/login"/>
 				</c:otherwise>
 			</c:choose>
