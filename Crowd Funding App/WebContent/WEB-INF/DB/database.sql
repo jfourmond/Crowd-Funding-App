@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS commentary;
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS users;
 
-/* BDD des utilisateur */
+/* Table des utilisateur */
 CREATE TABLE users(
 	id INT(10) NOT NULL AUTO_INCREMENT,
 	name VARCHAR(20) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE users(
 	PRIMARY KEY (id)
 );
 
-/* BDD des projets */
+/* Table des projets */
 CREATE TABLE projects(
 	id INT(10) NOT NULL AUTO_INCREMENT,
 	author_id INT(10) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE projects(
 	FOREIGN KEY (author_id) REFERENCES users(id)
 );
 
-/* BDD des commentaires */
+/* Table des commentaires */
 CREATE TABLE commentary(
 	id INT(10) NOT NULL AUTO_INCREMENT,
 	author_id INT(10) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE commentary(
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
-/* BDD des compensations */
+/* Table des compensations */
 CREATE TABLE compensations(
 	id INT(10) NOT NULL AUTO_INCREMENT,
 	threshold FLOAT(10) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE compensations(
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
-/* BDD des contributeurs */
+/* Table des contributeurs */
 CREATE TABLE contributors(
 	contributor_id INT(10) NOT NULL,
 	project_id INT(10) NOT NULL,
