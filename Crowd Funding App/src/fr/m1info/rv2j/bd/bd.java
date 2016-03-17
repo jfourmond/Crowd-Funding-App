@@ -1,10 +1,11 @@
 package fr.m1info.rv2j.bd;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import fr.m1info.rv2j.beans.Compensation;
 import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
 

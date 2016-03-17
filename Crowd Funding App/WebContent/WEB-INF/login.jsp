@@ -4,6 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Connexion</title>
+		<%@include file="/WEB-INF/favicon.jsp" %>
 		<link rel="stylesheet" href="css/material.min.css">
 		<script src="js/material.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

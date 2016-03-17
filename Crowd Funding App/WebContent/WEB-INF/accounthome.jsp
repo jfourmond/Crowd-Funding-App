@@ -4,6 +4,7 @@
 	<head>
 		<meta content="text/html; charset=UTF-8">
 		<title>Accueil Compte</title>
+		<%@include file="/WEB-INF/favicon.jsp" %>
 		<link type="text/css" rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="css/material.min.css">
 		<script src="js/material.min.js"></script>
