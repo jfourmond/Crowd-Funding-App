@@ -1,6 +1,8 @@
 package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,20 +25,15 @@ public class LogIn extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String message_username = "";
-		String message_password = "";
+		HashMap<String, String> errors = new HashMap<String, String>();
 		username = req.getParameter("username");
 		password = req.getParameter("password");
 		
-		if (username.trim().equals("a")) {
-			message_username = "Identifiant inconnu !";
-		}
-		if (password.trim().equals("a")) {
-			message_password = "Mot de passe incorrecte !";
+		if (username.trim().equals("a") || password.trim().equals("a")) {
+			errors.put("error_login", "Identifiant ou mot de passe incorrect!");
 		}
 		
-		req.setAttribute("message_username", message_username);
-		req.setAttribute("message_password", message_password);
+		req.setAttribute("errors", errors);
 		this.getServletContext().getRequestDispatcher(view).forward( req, resp );
 		//super.doPost(req, resp);
 	}

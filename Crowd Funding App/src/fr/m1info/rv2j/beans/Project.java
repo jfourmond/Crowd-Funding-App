@@ -10,6 +10,7 @@ public class Project {
 	private int id;
 	private String name;
 	private String presentation;
+	private int goal;
 	private int author_id;
 	private List<Integer> contributors;
 	private List<Compensation> compensations;
@@ -24,6 +25,8 @@ public class Project {
 
 	public String getPresentation() { return presentation; }
 
+	public int getGoal() { return goal; }
+	
 	public int getAuthor_id() { return author_id; }
 
 	public List<Integer> getContributors() { return contributors; }
@@ -42,6 +45,8 @@ public class Project {
 	public void setName(String name) { this.name = name; }
 	
 	public void setPresentation(String presentation) { this.presentation = presentation; }
+
+	public void setGoal(int g) { goal=g; }
 
 	public void setAuthor_id(int id) { this.author_id = id; }
 	

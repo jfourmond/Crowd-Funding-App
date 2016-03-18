@@ -24,6 +24,8 @@ CREATE TABLE projects(
 	id INT(10) NOT NULL AUTO_INCREMENT,
 	author_id INT(10) NOT NULL,
 	name VARCHAR(20) NOT NULL,
+	presentation VARCHAR(500),
+	goal INT(10) NOT NULL,
 	contributors VARCHAR(500), 		/* Serialisable */
 	compensations VARCHAR(500), 	/* Serialisable */
 	creation_date DATE NOT NULL,
@@ -55,5 +57,3 @@ CREATE TABLE compensations(
 	PRIMARY KEY (id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
-
-/* Ajout pour des tests */

@@ -33,13 +33,14 @@
 				</div>
 				<div class="mdl-card__supporting-text">
 					<form method="post" action="login">
+					<p style="color:red"> ${errors["error_login"]} </p>
 						<div class="mdl-textfield mdl-js-textfield">
 							<input class="mdl-textfield__input" type="text" id="username" name="username" required/>
-							<label class="mdl-textfield__label" for="username">Utilisateur</label> <p style="color:red"> ${message_username} </p>
+							<label class="mdl-textfield__label" for="username">Utilisateur</label>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
 							<input class="mdl-textfield__input" type="password" id="password" name="password" required/>
-							<label class="mdl-textfield__label" for="password">Mot de passe</label> <p style="color:red"> ${message_password} </p>
+							<label class="mdl-textfield__label" for="password">Mot de passe</label>
 						</div>
 						<div class="mdl-card__actions mdl-card--border ">
 							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>

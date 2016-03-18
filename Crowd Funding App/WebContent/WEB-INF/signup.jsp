@@ -34,19 +34,19 @@
 				<div class="mdl-card__supporting-text">
 					<form method="post" action="signup">
 						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="text" id="username" />
+							<input class="mdl-textfield__input" type="text" id="username" name="username" pattern=".{5,}" required title="5 caractères minimum"/>
 							<label class="mdl-textfield__label" for="username">Utilisateur</label>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="email" id="email" />
+							<input class="mdl-textfield__input" type="email" id="email" name="email" pattern=".{6,}" required/>
 							<label class="mdl-textfield__label" for="email">Adresse E-mail</label>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="password" id="password" />
+							<input class="mdl-textfield__input" type="password" id="password" name="password" pattern=".{6,}" required/>
 							<label class="mdl-textfield__label" for="password">Mot de passe</label>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="password" id="password_conf" />
+							<input class="mdl-textfield__input" type="password" id="password_conf" name="password_conf" required />
 							<label class="mdl-textfield__label" for="password_conf">Confirmation mot de passe</label>
 						</div>
 						<div class="mdl-card__actions mdl-card--border ">
