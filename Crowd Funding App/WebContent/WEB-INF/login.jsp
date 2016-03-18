@@ -31,29 +31,31 @@
 				<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
 					<h2 class="mdl-card__title-text">Connexion</h2>
 				</div>
-				<div class="mdl-card__supporting-text">
-					<form method="post" action="login">
-					<p style="color:red"> ${errors["error_login"]} </p>
-						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="text" id="username" name="username" required/>
-							<label class="mdl-textfield__label" for="username">Utilisateur</label>
-						</div>
-						<div class="mdl-textfield mdl-js-textfield">
-							<input class="mdl-textfield__input" type="password" id="password" name="password" required/>
-							<label class="mdl-textfield__label" for="password">Mot de passe</label>
-						</div>
-						<div class="mdl-card__actions mdl-card--border ">
-							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>
-							<!-- <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Oubli ?</button> -->
-						</div>
-					</form>
-					<a href="signup">
-						<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-							Créer un compte
-						</button>
-					</a>
+				<main class="mdl-layout__content">
+					<div class="mdl-card__supporting-text">
+						<form method="post" action="login">
+						<p style="color:red"> ${errors["error_login"]} </p>
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="text" id="username" name="username" required/>
+								<label class="mdl-textfield__label" for="username">Utilisateur</label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="password" id="password" name="password" required/>
+								<label class="mdl-textfield__label" for="password">Mot de passe</label>
+							</div>
+							<div class="mdl-card__actions mdl-card--border ">
+								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>
+								<!-- <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Oubli ?</button> -->
+							</div>
+						</form>
+						<a href="signup">
+							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+								Créer un compte
+							</button>
+						</a>
+					</div>
 				</div>
-			</div>
+		  	</main>
 		</div>
 	</body>
 </html>

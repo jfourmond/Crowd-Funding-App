@@ -1,7 +1,10 @@
 package fr.m1info.rv2j.bd;
 
-import java.io.ByteArrayOutputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
@@ -15,7 +18,7 @@ public class bd {
 	private String pw;
 		   
 	//constructeur
-	bd(String usr, String p){
+	public bd(String usr, String p){
 		user=usr;
 		pw=p;
 	}
@@ -26,7 +29,7 @@ public class bd {
 	public Boolean dbConnect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-           	conn = DriverManager.getConnection("jdbc:mysql:" + url, user, pw);
+           	conn = DriverManager.getConnection(url, user, pw);
            	stmt = conn.createStatement();
            	return true;
 		}catch(Exception E){
@@ -66,26 +69,15 @@ public class bd {
 
 	//ajoute un user passé en parametre a la db user
 	public void reqInsUser(User usr){
-		reqInsUpd("INSERT INTO users(name, pw, email, inscription_date) VALUES ("
-				+usr.getName()+", "
-				+usr.getPassword()+", "
-				+usr.getEmail()+", "
-				+usr.getInscriptionDate()+")");
+		reqInsUpd("INSERT INTO users(name, pw, email, inscription_date) VALUES ('"
+				+usr.getName()+"', '"
+				+usr.getPassword()+"', '"
+				+usr.getEmail()+"', '"
+				+usr.getInscriptionDate()+"')");
 	}
 	
 	//ajoute un projet passé en parametre a la db user
 	public void reqInsProj(Project proj){
-		//serialisation des tableaux
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		//requete
-		reqInsUpd("INSERT INTO projects(author_id, name, presentation, goal, contributors, compensations, "
-					+ "	creation_date, last_update) VALUES ("
-						+proj.getAuthor_id()+", "
-						+proj.getName()+", "
-						+proj.getGoal()+", "
-						+proj.serialize(getContributors())+", "
-						+", ");
-						
 	}
 
 }

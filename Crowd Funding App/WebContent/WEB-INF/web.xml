@@ -5,7 +5,19 @@
   		<!-- <welcome-file>/accueil.jsp</welcome-file> -->
   		<welcome-file>home</welcome-file>
   	</welcome-file-list>
-  
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/error_404.jsp</location>
+	</error-page>
+
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+	
 	<!-- Serlvet Home -->
 	<servlet>
 		<servlet-name>Home</servlet-name>
@@ -39,5 +51,16 @@
 	<servlet-mapping>
 		<servlet-name>LogIn</servlet-name>
 		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Account -->
+	<servlet>
+		<servlet-name>Account</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.Account</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Account</servlet-name>
+		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
 </web-app>

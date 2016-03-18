@@ -13,13 +13,22 @@ public class User {
 	private Date inscription_date;
 	
 	/* Constructeurs */
-	public User() {};
+	public User() { 
+		inscription_date = new Date(System.currentTimeMillis()); 
+	};
 	
-	public User(String n, String p, String e, Date date){
-		name = n;
-		pw = p;
-		email = e;
-		inscription_date=date;
+	public User(String name, String pw, String email) {
+		this.name = name;
+		this.pw = pw;
+		this.email = email;
+		this.inscription_date = new Date(System.currentTimeMillis());
+	}
+	
+	public User(String name, String pw, String email, Date date){
+		this.name = name;
+		this.pw = pw;
+		this.email = email;
+		this.inscription_date=date;
 	}
 	
 	/*	GETTERS	*/

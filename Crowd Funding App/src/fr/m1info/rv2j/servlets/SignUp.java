@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.m1info.rv2j.bd.bd;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.forms.UserCreation;
 
@@ -34,7 +35,10 @@ public class SignUp extends HttpServlet{
 		req.setAttribute(USER, user);
 		req.setAttribute(FORM, form);
 
-		// TODO Ajouter utilisateur à la base
+		bd bdUsr = new bd("crowdfunding", "rv2j");
+		bdUsr.dbConnect();
+		bdUsr.reqInsUser(user);
+		bdUsr.dbClose();
 		
 		if ( form.getErrors().isEmpty() )
 			this.getServletContext().getRequestDispatcher( view_success).forward(req, resp);
