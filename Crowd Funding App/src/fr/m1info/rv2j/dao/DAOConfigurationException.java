@@ -1,4 +1,4 @@
-package fr.m1info.rv2j.dao.exceptions;
+package fr.m1info.rv2j.dao;
 
 public class DAOConfigurationException extends RuntimeException {
 

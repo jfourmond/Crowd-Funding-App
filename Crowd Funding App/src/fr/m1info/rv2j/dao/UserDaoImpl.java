@@ -1,4 +1,4 @@
-package fr.m1info.rv2j.dao.implementations;
+package fr.m1info.rv2j.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import fr.m1info.rv2j.beans.User;
-import fr.m1info.rv2j.dao.DAOFactory;
-import fr.m1info.rv2j.dao.exceptions.DAOException;
-import fr.m1info.rv2j.dao.interfaces.UserDao;
 
 public class UserDaoImpl implements UserDao {
 	private DAOFactory daoFactory;

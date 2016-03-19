@@ -7,10 +7,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import fr.m1info.rv2j.dao.exceptions.DAOConfigurationException;
-import fr.m1info.rv2j.dao.implementations.UserDaoImpl;
-import fr.m1info.rv2j.dao.interfaces.UserDao;
-
 public class DAOFactory {
 	private static final String FICHIER_PROPERTIES	= "/com/sdzee/dao/dao.properties";
 	private static final String PROPERTY_URL		= "url";
