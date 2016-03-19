@@ -76,3 +76,9 @@ CREATE TABLE contributors(
 CREATE USER 'crowdfunding'@'localhost' IDENTIFIED BY 'rv2j';
 GRANT ALL PRIVILEGES ON fr_m1info_rv2j.* TO 'crowdfunding'@'localhost';
 FLUSH PRIVILEGES;
+
+/*	INSERT USER - ADMINS FOR DATABSE */
+INSERT INTO users(name, pw, email, inscription_date, right_level) VALUES ('Jerome','jeje','jerome@example.fr',NOW(),2);
+INSERT INTO users(name, pw, email, inscription_date, right_level) VALUES ('Johan','johan','johan@example.fr',NOW(),2);
+INSERT INTO users(name, pw, email, inscription_date, right_level) VALUES ('Valerian','valou','valerian@example.fr',NOW(),2);
+INSERT INTO users(name, pw, email, inscription_date, right_level) VALUES ('Robin','roro','robin@example.fr',NOW(),2);
