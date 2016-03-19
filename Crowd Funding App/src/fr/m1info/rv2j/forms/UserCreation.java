@@ -37,6 +37,8 @@ public class UserCreation extends Forms {
 			emailProcessing(email, user);
 			passwordProcessing(pw, pwConf, user);
 			
+			user.setRightLevel(1);
+			
 			if (errors.isEmpty()) {
 				userDAO.create(user);
 				result = "Succès de la création du client.";
