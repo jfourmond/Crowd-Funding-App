@@ -57,4 +57,14 @@ public class User {
 	public void setInscriptionDate(Date date) { this.inscription_date = date; }
 	
 	public void setRightLevel(int level) { this.right_level = level; }
+	
+	@Override
+	public String toString() {
+		String ch = "Utilisateur " + id + " :\n";
+		ch += "\t" + name + "\n";
+		ch += "\t" + pw + "\n";
+		ch += "\t" + email + "\n";
+		ch += "\t" + right_level + "\n";
+		return ch;
+	}
 }

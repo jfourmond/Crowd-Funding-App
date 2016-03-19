@@ -1,59 +1,36 @@
 package fr.m1info.rv2j.forms;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOException;
-import fr.m1info.rv2j.dao.UserDao;
+import fr.m1info.rv2j.dao.UserDAO;
 
-public class UserCreation {
+public class UserCreation extends Forms {
 	public final static String USERNAME_FIELD = "username";
 	public final static String EMAIL_FIELD = "email";
 	public final static String PW_FIELD = "password";
 	public final static String PW_CONF_FIELD = "password_conf";
 	
-	private UserDao userDAO;
-	
-	private String result;
-	private Map<String, String> errors;
+	private UserDAO userDAO;
 	
 	/**	CONSTRUCTEURS	**/
 	public UserCreation() {
-		errors = new HashMap<String, String>();
+		super();
 	}
 	
-	public UserCreation(UserDao userDAO) {
+	public UserCreation(UserDAO userDAO) {
+		super();
 		this.userDAO = userDAO;
-		errors = new HashMap<String, String>();
-	}
-	
-	/**	GETTERS	**/
-	public String getResult() { return result; }
-	
-	public Map<String, String> getErrors() { return errors; }
-	
-	private String getFieldValue(HttpServletRequest request, String field) {
-		String value = request.getParameter(field);
-		if(value == null || value.trim().length() == 0)
-			return null;
-		else
-			return value;
-	}
-	
-	private void addErrors(String field, String message) {
-		errors.put(field, message);
 	}
 	
 	public User createUser(HttpServletRequest request) {
+		User user = new User();
+		
 		String name = getFieldValue(request, USERNAME_FIELD);
 		String email = getFieldValue(request, EMAIL_FIELD);
 		String pw = getFieldValue(request, PW_FIELD);
 		String pwConf = getFieldValue(request, PW_CONF_FIELD);
-		
-		User user = new User();
 		
 		try {
 			nameProcessing(name, user);

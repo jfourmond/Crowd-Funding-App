@@ -2,7 +2,7 @@ package fr.m1info.rv2j.dao;
 
 import fr.m1info.rv2j.beans.User;
 
-public interface UserDao {
+public interface UserDAO {
 	void create(User user) throws DAOException;
 	
 	User findByName(String name) throws DAOException;

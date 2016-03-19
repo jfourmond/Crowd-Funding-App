@@ -49,7 +49,7 @@
 								<label class="mdl-textfield__label" for="email">Adresse E-mail</label>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
-								<input class="mdl-textfield__input" type="password" id="password" name="password" pattern=".{6,}" required/>
+								<input class="mdl-textfield__input" type="password" id="password" name="password" pattern=".{6,}" required title="6 caractères minimum"/>
 								<label class="mdl-textfield__label" for="password">Mot de passe</label>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">

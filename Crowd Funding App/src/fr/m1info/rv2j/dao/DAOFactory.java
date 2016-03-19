@@ -63,18 +63,10 @@ public class DAOFactory {
 	}
 
 	Connection getConnection() throws SQLException {
-		System.out.println(url);
-		System.out.println(username);
-		System.out.println(password);
 		return DriverManager.getConnection(url, username, password );
-		/*
-		Class.forName("com.mysql.jdbc.Driver").newInstance();
-       	conn = DriverManager.getConnection(url, user, pw);
-       	stmt = conn.createStatement();
-       	*/
 	}
 
-	public UserDao getUserDao() {
-		return new UserDaoImpl( this );
+	public UserDAO getUserDao() {
+		return new UserDAOImpl( this );
 	}
 }

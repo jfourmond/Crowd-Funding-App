@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOFactory;
-import fr.m1info.rv2j.dao.UserDao;
+import fr.m1info.rv2j.dao.UserDAO;
 import fr.m1info.rv2j.forms.UserCreation;
 
 public class SignUp extends HttpServlet{
@@ -24,7 +24,7 @@ public class SignUp extends HttpServlet{
 	public final static String USER = "user";
 	public final static String FORM = "form";
 
-	private UserDao userDAO;
+	private UserDAO userDAO;
 	
 	@Override
 	public void init() throws ServletException {
@@ -53,8 +53,8 @@ public class SignUp extends HttpServlet{
 		*/
 		
 		if ( form.getErrors().isEmpty() )
-			this.getServletContext().getRequestDispatcher( view_success).forward(req, resp);
+			this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
 		else
-			this.getServletContext().getRequestDispatcher( view_form ).forward( req, resp);
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 	}
 }

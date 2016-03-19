@@ -1,41 +1,57 @@
 package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.m1info.rv2j.beans.User;
+import fr.m1info.rv2j.dao.DAOFactory;
+import fr.m1info.rv2j.dao.UserDAO;
+import fr.m1info.rv2j.forms.UserConnection;
+
 public class LogIn extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	public final static String CONF_DAO_FACTORY = "daofactory";
 
-	public final static String view = "/WEB-INF/login.jsp";
-	public static String username;
-	public static String password;
+	public final static String view_form = "/WEB-INF/login.jsp";
+	public final static String view_success = "/WEB-INF/account.jsp";
+
+	public final static String USERNAME = "username";
+	public final static String FORM = "form";
+	
+	private UserDAO userDAO;
+	
+	@Override
+	public void init() throws ServletException {
+		this.userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher(view).forward(req, resp);
+		this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		
+		User user = userDAO.findByName("test1");
+		System.out.println(user);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HashMap<String, String> errors = new HashMap<String, String>();
-		username = req.getParameter("username");
-		password = req.getParameter("password");
+		UserConnection form = new UserConnection(userDAO);
 		
-		if (username.trim().equals("a") || password.trim().equals("a")) {
-			errors.put("error_login", "Identifiant ou mot de passe incorrect!");
-		}
+		User user = form.connectUser(req);
 		
-		req.setAttribute("errors", errors);
-		this.getServletContext().getRequestDispatcher(view).forward( req, resp );
-		//super.doPost(req, resp);
+		req.setAttribute(FORM, form);
+		
+		if(user != null) {
+			System.out.println(user);
+			this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
+		} else 
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 	}
 	
 }

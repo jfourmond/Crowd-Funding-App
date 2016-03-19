@@ -9,7 +9,7 @@ import static fr.m1info.rv2j.dao.DAOUtility.*;
 
 import fr.m1info.rv2j.beans.User;
 
-public class UserDaoImpl implements UserDao {
+public class UserDAOImpl implements UserDAO {
 	private DAOFactory daoFactory;
 	
 	private static final String ID = "id";
@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 	
 	private static final String INSERT = "INSERT INTO users(name, pw, email, inscription_date, right_level) VALUES (?, ?, ?, ?, ?)";
 	
-	public UserDaoImpl(DAOFactory daoFactory) {
+	public UserDAOImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
 	}
 	
