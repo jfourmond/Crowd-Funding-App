@@ -15,7 +15,7 @@ public class User {
 	
 	/* Constructeurs */
 	public User() { 
-		inscription_date = new Date(System.currentTimeMillis()); 
+		inscription_date = new Date(System.currentTimeMillis());
 	};
 	
 	public User(String name, String pw, String email) {

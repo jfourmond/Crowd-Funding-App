@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DAOFactory {
-	private static final String FICHIER_PROPERTIES	= "/com/sdzee/dao/dao.properties";
+	private static final String PROPERTIES_FILE	= "fr/m1info/rv2j/dao/dao.properties";
 	private static final String PROPERTY_URL		= "url";
 	private static final String PROPERTY_DRIVER		= "driver";
 	private static final String PROPERTY_USER		= "user";
@@ -36,10 +36,10 @@ public class DAOFactory {
 		String pw;
 
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		InputStream fichierProperties = classLoader.getResourceAsStream( FICHIER_PROPERTIES );
+		InputStream fichierProperties = classLoader.getResourceAsStream(PROPERTIES_FILE);
 
 		if ( fichierProperties == null ) {
-			throw new DAOConfigurationException( "Le fichier properties " + FICHIER_PROPERTIES + " est introuvable." );
+			throw new DAOConfigurationException("Le fichier properties " + PROPERTIES_FILE + " est introuvable.");
 		}
 
 		try {
@@ -49,7 +49,7 @@ public class DAOFactory {
 			user = properties.getProperty(PROPERTY_USER);
 			pw = properties.getProperty(PROPERTY_PW);
 		} catch (IOException e) {
-			throw new DAOConfigurationException( "Impossible de charger le fichier properties " + FICHIER_PROPERTIES, e );
+			throw new DAOConfigurationException("Impossible de charger le fichier properties " + PROPERTIES_FILE, e);
 		}
 
 		try {
@@ -63,7 +63,15 @@ public class DAOFactory {
 	}
 
 	Connection getConnection() throws SQLException {
-		return DriverManager.getConnection( url, username, password );
+		System.out.println(url);
+		System.out.println(username);
+		System.out.println(password);
+		return DriverManager.getConnection(url, username, password );
+		/*
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+       	conn = DriverManager.getConnection(url, user, pw);
+       	stmt = conn.createStatement();
+       	*/
 	}
 
 	public UserDao getUserDao() {

@@ -20,7 +20,7 @@ CREATE TABLE users(
 	pw VARCHAR(20) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	inscription_date DATE NOT NULL,
-	right_level INT(1) NOT NULL,
+	right_level INT(1) NOT NULL DEFAULT '1',
 	PRIMARY KEY (id)
 );
 

@@ -2,9 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Crowd Funding App</display-name>
   	<welcome-file-list>
-  		<!-- <welcome-file>/accueil.jsp</welcome-file> -->
   		<welcome-file>home</welcome-file>
   	</welcome-file-list>
+
+	<listener>
+		<listener-class>fr.m1info.rv2j.config.InitialisationDAOFactory</listener-class>
+	</listener>
 
 	<error-page>
 		<error-code>404</error-code>
