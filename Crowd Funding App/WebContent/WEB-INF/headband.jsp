@@ -17,7 +17,8 @@
 					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
 				</c:when>
 				<c:when test="${sessionScope.session_user.right_level == 2}">
-					<a class="mdl-navigation__link" href="<c:url value="#"/>">Administration</a>
+					<a class="mdl-navigation__link" href="<c:url value="#"/>">Utilisateurs</a>
+					<a class="mdl-navigation__link" href="<c:url value="#"/>">Projets</a>
 					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
 				</c:when>
 				<c:otherwise>

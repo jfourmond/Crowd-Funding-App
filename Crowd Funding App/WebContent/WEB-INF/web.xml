@@ -13,6 +13,11 @@
 		<error-code>404</error-code>
 		<location>/WEB-INF/error_404.jsp</location>
 	</error-page>
+	
+	<error-page>
+		<error-code>401</error-code>
+		<location>/WEB-INF/error_401.jsp</location>
+	</error-page>
 
 	<jsp-config>
 		<jsp-property-group>

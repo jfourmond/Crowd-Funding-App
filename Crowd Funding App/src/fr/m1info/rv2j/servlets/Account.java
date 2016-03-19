@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fr.m1info.rv2j.beans.User;
 
 public class Account extends HttpServlet {
 
@@ -17,6 +20,10 @@ public class Account extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		if(session.getAttribute(USER_SESSION) == null)
+			resp.sendError(401);
+		else 
 		this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 	}
 }
