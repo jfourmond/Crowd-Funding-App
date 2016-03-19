@@ -66,4 +66,15 @@
 		<servlet-name>Account</servlet-name>
 		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet Logout -->
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.LogOut</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
 </web-app>

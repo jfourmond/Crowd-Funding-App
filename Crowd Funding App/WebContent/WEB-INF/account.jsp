@@ -8,6 +8,22 @@
 		<link rel="stylesheet" href="css/material.min.css">
 		<script src="js/material.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<style>
+			.mdl-layout {
+				align-items: center;
+			}
+			.mdl-layout__content {
+				padding: 24px;
+				flex: none;
+				margin: auto;
+			}
+			.mdl-card {
+				justify-content: center;
+			}
+			body {
+				background-color: #CEECF5;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -15,7 +31,7 @@
 	
 			 <%-- Vérification de la présence d'un objet utilisateur en session --%>
 			<c:choose>
-				<c:when test="${!empty sessionScope.sessionUtilisateur}">
+				<c:when test="${!empty sessionScope.session_user}">
 					<%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
 					<p>Vous êtes connecté(e) avec l'adresse ?</p>
 				</c:when>

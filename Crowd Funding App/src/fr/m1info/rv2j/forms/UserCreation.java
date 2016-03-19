@@ -75,7 +75,7 @@ public class UserCreation extends Forms {
 	
 	private void emailProcessing(String email, User user) {
 		try {
-			checkEmail(EMAIL_FIELD);
+			checkEmail(email);
 			user.setEmail(email);
 		} catch (FormValidationException E) {
 			addErrors(EMAIL_FIELD, E.getMessage());
@@ -84,7 +84,7 @@ public class UserCreation extends Forms {
 	
 	private void checkEmail(String email) throws FormValidationException {
 		if(email != null) {
-			if(email.matches("(\\w)+@(\\w)+\\.(\\w)+"))
+			if(!email.matches("(\\w)+@(\\w)+\\.(\\w)+"))
 				throw new FormValidationException("Merci d'entrer une adresse email valide.");
 			else if(userDAO.findByEmail(email) != null)
 				throw new FormValidationException("L'adresse email est déjà utilisée.");

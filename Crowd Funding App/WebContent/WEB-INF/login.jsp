@@ -9,6 +9,9 @@
 		<script src="js/material.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
+			.error {
+				color: #B40431;
+			}
 			.mdl-layout {
 				align-items: center;
 			}
@@ -39,9 +42,11 @@
 					</div>
 					<div class="mdl-card__supporting-text">
 						<form method="post" action="login">
+							<p class="error">${form.errors['username']}</p>
 							<div class="mdl-textfield mdl-js-textfield">
 								<input class="mdl-textfield__input" type="text" id="username" name="username" />
 								<label class="mdl-textfield__label" for="username">Utilisateur</label>
+								<span class="mdl-textfield__error">${form.errors['username']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
 								<input class="mdl-textfield__input" type="password" id="password" name="password" />

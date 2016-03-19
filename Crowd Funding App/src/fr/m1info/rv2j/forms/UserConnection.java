@@ -36,10 +36,10 @@ public class UserConnection extends Forms {
 		
 		user = processUser(username, pw);
 		
-		if(errors.isEmpty())
+		if(user!=null)
 			result = "Connexion réussie";
 		else
-			result = "Echec de la connexion";
+			addErrors(USERNAME_FIELD, "Identifiant ou mot de passe incorrect");
 		
 		return user;
 	}

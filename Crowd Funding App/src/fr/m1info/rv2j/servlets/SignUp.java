@@ -44,13 +44,6 @@ public class SignUp extends HttpServlet{
 
 		req.setAttribute(USER, user);
 		req.setAttribute(FORM, form);
-
-		/* TODO DEPRECATED
-		bd bdUsr = new bd("crowdfunding", "rv2j");
-		bdUsr.dbConnect();
-		bdUsr.reqInsUser(user);
-		bdUsr.dbClose();
-		*/
 		
 		if ( form.getErrors().isEmpty() )
 			this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);

@@ -9,6 +9,9 @@
 		<script src="js/material.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
+			.error {
+				color: #B40431;
+			}
 			.mdl-layout {
 				align-items: center;
 			}
@@ -42,15 +45,17 @@
 							<div class="mdl-textfield mdl-js-textfield">
 								<input class="mdl-textfield__input" type="text" id="username" name="username" pattern=".{5,}" required title="5 caractères minimum"/>
 								<label class="mdl-textfield__label" for="username">Utilisateur</label>
-								<p style="color: red;">${errors["username"]}</p>
+								<span class="mdl-textfield__error">${form.errors['username']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
 								<input class="mdl-textfield__input" type="email" id="email" name="email" pattern=".{6,}" required/>
 								<label class="mdl-textfield__label" for="email">Adresse E-mail</label>
+								<span class="mdl-textfield__error">${form.errors['email']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
 								<input class="mdl-textfield__input" type="password" id="password" name="password" pattern=".{6,}" required title="6 caractères minimum"/>
 								<label class="mdl-textfield__label" for="password">Mot de passe</label>
+								<span class="mdl-textfield__error">${form.errors['password']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
 								<input class="mdl-textfield__input" type="password" id="password_conf" name="password_conf" required />
@@ -66,7 +71,6 @@
 							</button>
 						</a>
 					</div>
-					
 				</div>
 			</main>
 		</div>
