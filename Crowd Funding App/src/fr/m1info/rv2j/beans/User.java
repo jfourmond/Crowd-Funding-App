@@ -11,6 +11,7 @@ public class User {
 	private String pw;
 	private String email;
 	private Date inscription_date;
+	private int right_level;
 	
 	/* Constructeurs */
 	public User() { 
@@ -42,6 +43,8 @@ public class User {
 	
 	public Date getInscriptionDate() { return inscription_date; }
 	
+	public int getRight_level() { return right_level; }
+	
 	/*	SETTERS	*/
 	public void setID(int id) { this.id = id; }
 	
@@ -52,4 +55,6 @@ public class User {
 	public void setEmail(String email) { this.email = email; }
 	
 	public void setInscriptionDate(Date date) { this.inscription_date = date; }
+	
+	public void setRightLevel(int level) { this.right_level = level; }
 }
