@@ -15,7 +15,6 @@
 			.mdl-layout__content {
 				padding: 24px;
 				flex: none;
-				margin: auto;
 			}
 			.mdl-card {
 				justify-content: center;
@@ -27,13 +26,17 @@
 	</head>
 	<body>
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-			<%@include file="../WEB-INF/headband.jsp" %>
+			<%@include file="/WEB-INF/headband.jsp" %>
 	
 			 <%-- Vérification de la présence d'un objet utilisateur en session --%>
 			<c:choose>
 				<c:when test="${!empty sessionScope.session_user}">
-					<%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-					<p>Vous êtes connecté(e) avec l'adresse ?</p>
+					<c:if test="${sessionScope.session_user.rightLevel == 2}">
+						<h1>Bienvenue Administrateur.</h1>
+					</c:if>
+					<p>Username : ${sessionScope.session_user.name}</p>
+					<p>Email : ${sessionScope.session_user.email}</p>
+					<p>Date d'inscrition : ${sessionScope.session_user.inscriptionDate}</p>
 				</c:when>
 				<c:otherwise>
 					<p>Pas connecté ? Direction la page de connexion ! </p>

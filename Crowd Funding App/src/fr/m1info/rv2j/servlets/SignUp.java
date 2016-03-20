@@ -45,7 +45,7 @@ public class SignUp extends HttpServlet{
 		req.setAttribute(USER, user);
 		req.setAttribute(FORM, form);
 		
-		if ( form.getErrors().isEmpty() )
+		if (form.getErrors().isEmpty())
 			this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
 		else
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);

@@ -82,4 +82,27 @@
 		<servlet-name>LogOut</servlet-name>
 		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
+	
+	<!-- SERVLETS ADMIN -->
+		<!-- Servlet UsersList -->
+	<servlet>
+		<servlet-name>UsersList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.UsersList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UsersList</servlet-name>
+		<url-pattern>/users_list</url-pattern>
+	</servlet-mapping>
+	
+		<!-- Servlet UserEdit -->
+	<servlet>
+		<servlet-name>UserEdit</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.UserEdit</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UserEdit</servlet-name>
+		<url-pattern>/user_edit</url-pattern>
+	</servlet-mapping>
 </web-app>

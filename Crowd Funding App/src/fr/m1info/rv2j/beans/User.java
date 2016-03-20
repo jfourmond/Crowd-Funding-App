@@ -43,7 +43,7 @@ public class User {
 	
 	public Date getInscriptionDate() { return inscription_date; }
 	
-	public int getRight_level() { return right_level; }
+	public int getRightLevel() { return right_level; }
 	
 	/*	SETTERS	*/
 	public void setID(int id) { this.id = id; }
