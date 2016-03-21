@@ -1,105 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Crowd Funding App</display-name>
-  <welcome-file-list>
-    <welcome-file>home</welcome-file>
-  </welcome-file-list>
-  <listener>
-    <listener-class>fr.m1info.rv2j.config.InitialisationDAOFactory</listener-class>
-  </listener>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/WEB-INF/error_404.jsp</location>
-  </error-page>
-  <error-page>
-    <error-code>401</error-code>
-    <location>/WEB-INF/error_401.jsp</location>
-  </error-page>
-  <jsp-config>
-    <jsp-property-group>
-      <url-pattern>*.jsp</url-pattern>
-      <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
-    </jsp-property-group>
-  </jsp-config>
-  <servlet>
-    <servlet-name>Home</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.Home</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Home</servlet-name>
-    <url-pattern>/home</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>SignUp</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.SignUp</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignUp</servlet-name>
-    <url-pattern>/signup</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>LogIn</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.LogIn</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogIn</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Account</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.Account</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Account</servlet-name>
-    <url-pattern>/account</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Project_management</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.Project_management</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Project_management</servlet-name>
-    <url-pattern>/project_management</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>LogOut</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.LogOut</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogOut</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>UsersList</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.UsersList</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UsersList</servlet-name>
-    <url-pattern>/users_list</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>UserAdd</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.UserAdd</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserAdd</servlet-name>
-    <url-pattern>/user_add</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>UserEdit</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.UserEdit</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserEdit</servlet-name>
-    <url-pattern>/user_edit</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ProjectEdit</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.ProjectEdit</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ProjectEdit</servlet-name>
-    <url-pattern>/project_edit</url-pattern>
-  </servlet-mapping>
+  
+  	<welcome-file-list>
+  		<welcome-file>home</welcome-file>
+  	</welcome-file-list>
+
+	<listener>
+		<listener-class>fr.m1info.rv2j.config.InitialisationDAOFactory</listener-class>
+	</listener>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/error_404.jsp</location>
+	</error-page>
+	<!-- Page d'erreur 401 -->
+	<error-page>
+		<error-code>401</error-code>
+		<location>/WEB-INF/error_401.jsp</location>
+	</error-page>
+
+	<!-- Page d'erreur 404 -->
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+	
+	<!-- Serlvet Home -->
+	<servlet>
+		<servlet-name>Home</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.Home</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Home</servlet-name>
+		 <url-pattern>/home</url-pattern> 
+	</servlet-mapping>
+	
+	
+	<!-- Servlet Sign Up -->
+	<servlet>
+		<servlet-name>SignUp</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.SignUp</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>SignUp</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Log On -->
+	<servlet>
+		<servlet-name>LogIn</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.LogIn</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LogIn</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Account -->
+	<servlet>
+		<servlet-name>Account</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.Account</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Account</servlet-name>
+		<url-pattern>/account</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Project Management -->
+	
+	<!-- Servlet Logout -->
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.LogOut</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	
+	<!-- SERVLETS ADMIN -->
+		<!-- Servlet UsersList -->
+	<servlet>
+		<servlet-name>UsersList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.UsersList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UsersList</servlet-name>
+		<url-pattern>/users_list</url-pattern>
+	</servlet-mapping>
+	
+		<!-- Servlet UserAdd -->
+	<servlet>
+		<servlet-name>UserAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.UserAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UserAdd</servlet-name>
+		<url-pattern>/user_add</url-pattern>
+	</servlet-mapping>
+	
+		<!-- Servlet UserEdit -->
+	<servlet>
+		<servlet-name>UserEdit</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.UserEdit</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UserEdit</servlet-name>
+		<url-pattern>/user_edit</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet ProjectEdit -->
+	
+	 <servlet>
+    	<servlet-name>ProjectEdit</servlet-name>
+    	<servlet-class>fr.m1info.rv2j.servlets.ProjectEdit</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	  <servlet-name>ProjectEdit</servlet-name>
+    	<url-pattern>/project_edit</url-pattern>
+  	</servlet-mapping>
+	
+	
+		<!--  Servlet ProjectsList -->	
+	<servlet>
+		<servlet-name>ProjectsList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.ProjectsList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ProjectsList</servlet-name>
+		<url-pattern>/projects_list</url-pattern>
+	</servlet-mapping>
+	
+		<!--  Servlet NewProject -->	
+	<servlet>
+    	<servlet-name>NewProject</servlet-name>
+    	<servlet-class>fr.m1info.rv2j.servlets.NewProject</servlet-class>
+  	</servlet>
+  	
+  	<servlet-mapping>
+    	<servlet-name>NewProject</servlet-name>
+   	 	<url-pattern>/new_project</url-pattern>
+  	</servlet-mapping>
 </web-app>

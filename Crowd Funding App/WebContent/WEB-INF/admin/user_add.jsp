@@ -48,11 +48,10 @@
 								<label class="mdl-textfield__label" for="password">Mot de passe</label>
 								<span class="mdl-textfield__error">${form.errors['password']}</span>
 							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="right_level" name="right_level" value="${user.rightLevel}" pattern="[1-2]" required>
-								<label class="mdl-textfield__label" for="right_level">Droit</label>
-								<span class="mdl-textfield__error">1 ou 2</span>
-							</div>
+							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="admin">
+								<input type="checkbox" id="admin" class="mdl-checkbox__input" name="admin" >
+								<span class="mdl-checkbox__label">Administrateurs</span>
+							</label>
 							<div class="mdl-card__actions mdl-card--border ">
 								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>
 							</div>
