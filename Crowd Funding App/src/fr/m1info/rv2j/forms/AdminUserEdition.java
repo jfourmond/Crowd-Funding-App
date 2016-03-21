@@ -11,7 +11,7 @@ public class AdminUserEdition extends Forms {
 	public final static String USERNAME_FIELD = "username";
 	public final static String EMAIL_FIELD = "email";
 	public final static String PW_FIELD = "password";
-	public final static String RIGHT_FIELD = "right_level";
+	public final static String ADMIN_CB = "admin";
 	
 	private UserDAO userDAO;
 	
@@ -32,14 +32,14 @@ public class AdminUserEdition extends Forms {
 		String name = getFieldValue(request, USERNAME_FIELD);
 		String email = getFieldValue(request, EMAIL_FIELD);
 		String pw = getFieldValue(request, PW_FIELD);
-		String right = getFieldValue(request, RIGHT_FIELD);
+		String right_admin = getFieldValue(request, ADMIN_CB);
 		
 		try {
 			user.setID(Integer.parseInt(id));
 			nameProcessing(name, user);
 			emailProcessing(email, user);
 			passwordProcessing(pw, user);
-			rightProcessing(right, user);
+			rightProcessing(right_admin, user);
 			
 			if (errors.isEmpty()) {
 				userDAO.update(id, user);
@@ -100,21 +100,9 @@ public class AdminUserEdition extends Forms {
 	}
 	
 	private void rightProcessing(String right, User user) {
-		try {
-			checkRight(right);
-			user.setRightLevel(Integer.parseInt(right));
-		} catch (FormValidationException E) {
-			addErrors(RIGHT_FIELD, E.getMessage());
-		}
-	}
-	
-	private void checkRight(String right) throws FormValidationException {
 		if(right == null)
-			throw new FormValidationException("Merci d'entrer un niveau de droit.");
-		else {
-			int right_int = Integer.parseInt(right);
-			if(right_int != 1 && right_int != 2)
-				throw new FormValidationException("Merci d'entrer un niveau de droit valide (1|2)");
-		}
+			user.setRightLevel(1);
+		else
+			user.setRightLevel(2);
 	}
 }
