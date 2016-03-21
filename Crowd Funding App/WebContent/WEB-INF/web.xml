@@ -95,6 +95,17 @@
 		<url-pattern>/users_list</url-pattern>
 	</servlet-mapping>
 	
+		<!-- Servlet UserAdd -->
+	<servlet>
+		<servlet-name>UserAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.UserAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>UserAdd</servlet-name>
+		<url-pattern>/user_add</url-pattern>
+	</servlet-mapping>
+	
 		<!-- Servlet UserEdit -->
 	<servlet>
 		<servlet-name>UserEdit</servlet-name>

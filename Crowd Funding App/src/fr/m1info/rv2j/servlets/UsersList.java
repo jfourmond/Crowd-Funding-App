@@ -20,6 +20,7 @@ public class UsersList extends HttpServlet {
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
 	public final static String view = "/WEB-INF/admin/users_list.jsp";
+	public final static String view_add = "/WEB-INF/admin/user_add.jsp";
 	public final static String view_edit = "/WEB-INF/admin/user_edit.jsp";
 	
 	public final static String SESSION = "session_user";
@@ -42,8 +43,6 @@ public class UsersList extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
-		
-		System.out.println("Tu passes ici quand ?");
 		
 		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
@@ -70,7 +69,7 @@ public class UsersList extends HttpServlet {
 			this.getServletContext().getRequestDispatcher(view_edit).forward(req, resp);
 		}
 		if(add != null) {
-			System.out.println("AJOUT");
+			this.getServletContext().getRequestDispatcher(view_add).forward(req, resp);
 		}
 	}
 }
