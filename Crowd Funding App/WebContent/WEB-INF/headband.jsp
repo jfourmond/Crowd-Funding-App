@@ -18,7 +18,7 @@
 				</c:when>
 				<c:when test="${sessionScope.session_user.rightLevel == 2}">
 					<a class="mdl-navigation__link" href="<c:url value="/users_list"/>">Utilisateurs</a>
-					<a class="mdl-navigation__link" href="<c:url value="/project_management"/>">Projets</a>
+					<a class="mdl-navigation__link" href="<c:url value="/projects_list"/>">Projets</a>
 					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
 				</c:when>
 				<c:otherwise>

@@ -25,7 +25,7 @@
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			<%@include file="/WEB-INF/headband.jsp" %>
 			<h1>Projets</h1>
-			<form action="users_list" method="post">
+			<form action="projects_list" method="post">
 				<table class="mdl-data-table mdl-js-data-table">
 					<thead>
 						<tr>
@@ -62,7 +62,7 @@
 					</tbody>
 				</table>
 			</form>
-			<form action="users_list" method="post">
+			<form action="projects_list" method="post">
 				<button class="mdl-button mdl-js-button mdl-button--fab" type="submit" name="add">
 					<i class="material-icons">add</i>
 				</button>

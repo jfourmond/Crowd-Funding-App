@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Crowd Funding App</display-name>
+  
   	<welcome-file-list>
   		<welcome-file>home</welcome-file>
   	</welcome-file-list>
@@ -73,18 +74,7 @@
 		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
 	
-	
 	<!-- Servlet Project Management -->
-	
-	<servlet>
-		<servlet-name>Project_management</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.Project_management</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>Project_management</servlet-name>
-		<url-pattern>/project_management</url-pattern>
-	</servlet-mapping>
 	
 	<!-- Servlet Logout -->
 	<servlet>
@@ -130,4 +120,38 @@
 		<servlet-name>UserEdit</servlet-name>
 		<url-pattern>/user_edit</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet ProjectEdit -->
+	
+	 <servlet>
+    	<servlet-name>ProjectEdit</servlet-name>
+    	<servlet-class>fr.m1info.rv2j.servlets.ProjectEdit</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	  <servlet-name>ProjectEdit</servlet-name>
+    	<url-pattern>/project_edit</url-pattern>
+  	</servlet-mapping>
+	
+	
+		<!--  Servlet ProjectsList -->	
+	<servlet>
+		<servlet-name>ProjectsList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.ProjectsList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ProjectsList</servlet-name>
+		<url-pattern>/projects_list</url-pattern>
+	</servlet-mapping>
+	
+		<!--  Servlet NewProject -->	
+	<servlet>
+    	<servlet-name>NewProject</servlet-name>
+    	<servlet-class>fr.m1info.rv2j.servlets.NewProject</servlet-class>
+  	</servlet>
+  	
+  	<servlet-mapping>
+    	<servlet-name>NewProject</servlet-name>
+   	 	<url-pattern>/new_project</url-pattern>
+  	</servlet-mapping>
 </web-app>
