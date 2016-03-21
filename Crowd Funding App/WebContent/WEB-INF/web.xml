@@ -72,6 +72,19 @@
 		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
 	
+	
+	<!-- Servlet Project Management -->
+	
+	<servlet>
+		<servlet-name>Project_management</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.Project_management</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Project_management</servlet-name>
+		<url-pattern>/project_management</url-pattern>
+	</servlet-mapping>
+	
 	<!-- Servlet Logout -->
 	<servlet>
 		<servlet-name>LogOut</servlet-name>
