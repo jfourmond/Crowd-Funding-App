@@ -132,7 +132,7 @@
 		<url-pattern>/projects_list</url-pattern>
 	</servlet-mapping>
 	
-	<!--  Servlet NewProject -->	
+		<!--  Servlet NewProject -->	
 	<servlet>
     	<servlet-name>NewProject</servlet-name>
     	<servlet-class>fr.m1info.rv2j.servlets.NewProject</servlet-class>
@@ -142,5 +142,4 @@
     	<servlet-name>NewProject</servlet-name>
    	 	<url-pattern>/new_project</url-pattern>
   	</servlet-mapping>
-  	
 </web-app>
