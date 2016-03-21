@@ -32,7 +32,6 @@
 <div class="mdl-layout__drawer">
 	<span class="mdl-layout-title">Menu</span>
 	<nav class="mdl-navigation">
-		<a class="mdl-navigation__link" href="">Découvrir</a>
 		<a class="mdl-navigation__link" href="<c:url value ="/account" />">Compte</a>
 		<a class="mdl-navigation__link" href="<c:url value="/home"/>">Retour à l'accueil</a>
 	</nav>
