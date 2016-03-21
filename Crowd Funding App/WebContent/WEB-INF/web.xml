@@ -132,12 +132,13 @@
 		<url-pattern>/user_edit</url-pattern>
 	</servlet-mapping>
 
-	    <servlet>
-    <servlet-name>NewProject</servlet-name>
-    <servlet-class>fr.m1info.rv2j.servlets.NewProject</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>NewProject</servlet-name>
-    <url-pattern>/new_project</url-pattern>
-  </servlet-mapping>
+		<!-- Servlet NewProject -->
+	<servlet>
+   		<servlet-name>NewProject</servlet-name>
+    	<servlet-class>fr.m1info.rv2j.servlets.NewProject</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>NewProject</servlet-name>
+    	<url-pattern>/new_project</url-pattern>
+  	</servlet-mapping>
 </web-app>
