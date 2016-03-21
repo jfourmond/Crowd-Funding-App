@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
-import fr.m1info.rv2j.forms.AdminUserEdition;
+import fr.m1info.rv2j.forms.AdminProjectEdition;
 
 public class ProjectEdit extends HttpServlet {
 
@@ -24,7 +25,7 @@ public class ProjectEdit extends HttpServlet {
 	
 	public final static String SESSION = "session_user";
 	
-	public final static String USER = "user";
+	public final static String PROJECT = "project";
 	public final static String FORM = "form";
 	
 	private ProjectDAO projectDAO;
@@ -38,28 +39,28 @@ public class ProjectEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
-		User user;
+		Project project;
 		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
-			user = (User) req.getAttribute(USER);
-			req.setAttribute(USER, user);
+			project = (Project) req.getAttribute(PROJECT);
+			req.setAttribute(PROJECT, project);
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User user;
-		AdminUserEdition form = new AdminUserEdition(userDAO);
+		Project project;
+		AdminProjectEdition form = new AdminProjectEdition(projectDAO);
 		
-		user = form.editUser(req);
+		project = form.editProject(req);
 		
 		if (form.getErrors().isEmpty())
 			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
 			// this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
 		else {
-			req.setAttribute(USER, user);
+			req.setAttribute(PROJECT, project);
 			req.setAttribute(FORM, form);
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 		}
