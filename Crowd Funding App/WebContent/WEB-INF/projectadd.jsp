@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>NewProject</title>
+		<title>Project Add</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
 		<link rel="stylesheet" href="css/material.min.css">
 		<script src="js/material.min.js"></script>
@@ -25,7 +25,7 @@
 				justify-content: center;
 			}
 			body {
-				background-image: url("resources/newproject.jpg");
+				background-image: url("resources/projectadd.jpg");
 				background-repeat: no-repeat;
 				background-attachment: fixed;
 				background-position: center;
@@ -42,7 +42,7 @@
 						<h2 class="mdl-card__title-text">Création d'un projet</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
-						<form method="post" action="#">
+						<form method="post" action="projectadd">
 							<p class="error">${form.errors['username']}</p>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" id="author" name="author" />
@@ -63,7 +63,7 @@
 							    <span class="mdl-textfield__error">Ceci n'est pas un nombre !</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
-								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Connexion</button>
+								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Terminer la création</button>
 							</div>
 						</form>
 						<a href="signup">
@@ -74,6 +74,5 @@
 					</div>
 				</div>
 			</main>
-		
 	</body>
 </html>

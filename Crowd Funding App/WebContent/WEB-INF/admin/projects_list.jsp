@@ -52,7 +52,6 @@
 										<td>${project.goal}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.creationDate}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.lastUpdateDate}</td>
-										<td>${user.rightLevel}</td>
 										<td><button class="mdl-button mdl-js-button mdl-button--raised" type="submit" name="edit" value="${project.ID}">Editer</button></td>
 										<td><button class="mdl-button mdl-js-button mdl-button--raised" type="submit" name="delete" value="${project.ID}">Supprimer</button></td>
 									</tr>
