@@ -18,6 +18,7 @@
 			}
 			.mdl-card {
 				justify-content: center;
+				margin-bottom: 25px;
 			}
 		</style>
 	</head>
@@ -60,6 +61,11 @@
 											</div>
 											<div class="mdl-card__supporting-text">
 												<p>${project.presentation}</p>
+											</div>
+											<div class="mdl-card__actions mdl-card--border">
+												<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">
+													En savoir plus
+												</a>
 											</div>
 										</div>
 									</c:forEach>

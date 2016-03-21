@@ -141,6 +141,17 @@
 		<url-pattern>/admin/projects_list</url-pattern>
 	</servlet-mapping>
 	
+			<!--  Servlet ProjectAdd -->	
+	<servlet>
+		<servlet-name>AdminProjectAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminProjectAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminProjectAdd</servlet-name>
+		<url-pattern>/admin/project_add</url-pattern>
+	</servlet-mapping>
+	
 		<!-- Servlet ProjectEdit -->
 	 <servlet>
 		<servlet-name>AdminProjectEdit</servlet-name>
@@ -152,14 +163,5 @@
 		<url-pattern>/admin/project_edit</url-pattern>
 	</servlet-mapping>
 	
-		<!--  Servlet ProjectAdd -->	
-	<servlet>
-		<servlet-name>AdminProjectAdd</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.AdminProjectAdd</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>AdminProjectAdd</servlet-name>
-		<url-pattern>/admin/project_add</url-pattern>
-	</servlet-mapping>
+
 </web-app>

@@ -56,8 +56,7 @@ public class AdminUserEdit extends HttpServlet {
 		user = form.editUser(req);
 		
 		if (form.getErrors().isEmpty())
-			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
-			// this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
+			resp.sendRedirect(resp.encodeRedirectURL(path_success));
 		else {
 			req.setAttribute(USER, user);
 			req.setAttribute(FORM, form);

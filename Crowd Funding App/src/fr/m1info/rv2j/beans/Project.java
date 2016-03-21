@@ -1,6 +1,7 @@
 package fr.m1info.rv2j.beans;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,15 @@ public class Project {
 	private List<Commentary> commentaries;
 	private Date creation_date;
 	private Date last_update_date;
+	
+	public Project() {
+		contributors = new ArrayList<>();
+		compensations = new ArrayList<Compensation>();
+		commentaries = new ArrayList<Commentary>();
+		
+		creation_date = new Date(System.currentTimeMillis());
+		last_update_date = creation_date;
+	}
 	
 	/*	GETTERS	*/
 	public int getID() { return id; }

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
+import fr.m1info.rv2j.dao.UserDAO;
+import fr.m1info.rv2j.forms.AdminProjectCreation;
 
 public class AdminProjectAdd extends HttpServlet {
 	
@@ -27,10 +29,12 @@ public class AdminProjectAdd extends HttpServlet {
 	public final static String FORM = "form";
 	
 	private ProjectDAO projectDAO;
+	private UserDAO userDAO;
 	
 	@Override
 	public void init() throws ServletException {
 		projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
+		userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 	}
 	
 	@Override
@@ -47,7 +51,15 @@ public class AdminProjectAdd extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		AdminProjectCreation form = new AdminProjectCreation(projectDAO, userDAO);
+		
+		form.createProject(req);
+		
+		if (form.getErrors().isEmpty())
+			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
+		else {
+			req.setAttribute(FORM, form);
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		}
 	}
 }
