@@ -22,8 +22,6 @@ public class UserEdit extends HttpServlet {
 	public final static String view_form = "/WEB-INF/admin/user_edit.jsp";
 	public final static String path_success = "users_list";
 	
-	public final static String contextPath = "Crowd_Funding_App/";
-	
 	public final static String SESSION = "session_user";
 	
 	public final static String USER = "user";
@@ -56,8 +54,6 @@ public class UserEdit extends HttpServlet {
 		AdminUserEdition form = new AdminUserEdition(userDAO);
 		
 		user = form.editUser(req);
-		
-		
 		
 		if (form.getErrors().isEmpty())
 			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 

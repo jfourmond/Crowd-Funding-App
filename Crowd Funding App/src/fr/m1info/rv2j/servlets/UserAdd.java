@@ -20,9 +20,7 @@ public class UserAdd extends HttpServlet {
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
 	public final static String view_form = "/WEB-INF/admin/user_add.jsp";
-	public final static String view_success = "/WEB-INF/admin/users_list.jsp";
-	
-	public final static String contextPath = "Crowd_Funding_App/";
+	public final static String path_success = "users_list.jsp";
 	
 	public final static String SESSION = "session_user";
 	
