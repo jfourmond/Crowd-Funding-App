@@ -47,7 +47,7 @@ public class Project {
 	public void setPresentation(String presentation) { this.presentation = presentation; }
 
 	public void setGoal(int g) { goal=g; }
-
+	
 	public void setAuthor_id(int id) { this.author_id = id; }
 	
 	public void setContributors(List<Integer> contributors) { this.contributors = contributors; }
