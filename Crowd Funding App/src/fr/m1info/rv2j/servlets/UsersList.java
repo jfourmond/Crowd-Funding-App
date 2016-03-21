@@ -62,9 +62,7 @@ public class UsersList extends HttpServlet {
 		
 		if(delete != null) {
 			userDAO.deleteByID(delete);
-			users = userDAO.getAllUsers();
-			req.setAttribute(USERS, users);
-			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
+			this.doGet(req, resp);
 		}
 		if(edit != null) {
 			User user = userDAO.findByID(edit);

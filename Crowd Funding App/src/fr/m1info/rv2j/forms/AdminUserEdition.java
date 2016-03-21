@@ -64,10 +64,7 @@ public class AdminUserEdition extends Forms {
 	}
 	
 	private void checkName(String name) throws FormValidationException {
-		if(name != null) {
-			if(userDAO.findByName(name) != null)
-				throw new FormValidationException("Le nom d'utilisateur est déjà utilisé.");
-		} else
+		if(name == null)
 			throw new FormValidationException("Merci d'entrer un nom d'utilisateur.");
 	}
 	
