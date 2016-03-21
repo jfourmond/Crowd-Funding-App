@@ -45,7 +45,7 @@
 								<span class="mdl-textfield__error">${form.errors['id_user']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="presentation" name="presentation" required />
+								<textarea class="mdl-textfield__input" type="text" rows= "3" id="presentation" name="presentation" required>${project.presentation}</textarea>
 								<label class="mdl-textfield__label" for="presentation">Présentation</label>
 								<span class="mdl-textfield__error">${form.errors['presentation']}</span>
 							</div>
