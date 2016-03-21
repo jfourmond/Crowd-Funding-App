@@ -28,8 +28,7 @@
 			<table class="mdl-data-table mdl-js-data-table">
 				<thead>
 					<tr>
-						<th>ID</th>
-						<th>ID Auteur</th>
+						<th>Auteur</th>
 						<th class="mdl-data-table__cell--non-numeric">Nom</th>
 						<th class="mdl-data-table__cell--non-numeric">Présentation</th>
 						<th>Goal</th>
@@ -42,10 +41,9 @@
 						<c:when test="${ !empty projects }">
 							<c:forEach var="project" items="${projects}" >
 								<tr>
-									<td>${project.ID}</td>
-									<td>${project.author_id}</td>
+									<td>${users[project.authorID].name}</td>
 									<td class="mdl-data-table__cell--non-numeric">${project.name}</td>
-									<td class="mdl-data-table__cell--non-numeric">${project.presentation}</td>
+									<td class="mdl-data-table__cell--non-numeric">${fn:substring(project.presentation, 0, 50)}</td>
 									<td>${project.goal}</td>
 									<td class="mdl-data-table__cell--non-numeric">${project.creationDate}</td>
 									<td class="mdl-data-table__cell--non-numeric">${project.lastUpdateDate}</td>

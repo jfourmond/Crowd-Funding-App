@@ -107,6 +107,17 @@
 		<url-pattern>/projects</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Servlet MyProjects -->
+	<servlet>
+		<servlet-name>MyProjects</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.MyProjects</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MyProjects</servlet-name>
+		<url-pattern>/my_projects</url-pattern>
+	</servlet-mapping>
+	
 	<!-- SERVLETS ADMIN -->
 		<!-- Servlet UsersList -->
 	<servlet>
