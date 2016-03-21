@@ -50,7 +50,7 @@
 							</div>
 							<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="admin">
 								<input type="checkbox" id="admin" class="mdl-checkbox__input" name="admin" >
-								<span class="mdl-checkbox__label">Administrateurs</span>
+								<span class="mdl-checkbox__label">Administrateur</span>
 							</label>
 							<div class="mdl-card__actions mdl-card--border ">
 								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>

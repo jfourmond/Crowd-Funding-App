@@ -19,9 +19,6 @@
 			.mdl-card {
 				justify-content: center;
 			}
-			body {
-				background-color: #CEECF5;
-			}
 		</style>
 	</head>
 	<body>
@@ -37,6 +34,49 @@
 					<p>Username : ${sessionScope.session_user.name}</p>
 					<p>Email : ${sessionScope.session_user.email}</p>
 					<p>Date d'inscription : ${sessionScope.session_user.inscriptionDate}</p>
+
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--4-col">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card--expand">
+									<c:choose>
+										<c:when test="${sessionScope.session_user.rightLevel == 2}">
+											<h2 class="mdl-card__title-text">Bienvenue Administrateur</h2>
+										</c:when>
+										<c:when test="${sessionScope.session_user.rightLevel == 2}">
+											<h2 class="mdl-card__title-text">Bienvenue</h2>
+										</c:when>
+									</c:choose>
+								</div>
+								<div class="mdl-card__supporting-text">
+									<p>Username : ${sessionScope.session_user.name}</p>
+									<p>Email : ${sessionScope.session_user.email}</p>
+									<p>Date d'inscription : ${sessionScope.session_user.inscriptionDate}</p>
+								</div>
+							</div>
+						</div>
+						<div class="mdl-cell mdl-cell--4-col">
+						</div>
+						<div class="mdl-cell mdl-cell--4-col">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card--expand">
+									<c:choose>
+										<c:when test="${sessionScope.session_user.rightLevel == 2}">
+											<h2 class="mdl-card__title-text">Bienvenue Administrateur</h2>
+										</c:when>
+										<c:when test="${sessionScope.session_user.rightLevel == 2}">
+											<h2 class="mdl-card__title-text">Bienvenue</h2>
+										</c:when>
+									</c:choose>
+								</div>
+								<div class="mdl-card__supporting-text">
+									<p>Username : ${sessionScope.session_user.name}</p>
+									<p>Email : ${sessionScope.session_user.email}</p>
+									<p>Date d'inscription : ${sessionScope.session_user.inscriptionDate}</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<p>Pas connecté ? Direction la page de connexion ! </p>

@@ -23,7 +23,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private static final String LAST_UPDATE = "last_update";
 	
 	private static final String SELECT_BY_ID = "SELECT id, author_id, name, presentation, goal, creation_date, last_update FROM projects where id = ? ";
-
+	private static final String SELECT_BY_AUTHOR_ID = "SELECT id, author_id, name, presentation, goal, creation_date, last_update FROM projects where author_id = ? ";
+	
 	private static final String SELECT_ALL = "SELECT * FROM projects";
 	
 	private static final String INSERT = "INSERT INTO projects(author_id, name, presentation, goal, creation_date, last_update) VALUES (?, ?, ?, ?, ?, ?)";
@@ -31,6 +32,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private static final String UPDATE = "UPDATE projects SET author_id = ?, name = ?, presentation = ?, goal = ?, creation_date = ?, last_update = ? WHERE id = ?";
 	
 	private static final String DELETE = "DELETE FROM projects WHERE id = ? ";
+	
+	private static final String COUNT = "SELECT COUNT(*) FROM projects";
 	
 	public ProjectDAOImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
@@ -102,6 +105,31 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 	
 	@Override
+	public List<Project> findByAuthorID(String id) throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		List<Project> projects = new ArrayList<Project>();
+		Project project = null;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SELECT_BY_AUTHOR_ID, false, id);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				project = map(resultSet);
+				projects.add(project);
+			}
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return projects;
+	}
+	
+	@Override
 	public List<Project> getAllProjects() throws DAOException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -143,6 +171,30 @@ public class ProjectDAOImpl implements ProjectDAO {
 		} finally {
 			silentCloses(values, preparedStatement, connection);
 		}
+	}
+
+	@Override
+	public int count() throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		int count = 0;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, COUNT, true);
+			resultSet = preparedStatement.executeQuery();
+			
+			resultSet.next();
+			count = resultSet.getInt(1);
+			System.out.println(count);
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return count;
 	}
 	
 	private static Project map(ResultSet resultSet) throws SQLException {

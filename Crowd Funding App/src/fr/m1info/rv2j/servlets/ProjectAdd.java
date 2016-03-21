@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class NewProject extends HttpServlet{
+public class ProjectAdd extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-	public final static String view = "/WEB-INF/newproject.jsp";
+	public final static String view = "/WEB-INF/projectadd.jsp";
 	
 	public final static String SESSION = "session_user";
 	

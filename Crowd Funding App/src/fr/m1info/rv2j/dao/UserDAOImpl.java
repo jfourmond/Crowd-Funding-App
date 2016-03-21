@@ -33,6 +33,8 @@ public class UserDAOImpl implements UserDAO {
 	
 	private static final String DELETE = "DELETE FROM users WHERE id = ? ";
 	
+	private static final String COUNT = "SELECT COUNT(*) FROM users";
+	
 	public UserDAOImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
 	}
@@ -189,6 +191,30 @@ public class UserDAOImpl implements UserDAO {
 		} finally {
 			silentCloses(values, preparedStatement, connection);
 		}
+	}
+	
+	@Override
+	public int count() throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		int count = 0;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, COUNT, true);
+			resultSet = preparedStatement.executeQuery();
+			
+			resultSet.next();
+			count = resultSet.getInt(1);
+			System.out.println(count);
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return count;
 	}
 	
 	private static User map(ResultSet resultSet) throws SQLException {
