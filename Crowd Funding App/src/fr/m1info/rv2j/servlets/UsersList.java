@@ -65,10 +65,12 @@ public class UsersList extends HttpServlet {
 		}
 		if(edit != null) {
 			User user = userDAO.findByID(edit);
+			System.out.println("Edition");
 			req.setAttribute(USER, user);
 			this.getServletContext().getRequestDispatcher(view_edit).forward(req, resp);
 		}
 		if(add != null) {
+			System.out.println("Ajout");
 			this.getServletContext().getRequestDispatcher(view_add).forward(req, resp);
 		}
 	}

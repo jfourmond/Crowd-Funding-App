@@ -62,9 +62,7 @@ public class AdminUserCreation extends Forms {
 	
 	private void checkName(String name) throws FormValidationException {
 		if(name != null) {
-			if(name.length() < 5)
-				throw new FormValidationException("Le nom d'utilisateur doit contenir au moins 5 caractères.");
-			else if(userDAO.findByName(name) != null)
+			if(userDAO.findByName(name) != null)
 				throw new FormValidationException("Le nom d'utilisateur est déjà utilisé.");
 		} else
 			throw new FormValidationException("Merci d'entrer un nom d'utilisateur.");
