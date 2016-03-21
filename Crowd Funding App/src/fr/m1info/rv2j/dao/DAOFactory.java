@@ -69,4 +69,8 @@ public class DAOFactory {
 	public UserDAO getUserDao() {
 		return new UserDAOImpl( this );
 	}
+	
+	public ProjectDAO getProjectDao() {
+		return new ProjectDAOImpl( this );
+	}
 }
