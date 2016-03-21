@@ -10,6 +10,8 @@ public interface ProjectDAO {
 	
 	Project findByID(String id) throws DAOException;
 	
+	Project findByNAME(String name) throws DAOException;
+	
 	List<Project> getAllProjects() throws DAOException;
 	
 	void deleteByID(String id) throws DAOException;

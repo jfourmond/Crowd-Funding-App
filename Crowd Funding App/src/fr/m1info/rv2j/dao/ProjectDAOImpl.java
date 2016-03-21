@@ -24,6 +24,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	
 	private static final String SELECT_BY_ID = "SELECT id, author_id, name, presentation, goal, creation_date, last_update FROM projects where id = ? ";
 
+	private static final String SELECT_BY_NAME = "SELECT id, author_id, name, presentation, goal, creation_date, last_update FROM projects where name = ? ";
+
 	private static final String SELECT_ALL = "SELECT * FROM projects";
 	
 	private static final String INSERT = "INSERT INTO projects(author_id, name, presentation, goal, creation_date, last_update) VALUES (?, ?, ?, ?, ?, ?)";
@@ -89,6 +91,28 @@ public class ProjectDAOImpl implements ProjectDAO {
 		try {
 			connection = daoFactory.getConnection();
 			preparedStatement = initialisationPreparedRequest(connection, SELECT_BY_ID, false, id);
+			resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()) {
+				project = map(resultSet);
+			}
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return project;
+	}
+	
+	@Override
+	public Project findByNAME(String name) throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		Project project = null;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SELECT_BY_NAME, false, name);
 			resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()) {
 				project = map(resultSet);
