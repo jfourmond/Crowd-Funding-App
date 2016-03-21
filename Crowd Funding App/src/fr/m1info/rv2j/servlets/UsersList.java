@@ -48,7 +48,6 @@ public class UsersList extends HttpServlet {
 			resp.sendError(401);
 		} else {
 			users = userDAO.getAllUsers();
-			System.out.println(userDAO.count());
 			req.setAttribute(USERS, users);
 			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 		}

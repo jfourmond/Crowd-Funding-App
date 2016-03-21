@@ -51,23 +51,30 @@
 						<div class="mdl-cell mdl-cell--4-col">
 						</div>
 						<div class="mdl-cell mdl-cell--4-col">
-							<div class="mdl-card mdl-shadow--2dp">
-								<div class="mdl-card__title mdl-card--expand">
-									<c:choose>
-										<c:when test="${sessionScope.session_user.rightLevel == 2}">
-											<h2 class="mdl-card__title-text">Bienvenue Administrateur</h2>
-										</c:when>
-										<c:when test="${sessionScope.session_user.rightLevel == 1}">
-											<h2 class="mdl-card__title-text">Bienvenue</h2>
-										</c:when>
-									</c:choose>
-								</div>
-								<div class="mdl-card__supporting-text">
-									<p>Username : ${sessionScope.session_user.name}</p>
-									<p>Email : ${sessionScope.session_user.email}</p>
-									<p>Date d'inscription : ${sessionScope.session_user.inscriptionDate}</p>
-								</div>
-							</div>
+							<c:choose>
+								<c:when test="${ !empty projects }">
+									<c:forEach var="project" items="${projects}" >
+										<div class="mdl-card mdl-shadow--2dp">
+											<div class="mdl-card__title mdl-card--expand">
+												<h2 class="mdl-card__title-text">${project.name}</h2>
+											</div>
+											<div class="mdl-card__supporting-text">
+												<p>${project.presentation}</p>
+											</div>
+										</div>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<div class="mdl-card mdl-shadow--2dp">
+										<div class="mdl-card__title mdl-card--expand">
+											Pas de projet
+										</div>
+										<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+											Nouveau Projet...
+										</a>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</c:when>
