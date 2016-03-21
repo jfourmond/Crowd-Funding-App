@@ -25,34 +25,27 @@
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			<%@include file="/WEB-INF/headband.jsp" %>
 			<h1>Projets</h1>
-			<table class="mdl-data-table mdl-js-data-table">
-				<thead>
-					<tr>
-						<th>Auteur</th>
-						<th class="mdl-data-table__cell--non-numeric">Nom</th>
-						<th class="mdl-data-table__cell--non-numeric">Présentation</th>
-						<th>Goal</th>
-						<th class="mdl-data-table__cell--non-numeric">Date de création</th>
-						<th class="mdl-data-table__cell--non-numeric">Date de dernière mise à jour</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:choose>
-						<c:when test="${ !empty projects }">
-							<c:forEach var="project" items="${projects}" >
-								<tr>
-									<td>${users[project.authorID].name}</td>
-									<td class="mdl-data-table__cell--non-numeric">${project.name}</td>
-									<td class="mdl-data-table__cell--non-numeric">${fn:substring(project.presentation, 0, 50)}</td>
-									<td>${project.goal}</td>
-									<td class="mdl-data-table__cell--non-numeric">${project.creationDate}</td>
-									<td class="mdl-data-table__cell--non-numeric">${project.lastUpdateDate}</td>
-								</tr>
-							</c:forEach>
-						</c:when>
-					</c:choose>
-				</tbody>
-			</table>
+			<c:choose>
+				<c:when test="${ !empty projects }">
+					<c:forEach var="project" items="${projects}" >
+						<div class="demo-card-wide mdl-card mdl-shadow--4dp">
+							<div class="mdl-card__title">
+    							<h2 class="mdl-card__title-text">${project.name}</h2>
+    						</div>
+    						<div class="mdl-card__supporting-text">
+								${project.presentation}
+							</div>
+							<div class="mdl-card__actions mdl-card--border">
+    							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      								Contribuer ! 
+    							</a>
+  							</div>
+  						</div>	
+  						<!-- pas génial mais j'ai rien trouvé d'autre pour forcer un espace entre chaque projet -->
+  						<div><p></p></div>
+					</c:forEach>
+				</c:when>
+			</c:choose>
 		</div>
 	</body>
 </html>

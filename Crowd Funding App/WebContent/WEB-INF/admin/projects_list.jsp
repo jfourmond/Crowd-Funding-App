@@ -48,7 +48,7 @@
 										<td>${project.ID}</td>
 										<td>${project.authorID}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.name}</td>
-										<td class="mdl-data-table__cell--non-numeric">${project.presentation}</td>
+										<td class="mdl-data-table__cell--non-numeric">${fn:substring(project.presentation,0,30)}</td>
 										<td>${project.goal}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.creationDate}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.lastUpdateDate}</td>
