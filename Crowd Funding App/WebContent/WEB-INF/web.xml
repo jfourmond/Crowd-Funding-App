@@ -74,6 +74,17 @@
 		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Servlet ProjectAdd -->
+	<servlet>
+		<servlet-name>ProjectAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.ProjectAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ProjectAdd</servlet-name>
+		<url-pattern>/project_add</url-pattern>
+	</servlet-mapping>
+	
 	<!-- Servlet Logout -->
 	<servlet>
 		<servlet-name>LogOut</servlet-name>

@@ -75,8 +75,8 @@
 										<div class="mdl-card__title mdl-card--expand">
 											Pas de projet
 										</div>
-										<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-											Nouveau Projet...
+										<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<c:url value="project_add"/>" >
+											Créez le vôtre !
 										</a>
 									</div>
 								</c:otherwise>

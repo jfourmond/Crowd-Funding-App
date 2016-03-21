@@ -4,10 +4,10 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Ajout d'un projet</title>
+		<title>Nouveau Projet</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
-		<link rel="stylesheet" href="<c:url value="/css/material.min.css"/>" />
-		<script src="<c:url value="/js/material.min.js"/>" ></script>
+		<link rel="stylesheet" href="css/material.min.css">
+		<script src="js/material.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
 			.mdl-layout {
@@ -35,22 +35,17 @@
 					<div class="mdl-card__supporting-text">
 						<form method="post" action="project_add">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="name" name="name" pattern=".{5,}" required />
+								<input class="mdl-textfield__input" type="text" id="name" name="name" pattern=".{5,}" value="${project.name}"required />
 								<label class="mdl-textfield__label" for="name">Nom de projet</label>
 								<span class="mdl-textfield__error">${form.errors['name']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="id_user" name="id_user" pattern="([0-9])+" required />
-								<label class="mdl-textfield__label" for="id_user">ID de l'auteur</label>
-								<span class="mdl-textfield__error">${form.errors['id_user']}</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="presentation" name="presentation" required />
+								<input class="mdl-textfield__input" type="text" id="presentation" name="presentation" value="${project.presentation}" required />
 								<label class="mdl-textfield__label" for="presentation">Présentation</label>
 								<span class="mdl-textfield__error">${form.errors['presentation']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
-								<input class="mdl-textfield__input" type="text" pattern="([0-9])+" id="goal" name="goal" required >
+								<input class="mdl-textfield__input" type="text" pattern="([0-9])+" id="goal" name="goal" value="${project.goal}" required >
 								<label class="mdl-textfield__label" for="goal">Montant à atteindre</label>
 								<span class="mdl-textfield__error">${form.errors['goal']}</span>
 							</div>
