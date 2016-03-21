@@ -36,7 +36,7 @@
 					</c:if>
 					<p>Username : ${sessionScope.session_user.name}</p>
 					<p>Email : ${sessionScope.session_user.email}</p>
-					<p>Date d'inscrition : ${sessionScope.session_user.inscriptionDate}</p>
+					<p>Date d'inscription : ${sessionScope.session_user.inscriptionDate}</p>
 				</c:when>
 				<c:otherwise>
 					<p>Pas connecté ? Direction la page de connexion ! </p>
