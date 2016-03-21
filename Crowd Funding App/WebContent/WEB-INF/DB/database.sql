@@ -30,6 +30,7 @@ CREATE TABLE projects(
 	author_id INT(10) NOT NULL,
 	name VARCHAR(20) NOT NULL,
 	presentation VARCHAR(500),
+	actual_amount INT(10) NOT NULL,
 	goal INT(10) NOT NULL,
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
@@ -65,7 +66,7 @@ CREATE TABLE compensations(
 CREATE TABLE contributors(
 	contributor_id INT(10) NOT NULL,
 	project_id INT(10) NOT NULL,
-	compensation_id INT(10) NOT NULL,
+	compensation_id INT(10),
 	donation FLOAT(10) NOT NULL,
 	FOREIGN KEY (contributor_id) REFERENCES users(id),
 	FOREIGN KEY (compensation_id) REFERENCES compensations(id),
