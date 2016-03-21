@@ -33,10 +33,10 @@ public class ProjectCreation extends Forms {
 		String goal = getFieldValue(request, GOAL_FIELD);
 		
 		try {
-			authorProcessing(author, project);
+		//	authorProcessing(author, project);
 			nameProcessing(name, project);
-			presentationProcessing(presentation, project);
-			goalProcessing(goal, project);
+		//	presentationProcessing(presentation, project);
+		//	goalProcessing(goal, project);
 
 						
 			if (errors.isEmpty()) {
@@ -54,29 +54,12 @@ public class ProjectCreation extends Forms {
 		return project;
 	}
 	
-	private void authorProcessing(String name, Project project) {
-		try {
-			checkName(name);
-			project.setName(name);
-		} catch (FormValidationException E) {
-			addErrors(NAME_FIELD, E.getMessage());
-		}
-	}
-	
-	private void checkAuthor(String author) throws FormValidationException {
-		if(author != null) {
-			if(author.length() < 5)
-				throw new FormValidationException("Le nom de l'auteur doit contenir au moins 5 caractères.");
-		} else
-			throw new FormValidationException("Merci d'entrer un nom d'auteur.");
-	}
-	
 	private void nameProcessing(String author, Project project) {
 		try {
-			checkAuthor(author);
-			project.setAuthor(author);
+			checkName(author);
+			project.setName(author);
 		} catch (FormValidationException E) {
-			addErrors(AUTHOR_FIELD, E.getMessage());
+			addErrors(NAME_FIELD, E.getMessage());
 		}
 	}
 	
