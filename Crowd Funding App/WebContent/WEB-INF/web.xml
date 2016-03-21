@@ -73,18 +73,7 @@
 		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
 	
-	
 	<!-- Servlet Project Management -->
-	
-	<servlet>
-		<servlet-name>ProjectsList</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.ProjectsList</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>ProjectsList</servlet-name>
-		<url-pattern>/ProjectsList</url-pattern>
-	</servlet-mapping>
 	
 	<!-- Servlet Logout -->
 	<servlet>
@@ -129,5 +118,16 @@
 	<servlet-mapping>
 		<servlet-name>UserEdit</servlet-name>
 		<url-pattern>/user_edit</url-pattern>
+	</servlet-mapping>
+	
+		<!--  Servlet ProjectsList -->	
+	<servlet>
+		<servlet-name>ProjectsList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.ProjectsList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ProjectsList</servlet-name>
+		<url-pattern>/projects_list</url-pattern>
 	</servlet-mapping>
 </web-app>
