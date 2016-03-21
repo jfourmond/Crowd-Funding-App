@@ -45,10 +45,6 @@
 						<form method="post" action="projectadd">
 							<p class="error">${form.errors['username']}</p>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="author" name="author" />
-								<label class="mdl-textfield__label" for="username">Auteur</label>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" id="name" name="name" />
 								<label class="mdl-textfield__label" for="username">Nom de projet</label>
 							</div>
