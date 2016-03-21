@@ -13,6 +13,7 @@ public class AdminUserEdition extends Forms {
 	public final static String PW_FIELD = "password";
 	public final static String ADMIN_CB = "admin";
 	
+	
 	private UserDAO userDAO;
 	
 	/**	CONSTRUCTEURS	**/
