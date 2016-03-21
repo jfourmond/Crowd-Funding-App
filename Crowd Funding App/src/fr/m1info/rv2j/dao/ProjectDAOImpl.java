@@ -23,7 +23,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private static final String LAST_UPDATE = "last_update";
 	
 	private static final String SELECT_BY_ID = "SELECT id, author_id, name, presentation, goal, creation_date, last_update FROM projects where id = ? ";
-
+	private static final String SELECT_BY_AUTHOR_ID = "SELECT id, author_id, name, presentation, goal, creation_date, last_update FROM projects where author_id = ? ";
+	
 	private static final String SELECT_ALL = "SELECT * FROM projects";
 	
 	private static final String INSERT = "INSERT INTO projects(author_id, name, presentation, goal, creation_date, last_update) VALUES (?, ?, ?, ?, ?, ?)";
@@ -99,6 +100,31 @@ public class ProjectDAOImpl implements ProjectDAO {
 			silentCloses(resultSet, preparedStatement, connection);
 		}
 		return project;
+	}
+	
+	@Override
+	public List<Project> findByAuthorID(String id) throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		List<Project> projects = new ArrayList<Project>();
+		Project project = null;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SELECT_BY_AUTHOR_ID, false, id);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				project = map(resultSet);
+				projects.add(project);
+			}
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return projects;
 	}
 	
 	@Override
