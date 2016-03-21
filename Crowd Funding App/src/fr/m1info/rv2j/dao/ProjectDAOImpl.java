@@ -50,7 +50,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 		
 		try {
 			connection = daoFactory.getConnection();
-			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, project.getName(), project.getAuthor_id(), project.getName(), project.getPresentation(), project.getCreationDate(), project.getLastUpdateDate());
+			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, project.getName(), project.getAuthorID(), project.getName(), project.getPresentation(), project.getCreationDate(), project.getLastUpdateDate());
 			int status = preparedStatement.executeUpdate();
 			if(status == 0)
 				throw new DAOException("Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table.");
@@ -74,7 +74,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 		
 		try {
 			connection = daoFactory.getConnection();	
-			preparedStatement = initialisationPreparedRequest(connection, UPDATE, false, project.getAuthor_id(), project.getName(), project.getPresentation(), project.getGoal(), project.getCreationDate(), project.getLastUpdateDate(), id);
+			preparedStatement = initialisationPreparedRequest(connection, UPDATE, false, project.getAuthorID(), project.getName(), project.getPresentation(), project.getGoal(), project.getCreationDate(), project.getLastUpdateDate(), id);
 			int status = preparedStatement.executeUpdate();
 			if(status == 0)
 				throw new DAOException("Échec de l'édition du projet, aucune ligne éditée dans la table.");
@@ -224,7 +224,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private static Project map(ResultSet resultSet) throws SQLException {
 		Project project = new Project();
 		project.setID(resultSet.getInt(ID));
-		project.setAuthor_id(resultSet.getInt(AUTHOR_ID));
+		project.setAuthorID(resultSet.getInt(AUTHOR_ID));
 		project.setName(resultSet.getString(NAME));
 		project.setPresentation(resultSet.getString(PRESENTATION));
 		project.setGoal(resultSet.getInt(GOAL));

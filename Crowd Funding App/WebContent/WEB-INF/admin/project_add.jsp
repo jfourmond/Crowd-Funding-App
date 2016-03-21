@@ -4,15 +4,12 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Project Add</title>
+		<title>Ajout d'un projet</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
-		<link rel="stylesheet" href="css/material.min.css">
-		<script src="js/material.min.js"></script>
+		<link rel="stylesheet" href="<c:url value="/css/material.min.css"/>" />
+		<script src="<c:url value="/js/material.min.js"/>" ></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-				<style>
-			.error {
-				color: #B40431;
-			}
+		<style>
 			.mdl-layout {
 				align-items: center;
 			}
@@ -39,34 +36,34 @@
 			<main class="mdl-layout__content">
 				<div class="mdl-card mdl-shadow--6dp">
 					<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-						<h2 class="mdl-card__title-text">Création d'un projet</h2>
+						<h2 class="mdl-card__title-text">Projet</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
 						<form method="post" action="projectadd">
-							<p class="error">${form.errors['username']}</p>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="name" name="name" />
+								<input class="mdl-textfield__input" type="text" id="name" name="name" pattern="[0-9]+" required />
 								<label class="mdl-textfield__label" for="username">Nom de projet</label>
+								<span class="mdl-textfield__error">Veuillez saisir un nom de projet.</span>
 							</div>
-
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="presentation" name="presentation" />
+								<input class="mdl-textfield__input" type="text" id="name" name="name" required />
+								<label class="mdl-textfield__label" for="username">ID de l'auteur</label>
+								<span class="mdl-textfield__error">Veuillez saisir un id d'utilisateur.</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" id="presentation" name="presentation" required />
 								<label class="mdl-textfield__label" for="text">Présentation</label>
+								<span class="mdl-textfield__error">Veuillez saisir une présentation.</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield">
-							    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="goal">
-							    <label class="mdl-textfield__label" for="goal">Montant à atteindre</label>
-							    <span class="mdl-textfield__error">Ceci n'est pas un nombre !</span>
+								<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="goal" required >
+								<label class="mdl-textfield__label" for="goal">Montant à atteindre</label>
+								<span class="mdl-textfield__error">Veuillez saisir un montant.</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
-								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Terminer la création</button>
+								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>
 							</div>
 						</form>
-						<a href="signup">
-							<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-								Créer un compte
-							</button>
-						</a>
 					</div>
 				</div>
 			</main>

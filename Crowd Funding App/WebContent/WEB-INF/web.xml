@@ -99,68 +99,67 @@
 	<!-- SERVLETS ADMIN -->
 		<!-- Servlet UsersList -->
 	<servlet>
-		<servlet-name>UsersList</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.UsersList</servlet-class>
+		<servlet-name>AdminUsersList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminUsersList</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>UsersList</servlet-name>
-		<url-pattern>/users_list</url-pattern>
+		<servlet-name>AdminUsersList</servlet-name>
+		<url-pattern>/admin/users_list</url-pattern>
 	</servlet-mapping>
 	
 		<!-- Servlet UserAdd -->
 	<servlet>
-		<servlet-name>UserAdd</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.UserAdd</servlet-class>
+		<servlet-name>AdminUserAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminUserAdd</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>UserAdd</servlet-name>
-		<url-pattern>/user_add</url-pattern>
+		<servlet-name>AdminUserAdd</servlet-name>
+		<url-pattern>/admin/user_add</url-pattern>
 	</servlet-mapping>
 	
 		<!-- Servlet UserEdit -->
 	<servlet>
-		<servlet-name>UserEdit</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.UserEdit</servlet-class>
+		<servlet-name>AdminUserEdit</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminUserEdit</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>UserEdit</servlet-name>
-		<url-pattern>/user_edit</url-pattern>
+		<servlet-name>AdminUserEdit</servlet-name>
+		<url-pattern>/admin/user_edit</url-pattern>
 	</servlet-mapping>
-	
-	<!-- Servlet ProjectEdit -->
-	
-	 <servlet>
-    	<servlet-name>ProjectEdit</servlet-name>
-    	<servlet-class>fr.m1info.rv2j.servlets.ProjectEdit</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-  	  <servlet-name>ProjectEdit</servlet-name>
-    	<url-pattern>/project_edit</url-pattern>
-  	</servlet-mapping>
-	
 	
 		<!--  Servlet ProjectsList -->	
 	<servlet>
-		<servlet-name>ProjectsList</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.ProjectsList</servlet-class>
+		<servlet-name>AdminProjectsList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminProjectsList</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>ProjectsList</servlet-name>
-		<url-pattern>/projects_list</url-pattern>
+		<servlet-name>AdminProjectsList</servlet-name>
+		<url-pattern>/admin/projects_list</url-pattern>
+	</servlet-mapping>
+	
+		<!-- Servlet ProjectEdit -->
+	 <servlet>
+		<servlet-name>AdminProjectEdit</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminProjectEdit</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminProjectEdit</servlet-name>
+		<url-pattern>/admin/project_edit</url-pattern>
 	</servlet-mapping>
 	
 		<!--  Servlet ProjectAdd -->	
 	<servlet>
-    	<servlet-name>ProjectAdd</servlet-name>
-    	<servlet-class>fr.m1info.rv2j.servlets.ProjectAdd</servlet-class>
-  	</servlet>
-  	
-  	<servlet-mapping>
-    	<servlet-name>ProjectAdd</servlet-name>
-   	 	<url-pattern>/project_add</url-pattern>
-  	</servlet-mapping>
+		<servlet-name>AdminProjectAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminProjectAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminProjectAdd</servlet-name>
+		<url-pattern>/admin/project_add</url-pattern>
+	</servlet-mapping>
 </web-app>

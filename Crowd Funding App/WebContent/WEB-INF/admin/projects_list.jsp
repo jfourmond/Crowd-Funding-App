@@ -5,12 +5,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Listes des projets</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
-		<link rel="stylesheet" href="css/material.min.css">
-		<script src="js/material.min.js"></script>
+		<link rel="stylesheet" href="<c:url value="/css/material.min.css"/>" />
+		<script src="<c:url value="/js/material.min.js"/>" ></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
 			.mdl-layout {
-					align-items: center;
+				align-items: center;
 			}
 			.mdl-layout__content {
 				padding: 24px;
@@ -46,7 +46,7 @@
 								<c:forEach var="project" items="${projects}" >
 									<tr>
 										<td>${project.ID}</td>
-										<td>${project.author_id}</td>
+										<td>${project.authorID}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.name}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.presentation}</td>
 										<td>${project.goal}</td>

@@ -13,14 +13,14 @@ import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.UserDAO;
 import fr.m1info.rv2j.forms.AdminUserCreation;
 
-public class UserAdd extends HttpServlet {
+public class AdminUserAdd extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
 	public final static String view_form = "/WEB-INF/admin/user_add.jsp";
-	public final static String path_success = "users_list.jsp";
+	public final static String path_success = "users_list";
 	
 	public final static String SESSION = "session_user";
 	
@@ -54,7 +54,7 @@ public class UserAdd extends HttpServlet {
 		user = form.createUser(req);
 		
 		if (form.getErrors().isEmpty())
-			resp.sendRedirect(resp.encodeRedirectURL("users_list")); 
+			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
 		else {
 			req.setAttribute(USER, user);
 			req.setAttribute(FORM, form);

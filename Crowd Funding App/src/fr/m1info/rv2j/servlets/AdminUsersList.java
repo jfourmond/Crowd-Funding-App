@@ -10,34 +10,33 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.m1info.rv2j.beans.User;
-import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.dao.DAOFactory;
-import fr.m1info.rv2j.dao.ProjectDAO;
+import fr.m1info.rv2j.dao.UserDAO;
 
-public class ProjectsList extends HttpServlet {
+public class AdminUsersList extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view = "/WEB-INF/admin/projects_list.jsp";
-	public final static String view_add = "/WEB-INF/admin/project_add.jsp";
-	public final static String view_edit = "/WEB-INF/admin/project_edit.jsp";
+	public final static String view = "/WEB-INF/admin/users_list.jsp";
+	public final static String view_add = "/WEB-INF/admin/user_add.jsp";
+	public final static String view_edit = "/WEB-INF/admin/user_edit.jsp";
 	
 	public final static String SESSION = "session_user";
 	
-	public final static String PROJECTS = "projects";
-	public final static String PROJECT = "project";
+	public final static String USERS = "users";
+	public final static String USER = "user";
 	
 	
-	private ProjectDAO projectDAO;
+	private UserDAO userDAO;
 	
-	private List<Project> projects;
+	private List<User> users;
 	
 	@Override
 	public void init() throws ServletException {
-		this.projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
-		projects = projectDAO.getAllProjects();
+		this.userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
+		users = userDAO.getAllUsers();
 	}
 	
 	@Override
@@ -48,8 +47,8 @@ public class ProjectsList extends HttpServlet {
 		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
-			projects = projectDAO.getAllProjects();
-			req.setAttribute(PROJECTS, projects);
+			users = userDAO.getAllUsers();
+			req.setAttribute(USERS, users);
 			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 		}
 	}
@@ -61,12 +60,12 @@ public class ProjectsList extends HttpServlet {
 		String add = req.getParameter("add");
 		
 		if(delete != null) {
-			projectDAO.deleteByID(delete);
+			userDAO.deleteByID(delete);
 			this.doGet(req, resp);
 		}
 		if(edit != null) {
-			Project project = projectDAO.findByID(edit);
-			req.setAttribute(PROJECT, project);
+			User user = userDAO.findByID(edit);
+			req.setAttribute(USER, user);
 			this.getServletContext().getRequestDispatcher(view_edit).forward(req, resp);
 		}
 		if(add != null) {
