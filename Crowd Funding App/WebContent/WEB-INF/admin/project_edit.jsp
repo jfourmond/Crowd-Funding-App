@@ -32,7 +32,7 @@
 						<h2 class="mdl-card__title-text">Projet ${project.ID}</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
-						<form method="post" action="user_edit">
+						<form method="post" action="project_edit">
 							<input hidden value="${project.ID}" type="text" id="id" name="id" required />
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" id="projectname" name="projectname" value="${project.name}" required />
@@ -40,12 +40,8 @@
 								<span class="mdl-textfield__error">${form.errors['name']}</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="author_id" name="author_id" value="${project.author_id}" disabled="disabled" required/>
-								<label class="mdl-textfield__label" for="author_id">ID Auteur</label>
-								<span class="mdl-textfield__error">${form.errors['author_id']}</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="presentation" name="presentation" value="${project.presentation}" required />
+								<textarea class="mdl-textfield__input" type="text" rows= "3" id="presentation" name="presentation" value="${project.presentation}" required></textarea>
+								<!-- <input class="mdl-textfield__input" type="text" id="presentation" name="presentation" value="${project.presentation}" required /> -->
 								<label class="mdl-textfield__label" for="presentation">Présentation</label>
 								<span class="mdl-textfield__error">${form.errors['presentation']}</span>
 							</div>
@@ -53,16 +49,6 @@
 								<input class="mdl-textfield__input" type="number" id="goal" name="goal" value="${project.goal}" required />
 								<label class="mdl-textfield__label" for="presentation">Objectif (€)</label>
 								<span class="mdl-textfield__error">${form.errors['goal']}</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="date" id="creation_date" name="creation_date" value="${project.creation_date}" disabled="disabled" required />
-								<label class="mdl-textfield__label" for="presentation">Date de création</label>
-								<span class="mdl-textfield__error">${form.errors['creation_date']}</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="date" id="last_update_date" name="last_update_date" value="${project.last_update_date}" disabled="disabled" required />
-								<label class="mdl-textfield__label" for="presentation">Dernière édition</label>
-								<span class="mdl-textfield__error">${form.errors['last_update_date']}</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
 								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Editer</button>
