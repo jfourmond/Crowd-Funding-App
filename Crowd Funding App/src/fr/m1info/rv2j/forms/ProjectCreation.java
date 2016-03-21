@@ -24,7 +24,7 @@ public class ProjectCreation extends Forms {
 		this.projectDAO = projectDAO;
 	}
 	
-/*	public Project createProject(HttpServletRequest request) {
+	public Project createProject(HttpServletRequest request) {
 		Project project = new Project();
 		
 		String author = getFieldValue(request, AUTHOR_FIELD);
@@ -54,7 +54,7 @@ public class ProjectCreation extends Forms {
 		return project;
 	}
 	
-	private void nameProcessing(String name, Project project) {
+	private void authorProcessing(String name, Project project) {
 		try {
 			checkName(name);
 			project.setName(name);
@@ -63,15 +63,31 @@ public class ProjectCreation extends Forms {
 		}
 	}
 	
+	private void checkAuthor(String author) throws FormValidationException {
+		if(author != null) {
+			if(author.length() < 5)
+				throw new FormValidationException("Le nom de l'auteur doit contenir au moins 5 caractères.");
+		} else
+			throw new FormValidationException("Merci d'entrer un nom d'auteur.");
+	}
+	
+	private void nameProcessing(String author, Project project) {
+		try {
+			checkAuthor(author);
+			project.setAuthor(author);
+		} catch (FormValidationException E) {
+			addErrors(AUTHOR_FIELD, E.getMessage());
+		}
+	}
+	
 	private void checkName(String name) throws FormValidationException {
 		if(name != null) {
 			if(name.length() < 5)
 				throw new FormValidationException("Le nom de projet doit contenir au moins 5 caractères.");
-			else if(projectDAO.findByName(name) != null)
+			else if(projectDAO.findByNAME(name) != null)
 				throw new FormValidationException("Le nom de projet est déjà utilisé.");
 		} else
 			throw new FormValidationException("Merci d'entrer un nom de projet.");
-	}*/
-
+	}
 
 }
