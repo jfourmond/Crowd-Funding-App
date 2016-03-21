@@ -5,7 +5,7 @@ import fr.m1info.rv2j.beans.Project;
 
 public interface ProjectDAO {
 	/**
-	 * Ajout du project dans la base de données
+	 * Ajout d'un projet dans la base de données
 	 * @param project : le projet à ajouter
 	 * @throws DAOException
 	 */
@@ -48,4 +48,11 @@ public interface ProjectDAO {
 	 * @throws DAOException
 	 */
 	void deleteByID(String id) throws DAOException;
+	
+	/**
+	 * Compte du nombre de projets dans la base de données
+	 * @return le nombre de projets dans la base de donénes
+	 * @throws DAOException
+	 */
+	int count() throws DAOException;
 }

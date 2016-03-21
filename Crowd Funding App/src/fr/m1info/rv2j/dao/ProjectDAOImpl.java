@@ -33,6 +33,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	
 	private static final String DELETE = "DELETE FROM projects WHERE id = ? ";
 	
+	private static final String COUNT = "SELECT COUNT(*) FROM projects";
+	
 	public ProjectDAOImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
 	}
@@ -169,6 +171,30 @@ public class ProjectDAOImpl implements ProjectDAO {
 		} finally {
 			silentCloses(values, preparedStatement, connection);
 		}
+	}
+
+	@Override
+	public int count() throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		int count = 0;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, COUNT, true);
+			resultSet = preparedStatement.executeQuery();
+			
+			resultSet.next();
+			count = resultSet.getInt(1);
+			System.out.println(count);
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return count;
 	}
 	
 	private static Project map(ResultSet resultSet) throws SQLException {
