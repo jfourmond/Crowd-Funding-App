@@ -62,7 +62,7 @@
 					</tbody>
 				</table>
 			</form>
-			<form action="users_list" method="post">
+			<form action="projects_list" method="post">
 				<button class="mdl-button mdl-js-button mdl-button--fab" type="submit" name="add">
 					<i class="material-icons">add</i>
 				</button>
