@@ -6,8 +6,7 @@ import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOException;
 import fr.m1info.rv2j.dao.UserDAO;
 
-public class AdminUserEdition extends Forms {
-	public final static String ID_FIELD = "id";
+public class AdminUserCreation extends Forms {
 	public final static String USERNAME_FIELD = "username";
 	public final static String EMAIL_FIELD = "email";
 	public final static String PW_FIELD = "password";
@@ -16,38 +15,36 @@ public class AdminUserEdition extends Forms {
 	private UserDAO userDAO;
 	
 	/**	CONSTRUCTEURS	**/
-	public AdminUserEdition() {
+	public AdminUserCreation() {
 		super();
 	}
 	
-	public AdminUserEdition(UserDAO userDAO) {
+	public AdminUserCreation(UserDAO userDAO) {
 		super();
 		this.userDAO = userDAO;
 	}
 	
-	public User editUser(HttpServletRequest request) {
+	public User createUser(HttpServletRequest request) {
 		User user = new User();
 		
-		String id = getFieldValue(request, ID_FIELD);
 		String name = getFieldValue(request, USERNAME_FIELD);
 		String email = getFieldValue(request, EMAIL_FIELD);
 		String pw = getFieldValue(request, PW_FIELD);
 		String right_admin = getFieldValue(request, ADMIN_CB);
 		
 		try {
-			user.setID(Integer.parseInt(id));
 			nameProcessing(name, user);
 			emailProcessing(email, user);
 			passwordProcessing(pw, user);
 			rightProcessing(right_admin, user);
 			
 			if (errors.isEmpty()) {
-				userDAO.update(id, user);
-				result = "Succès de l'édition du client.";
+				userDAO.create(user);
+				result = "Succès de la création du client.";
 			} else
-				result = "Échec de l'édition du client.";
+				result = "Échec de la création du client.";
 		} catch(DAOException E) {
-			result = "Échec de l'édition : une erreur imprévue est survenue, merci de réessayer dans quelques instants.";
+			result = "Échec de la création : une erreur imprévue est survenue, merci de réessayer dans quelques instants.";
 			E.printStackTrace();
 		}
 
@@ -64,7 +61,10 @@ public class AdminUserEdition extends Forms {
 	}
 	
 	private void checkName(String name) throws FormValidationException {
-		if(name == null)
+		if(name != null) {
+			if(userDAO.findByName(name) != null)
+				throw new FormValidationException("Le nom d'utilisateur est déjà utilisé.");
+		} else
 			throw new FormValidationException("Merci d'entrer un nom d'utilisateur.");
 	}
 	
@@ -81,6 +81,8 @@ public class AdminUserEdition extends Forms {
 		if(email != null) {
 			if(!email.matches("(\\w)+@(\\w)+\\.(\\w)+"))
 				throw new FormValidationException("Merci d'entrer une adresse email valide.");
+			else if(userDAO.findByEmail(email) != null)
+				throw new FormValidationException("L'adresse email est déjà utilisée.");
 		}	else
 			throw new FormValidationException("Merci d'entrer une adresse email.");
 	}
@@ -95,7 +97,7 @@ public class AdminUserEdition extends Forms {
 	}
 	
 	private void checkPassword(String pw) throws FormValidationException {
-		if(pw == null)
+		if(pw ==null) 
 			throw new FormValidationException("Merci d'entrer un mot de passe.");
 	}
 	

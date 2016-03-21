@@ -18,7 +18,7 @@
 				</c:when>
 				<c:when test="${sessionScope.session_user.rightLevel == 2}">
 					<a class="mdl-navigation__link" href="<c:url value="/users_list"/>">Utilisateurs</a>
-					<a class="mdl-navigation__link" href="<c:url value="#"/>">Projets</a>
+					<a class="mdl-navigation__link" href="<c:url value="/projects_list"/>">Projets</a>
 					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
 				</c:when>
 				<c:otherwise>
@@ -32,7 +32,6 @@
 <div class="mdl-layout__drawer">
 	<span class="mdl-layout-title">Menu</span>
 	<nav class="mdl-navigation">
-		<a class="mdl-navigation__link" href="">Découvrir</a>
 		<a class="mdl-navigation__link" href="<c:url value ="/account" />">Compte</a>
 		<a class="mdl-navigation__link" href="<c:url value="/home"/>">Retour à l'accueil</a>
 	</nav>
