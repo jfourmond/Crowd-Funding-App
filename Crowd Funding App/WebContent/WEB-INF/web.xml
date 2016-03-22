@@ -207,5 +207,15 @@
 		<url-pattern>/admin/project_edit</url-pattern>
 	</servlet-mapping>
 	
+		<!-- Servlet ContributionsList -->
+	<servlet>
+		<servlet-name>AdminContributionsList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminContributionsList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminContributionsList</servlet-name>
+		<url-pattern>/admin/contributions_list</url-pattern>
+	</servlet-mapping>
 
 </web-app>

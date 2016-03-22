@@ -36,7 +36,6 @@ public class AdminProjectsList extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		this.projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
-		projects = projectDAO.getAllProjects();
 	}
 	
 	@Override

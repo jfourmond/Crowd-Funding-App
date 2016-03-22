@@ -101,7 +101,7 @@ public class ContributionDAOImpl implements ContributionDAO {
 	}
 	
 	@Override
-	public List<Contribution> getAllContribution() throws DAOException {
+	public List<Contribution> getAllContributions() throws DAOException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;

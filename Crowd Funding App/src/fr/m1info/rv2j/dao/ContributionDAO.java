@@ -34,6 +34,6 @@ public interface ContributionDAO {
 	 * @return une liste de contributions
 	 * @throws DAOException
 	 */
-	List<Contribution> getAllContribution() throws DAOException;
+	List<Contribution> getAllContributions() throws DAOException;
 	
 }
