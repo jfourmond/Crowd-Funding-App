@@ -67,10 +67,14 @@ public class DAOFactory {
 	}
 	
 	public UserDAO getUserDao() {
-		return new UserDAOImpl( this );
+		return new UserDAOImpl(this);
 	}
 	
 	public ProjectDAO getProjectDao() {
-		return new ProjectDAOImpl( this );
+		return new ProjectDAOImpl(this);
+	}
+	
+	public ContributionDAO getContributionDao() {
+		return new ContributionDAOImpl(this);
 	}
 }

@@ -37,13 +37,13 @@
 										<c:when test="${sessionScope.session_user.rightLevel == 2}">
 											<h2 class="mdl-card__title-text">Bienvenue Administrateur</h2>
 										</c:when>
-										<c:when test="${sessionScope.session_user.rightLevel == 2}">
+										<c:when test="${sessionScope.session_user.rightLevel == 1}">
 											<h2 class="mdl-card__title-text">Bienvenue</h2>
 										</c:when>
 									</c:choose>
 								</div>
 								<div class="mdl-card__supporting-text">
-									<p>Username : ${sessionScope.session_user.name}</p>
+									<p>Nom : ${sessionScope.session_user.name}</p>
 									<p>Email : ${sessionScope.session_user.email}</p>
 									<p>Date d'inscription : ${sessionScope.session_user.inscriptionDate}</p>
 								</div>
