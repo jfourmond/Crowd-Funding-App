@@ -123,6 +123,17 @@
 		<url-pattern>/project</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Servlet ContributionAdd -->
+	<servlet>
+		<servlet-name>ContributionAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.ContributionAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ContributionAdd</servlet-name>
+		<url-pattern>/contribution_add</url-pattern>
+	</servlet-mapping>
+	
 	<!-- Servlet Logout -->
 	<servlet>
 		<servlet-name>LogOut</servlet-name>

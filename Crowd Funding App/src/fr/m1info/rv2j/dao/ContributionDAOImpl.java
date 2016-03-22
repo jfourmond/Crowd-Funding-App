@@ -39,13 +39,10 @@ public class ContributionDAOImpl implements ContributionDAO {
 		
 		try {
 			connection = daoFactory.getConnection();
-			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, contribution.getUserID(), contribution.getProjectID(), contribution.getDonation(), contribution.getCreationDate());
+			preparedStatement = initialisationPreparedRequest(connection, INSERT, false, contribution.getUserID(), contribution.getProjectID(), contribution.getDonation(), contribution.getCreationDate());
 			int status = preparedStatement.executeUpdate();
 			if(status == 0)
 				throw new DAOException("Échec de la création de la contribution, aucune ligne ajoutée dans la table.");
-			values = preparedStatement.getGeneratedKeys();
-			if(!values.next())
-				throw new DAOException("Échec de la création de la contribution, aucun ID auto-généré retourné.");
 		} catch (SQLException E) {
 			throw new DAOException(E);
 		} finally {

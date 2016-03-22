@@ -47,7 +47,7 @@ public class Projects extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
 		
-		if(user_session == null || user_session.getRightLevel() != 1) {
+		if(user_session == null || user_session.getRightLevel() == 0) {
 			resp.sendError(401);
 		} else {
 			projects = projectDAO.getAllProjects();

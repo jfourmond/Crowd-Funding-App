@@ -1,7 +1,6 @@
 package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,38 +14,32 @@ import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.ContributionDAO;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
-import fr.m1info.rv2j.dao.UserDAO;
+import fr.m1info.rv2j.forms.ContributionCreation;
 
-public class ProjectShow extends HttpServlet {
-
+public class ContributionAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view = "/WEB-INF/project.jsp";
-	public final static String redirection_path = "projects";
-	
+	public final static String view_form = "/WEB-INF/contribution_add.jsp";
+	public final static String path_success = "project";
 	
 	public final static String SESSION = "session_user";
 	
-	public final static String AUTHOR = "author";
 	public final static String PROJECT = "project";
-	public final static String CONTRIBUTIONS = "contributions";
+	public final static String CONTRIBUTION = "contribution";
+	public final static String FORM = "form";
 	
 	public final static String ID = "id";
 	
 	private ProjectDAO projectDAO;
-	private UserDAO userDAO;
 	private ContributionDAO contributionDAO;
 	
 	private Project project;
-	private User user;
-	private List<Contribution> contributions;
 	
 	@Override
 	public void init() throws ServletException {
 		projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
-		userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 		contributionDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getContributionDao();
 	}
 	
@@ -61,21 +54,29 @@ public class ProjectShow extends HttpServlet {
 			resp.sendError(401);
 		} else {
 			id_project = (String) req.getParameter(ID);
-			if(id_project == null)
-				resp.sendRedirect(resp.encodeRedirectURL(redirection_path)); 
-			else {
-				project = projectDAO.findByID(id_project);
-				user = userDAO.findByID(String.valueOf(project.getAuthorID()));
-				contributions = contributionDAO.findByProjectID(id_project);
-				req.setAttribute(AUTHOR, user);
-				req.setAttribute(PROJECT, project);
-				req.setAttribute(CONTRIBUTIONS, contributions);
-				this.getServletContext().getRequestDispatcher(view).forward(req, resp);
-			}
+			project = projectDAO.findByID(id_project);
+			req.setAttribute(PROJECT, project);
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Contribution contribution;
+		
+		ContributionCreation form = new ContributionCreation(contributionDAO);
+		
+		contribution = form.createContribution(req);
+		
+		if (form.getErrors().isEmpty()) {
+			System.out.println(contribution);
+			req.setAttribute(PROJECT, project);
+			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
+			// this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
+		} else {
+			req.setAttribute(CONTRIBUTION, contribution);
+			req.setAttribute(FORM, form);
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		}
 	}
 }

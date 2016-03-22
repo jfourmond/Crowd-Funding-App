@@ -26,7 +26,7 @@
 			
 				<div class="mdl-grid">
 					 <div class="mdl-cell mdl-cell--8-col">
-						<div class="mdl-card mdl-shadow--2dp">
+						<div class="mdl-card mdl-shadow--4dp">
 							<div class="mdl-card__title mdl-card--border">
 								<h2 class="mdl-card__title-text">${project.name}</h2>
 							</div>
@@ -52,28 +52,34 @@
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--4-col">
-						<c:choose>
-							<c:when test="${ !empty contributions }">
-								<c:forEach var="contribution" items="${contributions}" >
-									<div class="mdl-card mdl-shadow--4dp">
-											<div class="mdl-card__supporting-text">
-												Contribution de ${contribution.donation } €
-											</div>
+						<div class="mdl-card mdl-shadow--4dp">
+							<div class="mdl-card__title mdl-card--border">
+								<h2 class="mdl-card__title-text">Les dernières contributions</h2>
+							</div>
+							<c:choose>
+								<c:when test="${ !empty contributions }">
+									<c:forEach var="contribution" items="${contributions}" >
+										<div class="mdl-card__supporting-text">
+											Contribution de ${contribution.donation } €
 										</div>
+										<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
+											<c:url value="/contribution_add">
+												<c:param name="id" value="${project.ID}"/>
+											</c:url> ">
+											Pourquoi pas vous ?
+										</a>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
-									<div class="mdl-card mdl-shadow--2dp">
-										<div class="mdl-card__title mdl-card--expand">
-											Pas de contribution...
-										</div>
-										<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<c:url value="#"/>" >
-											A vous l'honneur !
-										</a>
-									</div>
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
+										<c:url value="/contribution_add">
+											<c:param name="id" value="${project.ID}"/>
+										</c:url> ">
+										Soyez le premier à contribuer !
+									</a>
 								</c:otherwise>
 							</c:choose>
-						
+						</div>
 					</div>
 				</div>
 			</main>

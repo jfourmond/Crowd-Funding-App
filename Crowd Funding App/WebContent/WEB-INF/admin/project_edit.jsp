@@ -33,7 +33,7 @@
 					</div>
 					<div class="mdl-card__supporting-text">
 						<form method="post" action="project_edit">
-							<input hidden value="${project.ID}" type="text" id="id" name="id" required />
+							<input value="${project.ID}" type="hidden" id="id" name="id" required />
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" id="projectname" name="projectname" value="${project.name}" required />
 								<label class="mdl-textfield__label" for="projectname">Nom</label>
