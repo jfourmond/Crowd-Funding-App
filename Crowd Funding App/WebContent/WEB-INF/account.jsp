@@ -31,7 +31,7 @@
 				<c:when test="${!empty sessionScope.session_user}">
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--4-col">
-							<div class="mdl-card mdl-shadow--2dp">
+							<div class="mdl-card mdl-shadow--4dp">
 								<div class="mdl-card__title mdl-card--expand">
 									<c:choose>
 										<c:when test="${sessionScope.session_user.rightLevel == 2}">
@@ -55,8 +55,8 @@
 							<c:choose>
 								<c:when test="${ !empty projects }">
 									<c:forEach var="project" items="${projects}" >
-										<div class="mdl-card mdl-shadow--2dp">
-											<div class="mdl-card__title mdl-card--expand">
+										<div class="mdl-card mdl-shadow--4dp">
+											<div class="mdl-card__title">
 												<h2 class="mdl-card__title-text">${project.name}</h2>
 											</div>
 											<div class="mdl-card__supporting-text">
