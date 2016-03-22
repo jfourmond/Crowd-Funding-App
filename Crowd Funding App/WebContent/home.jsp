@@ -26,7 +26,8 @@
 				eros. Donec consectetur laoreet velit, eu sollicitudin odio cursus ut. Lorem ipsum dolor sit amet, consectetur 
 				adipiscing elit. Praesent ut tempus sem.
 				</p>
-			</div>		
+			</div>
 		</div>
+		
 	</body>
 </html>

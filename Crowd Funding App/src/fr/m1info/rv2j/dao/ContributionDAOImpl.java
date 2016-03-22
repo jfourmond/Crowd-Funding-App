@@ -19,12 +19,13 @@ public class ContributionDAOImpl implements ContributionDAO {
 	private static final String PROJECT_ID = "project_id";
 	private static final String COMPENSATION_id = "compensation_id";
 	private static final String DONATION = "donation";
+	private static final String CREATION_DATE = "creation_date";
 	
 	private static final String SELECT_ALL = "SELECT * FROM contributions";
-	private static final String SELECT_BY_AUTHOR_ID = "SELECT contributor_id, project_id, donation FROM contributions WHERE author_id = ?";
-	private static final String SELECT_BY_PROJECT_ID = "SELECT contributor_id, project_id, donation FROM contributions WHERE project_id = ?";
+	private static final String SELECT_BY_AUTHOR_ID = "SELECT contributor_id, project_id, donation, creation_date FROM contributions WHERE author_id = ?";
+	private static final String SELECT_BY_PROJECT_ID = "SELECT contributor_id, project_id, donation, creation_date FROM contributions WHERE project_id = ?";
 	
-	private static final String INSERT = "INSERT INTO contributions(contributor_id, project_id, donation) VALUES (?, ?, ?)";
+	private static final String INSERT = "INSERT INTO contributions(contributor_id, project_id, donation, creation_date) VALUES (?, ?, ?, ?)";
 	
 	public ContributionDAOImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
@@ -38,7 +39,7 @@ public class ContributionDAOImpl implements ContributionDAO {
 		
 		try {
 			connection = daoFactory.getConnection();
-			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, contribution.getUserID(), contribution.getProjectID(), contribution.getDonation());
+			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, contribution.getUserID(), contribution.getProjectID(), contribution.getDonation(), contribution.getCreationDate());
 			int status = preparedStatement.executeUpdate();
 			if(status == 0)
 				throw new DAOException("Échec de la création de la contribution, aucune ligne ajoutée dans la table.");
@@ -133,6 +134,7 @@ public class ContributionDAOImpl implements ContributionDAO {
 		contribution.setUserID(resultSet.getInt(AUTHOR_ID));
 		contribution.setProjectID(resultSet.getInt(PROJECT_ID));
 		contribution.setDonation(resultSet.getInt(DONATION));
+		contribution.setCreationDate(resultSet.getDate(CREATION_DATE));
 		
 		return contribution;
 	}

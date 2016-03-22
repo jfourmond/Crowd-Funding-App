@@ -9,6 +9,11 @@ public class Contribution {
 	private int donation;
 	private Date creation_date;
 	
+	/**	CONSTRUCTEUR	**/
+	public Contribution() {
+		creation_date = new Date(System.currentTimeMillis());
+	}
+	
 	/**	GETTERS	**/
 	public int getUserID() { return userID; }
 	
