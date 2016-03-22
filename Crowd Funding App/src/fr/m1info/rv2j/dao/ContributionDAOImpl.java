@@ -142,7 +142,6 @@ public class ContributionDAOImpl implements ContributionDAO {
 			
 			resultSet.next();
 			sum = resultSet.getInt(1);
-			System.out.println(sum);
 		} catch(SQLException E) {
 			throw new DAOException(E);
 		} finally {
