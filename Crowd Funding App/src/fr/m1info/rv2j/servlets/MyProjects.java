@@ -27,7 +27,6 @@ public class MyProjects extends HttpServlet {
 	public final static String PROJECTS = "projects";
 	public final static String PROJECT = "project";
 	
-	
 	private ProjectDAO projectDAO;
 	
 	private List<Project> my_projects;
@@ -42,7 +41,7 @@ public class MyProjects extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
 		
-		if(user_session == null || user_session.getRightLevel() != 1) {
+		if(user_session == null || user_session.getRightLevel() == 0) {
 			resp.sendError(401);
 		} else {
 			my_projects = projectDAO.findByAuthorID(String.valueOf(user_session.getID()));

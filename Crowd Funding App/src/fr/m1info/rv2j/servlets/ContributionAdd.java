@@ -70,9 +70,7 @@ public class ContributionAdd extends HttpServlet {
 		
 		if (form.getErrors().isEmpty()) {
 			System.out.println(contribution);
-			req.setAttribute(PROJECT, project);
-			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
-			// this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
+			resp.sendRedirect(resp.encodeRedirectURL(path_success+"?id="+project.getID())); 
 		} else {
 			req.setAttribute(CONTRIBUTION, contribution);
 			req.setAttribute(FORM, form);

@@ -41,14 +41,6 @@
 									${project.presentation}
 								</p>
 							</div>
-							<div class="mdl-card__actions mdl-card--border">
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
-									<c:url value="#">
-										<c:param name="id" value="${project.ID}"/>
-									</c:url> ">
-									Contribuer ! 
-								</a>
-							</div>
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--4-col">
@@ -58,17 +50,21 @@
 							</div>
 							<c:choose>
 								<c:when test="${ !empty contributions }">
-									<c:forEach var="contribution" items="${contributions}" >
-										<div class="mdl-card__supporting-text">
-											Contribution de ${contribution.donation } €
-										</div>
-										<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
-											<c:url value="/contribution_add">
-												<c:param name="id" value="${project.ID}"/>
-											</c:url> ">
-											Pourquoi pas vous ?
-										</a>
-									</c:forEach>
+									<div class="mdl-card__supporting-text">
+										<ul class="mdl-list">
+											<c:forEach var="contribution" items="${contributions}" >
+												<li class="mdl-list__item">
+													<span class="mdl-list__item-primary-content">Contribution de ${contribution.donation } €</span>
+												</li>
+											</c:forEach>
+										</ul>
+									</div>
+									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
+										<c:url value="/contribution_add">
+											<c:param name="id" value="${project.ID}"/>
+										</c:url> ">
+										Pourquoi pas vous ?
+									</a>
 								</c:when>
 								<c:otherwise>
 									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
