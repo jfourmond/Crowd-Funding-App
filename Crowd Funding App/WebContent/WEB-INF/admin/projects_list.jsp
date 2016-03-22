@@ -26,7 +26,7 @@
 			<%@include file="/WEB-INF/headband.jsp" %>
 			<h1>Projets</h1>
 			<form action="projects_list" method="post">
-				<table class="mdl-data-table mdl-js-data-table">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 					<thead>
 						<tr>
 							<th>ID</th>

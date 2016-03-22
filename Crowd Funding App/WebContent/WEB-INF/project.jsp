@@ -49,7 +49,7 @@
 								<h2 class="mdl-card__title-text">Les dernières contributions</h2>
 							</div>
 							<div class="mdl-card__title mdl-card--border">
-								<h4 class="mdl-card__subtitle-text">(${donation_progress} / ${project.goal} €)</h4>
+								<h4 class="mdl-card__subtitle-text">${donation_progress} / ${project.goal} €</h4>
 							</div>
 							<div id="progress" class="mdl-progress mdl-js-progress"></div>
 							<script>
@@ -60,13 +60,22 @@
 							<c:choose>
 								<c:when test="${ !empty contributions }">
 									<div class="mdl-card__supporting-text">
-										<ul class="mdl-list">
-											<c:forEach var="contribution" items="${contributions}" >
-												<li class="mdl-list__item">
-													<span class="mdl-list__item-primary-content">Contribution de ${contribution.donation } €</span>
-												</li>
-											</c:forEach>
-										</ul>
+										<table>
+											<thead>
+												<tr>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="contribution" items="${contributions}" >
+													<tr>
+														<td class="mdl-data-table__cell--non-numeric">
+															Contribution de ${contribution.donation} €
+														</td>
+													</tr>	
+												</c:forEach>
+											</tbody>
+										</table>
 									</div>
 									<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
 										<c:url value="/contribution_add">

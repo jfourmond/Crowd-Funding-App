@@ -27,7 +27,7 @@
 	
 			<h1>Utilisateurs</h1>
 			<form action="users_list" method="post">
-				<table class="mdl-data-table mdl-js-data-table">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 					<thead>
 						<tr>
 							<th>ID</th>
