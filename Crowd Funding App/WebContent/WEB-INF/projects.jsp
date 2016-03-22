@@ -16,6 +16,10 @@
 				padding: 24px;
 				flex: none;
 			}
+			.mdl-card {
+				width: 60%;
+				margin: auto;
+			}
 			form {
 				padding-top: 25px;
 				width: 100%;
