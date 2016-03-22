@@ -72,7 +72,7 @@ public class ProjectCreation extends Forms {
 		if(name != null) {
 			if(name.length() < 5)
 				throw new FormValidationException("Le nom de projet doit contenir au moins 5 caractères.");
-			else if(projectDAO.findByNAME(name) != null)
+			else if(projectDAO.findByName(name) != null)
 				throw new FormValidationException("Le nom de projet est déjà utilisé.");
 		} else
 			throw new FormValidationException("Merci d'entrer un nom de projet.");
