@@ -27,7 +27,7 @@ public interface ProjectDAO {
 	 */
 	Project findByID(String id) throws DAOException;
 	
-	Project findByNAME(String name) throws DAOException;
+	Project findByName(String name) throws DAOException;
 
 	/**
 	 * Recherche des projets dans la base de données par leur id d'auteur

@@ -57,16 +57,17 @@ CREATE TABLE compensations(
 	project_id INT(10) NOT NULL,
 	text VARCHAR(250) NOT NULL,
 	contributor_limit INT(10) NOT NULL, 	/* 0 = illimité */
+	creation_date DATE NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
-/* Table des contributeurs */
-CREATE TABLE contributors(
+/* Table des contributions */
+CREATE TABLE contributions(
 	contributor_id INT(10) NOT NULL,
 	project_id INT(10) NOT NULL,
 	compensation_id INT(10),
-	donation FLOAT(10) NOT NULL,
+	donation INT(10) NOT NULL,
 	FOREIGN KEY (contributor_id) REFERENCES users(id),
 	FOREIGN KEY (compensation_id) REFERENCES compensations(id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)

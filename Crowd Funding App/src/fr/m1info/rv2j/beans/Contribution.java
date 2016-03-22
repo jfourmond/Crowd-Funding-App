@@ -1,29 +1,36 @@
 package fr.m1info.rv2j.beans;
 
-public class Contributor {
-	private int id;
+import java.sql.Date;
+
+public class Contribution {
+	private int userID;
 	private int projectID;
 	// private int compensationID;
 	private int donation;
+	private Date creation_date;
 	
 	/**	GETTERS	**/
-	public int getID() { return id; }
+	public int getUserID() { return userID; }
 	
 	public int getProjectID() { return projectID; }
 	
 	public int getDonation() { return donation; }
 	
+	public Date getCreationDate() { return creation_date; }
+	
 	/**	SETTERS	**/
-	public void setID(int id) { this.id = id; }
+	public void setUserID(int id) { this.userID = id; }
 	
 	public void setProjectID(int projectID) { this.projectID = projectID; }
 	
 	public void setDonation(int donation) { this.donation = donation; }
 	
+	public void setCreationDate(Date creation_date) { this.creation_date = creation_date; }
+	
 	@Override
 	public String toString() {
 		String ch = "Contribution : ";
-		ch += "\tID : " + id;
+		ch += "\tUtilisateur : " + userID;
 		ch += "\tProjet : " + projectID;
 		ch += "\tDons : " + donation;
 		return ch;

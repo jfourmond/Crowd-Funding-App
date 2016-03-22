@@ -108,7 +108,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 	
 	@Override
-	public Project findByNAME(String name) throws DAOException {
+	public Project findByName(String name) throws DAOException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
