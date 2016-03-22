@@ -85,12 +85,6 @@
 		<url-pattern>/project_add</url-pattern>
 	</servlet-mapping>
 	
-	<!-- Servlet Logout -->
-	<servlet>
-		<servlet-name>LogOut</servlet-name>
-		<servlet-class>fr.m1info.rv2j.servlets.LogOut</servlet-class>
-	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>LogOut</servlet-name>
 		<url-pattern>/logout</url-pattern>
@@ -117,6 +111,23 @@
 		<servlet-name>MyProjects</servlet-name>
 		<url-pattern>/my_projects</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Servlet Project -->
+	<servlet>
+		<servlet-name>ProjectShow</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.ProjectShow</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ProjectShow</servlet-name>
+		<url-pattern>/project</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet Logout -->
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.LogOut</servlet-class>
+	</servlet>
 	
 	<!-- SERVLETS ADMIN -->
 		<!-- Servlet UsersList -->

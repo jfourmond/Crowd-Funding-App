@@ -32,7 +32,7 @@
 	<span class="mdl-layout-title">Menu</span>
 	<nav class="mdl-navigation">
 		<a class="mdl-navigation__link" href="<c:url value ="/account" />">Mon Compte</a>
-		<a class="mdl-navigation__link" href="<c:url value="#" />" >Mes projets</a>
+		<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes projets</a>
 		<a class="mdl-navigation__link" href="<c:url value="/project_add"/>">Nouveau Projet</a>
 	</nav>
 </div>

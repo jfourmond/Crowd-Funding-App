@@ -18,6 +18,7 @@
 			}
 			form {
 				padding-top: 25px;
+				width: 100%;
 			}
 		</style>
 	</head>
@@ -28,7 +29,7 @@
 			<c:choose>
 				<c:when test="${ !empty projects }">
 					<c:forEach var="project" items="${projects}" >
-						<div class="demo-card-wide mdl-card mdl-shadow--4dp">
+						<div class="mdl-card mdl-shadow--4dp">
 							<div class="mdl-card__title">
     							<h2 class="mdl-card__title-text">${project.name}</h2>
     						</div>

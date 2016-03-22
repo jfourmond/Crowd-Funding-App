@@ -20,7 +20,8 @@ public class LogIn extends HttpServlet {
 	public final static String CONF_DAO_FACTORY = "daofactory";
 
 	public final static String view_form = "/WEB-INF/login.jsp";
-	public final static String view_success = "/WEB-INF/account.jsp";
+	
+	public final static String path_success = "account";
 
 	public final static String USERNAME = "username";
 	public final static String FORM = "form";
@@ -49,7 +50,7 @@ public class LogIn extends HttpServlet {
 		
 		if(user != null) {
 			session.setAttribute(SESSION, user);
-			this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
+			resp.sendRedirect(resp.encodeRedirectURL(path_success));
 		} else {
 			session.setAttribute(SESSION, null);
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);

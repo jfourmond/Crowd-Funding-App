@@ -47,7 +47,14 @@
 									<tr>
 										<td>${project.ID}</td>
 										<td>${project.authorID}</td>
-										<td class="mdl-data-table__cell--non-numeric">${project.name}</td>
+										<td class="mdl-data-table__cell--non-numeric">
+											<a href="
+												<c:url value="/project">
+													<c:param name="id" value="${project.ID}"/>
+												</c:url> ">
+												${project.name}
+											</a>
+										</td>
 										<td class="mdl-data-table__cell--non-numeric">${fn:substring(project.presentation,0,30)}</td>
 										<td>${project.goal}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.creationDate}</td>

@@ -16,11 +16,10 @@
 			.mdl-layout__content {
 				padding: 24px;
 				flex: none;
-				margin: auto;
 			}
 			.mdl-card {
-				justify-content: center;
-				width: 100%;
+				width: 80%;
+				margin:auto;
 			}
 		</style>
 	</head>
@@ -40,5 +39,6 @@
 					</div>
 				</div>
 			</main>
+		</div>
 	</body>
 </html>
