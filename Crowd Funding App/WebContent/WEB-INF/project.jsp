@@ -28,13 +28,27 @@
 		
 			<main class="mdl-layout__content">
 				<div class="mdl-card mdl-shadow--2dp">
-					<div class="mdl-card__title">
+					<div class="mdl-card__title mdl-card--border">
 						<h2 class="mdl-card__title-text">${project.name}</h2>
 					</div>
-					<div class="mdl-card__supporting-text">
+					<div class="mdl-card__title mdl-card--border">
+						<h3 class="mdl-card__subtitle-text"><em>Proposé par : ${author.name}</em></h3>
+					</div>
+					<div class="mdl-card__title mdl-card--border">
+						<h2 class="mdl-card__subtitle-text"><b>But : ${project.goal} €</b></h2>
+					</div>
+					<div class="mdl-card__supporting-text mdl-card--border">
 						<p>
 							${project.presentation}
 						</p>
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
+							<c:url value="#">
+								<c:param name="id" value="${project.ID}"/>
+							</c:url> ">
+							Contribuer ! 
+						</a>
 					</div>
 				</div>
 			</main>

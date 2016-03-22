@@ -25,6 +25,7 @@ public class ProjectAdd extends HttpServlet{
 	
 	public final static String SESSION = "session_user";
 	
+	public final static String AUTHOR = "author";
 	public final static String PROJECT = "project";
 	public final static String FORM = "form";
 	
@@ -49,12 +50,16 @@ public class ProjectAdd extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		User user_session = (User) session.getAttribute(SESSION);
+		
 		Project project;
 		
 		ProjectCreation form = new ProjectCreation(projectDAO);
 		
 		project = form.createProject(req);
 		
+		req.setAttribute(AUTHOR, user_session);
 		req.setAttribute(PROJECT, project);
 		req.setAttribute(FORM, form);
 		

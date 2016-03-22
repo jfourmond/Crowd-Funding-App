@@ -40,7 +40,6 @@
     							
     						</div>
     						<div class="mdl-card__supporting-text ">
-								<!-- <h4>Par <b><em>${users[project.authorID-1].name}</em></b></h4> -->
 								${project.presentation}
 							</div>
 							<div class="mdl-card__actions mdl-card--border">
@@ -48,7 +47,7 @@
 									<c:url value="/project">
 										<c:param name="id" value="${project.ID}"/>
 									</c:url> ">
-      								Contribuer ! 
+      								En savoir plus 
     							</a>
   							</div>
   						</div>	

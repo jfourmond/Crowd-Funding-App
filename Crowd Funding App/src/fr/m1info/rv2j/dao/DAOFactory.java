@@ -17,7 +17,7 @@ public class DAOFactory {
 	private String	url;
 	private String	username;
 	private String	password;
-
+	
 	DAOFactory( String url, String username, String password ) {
 		this.url = url;
 		this.username = username;
@@ -65,7 +65,7 @@ public class DAOFactory {
 	Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(url, username, password );
 	}
-
+	
 	public UserDAO getUserDao() {
 		return new UserDAOImpl( this );
 	}
