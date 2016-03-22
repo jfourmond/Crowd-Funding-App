@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
 			.mdl-layout {
-					align-items: center;
+				align-items: center;
 			}
 			.mdl-layout__content {
 				padding: 24px;
@@ -36,12 +36,17 @@
 						<div class="mdl-card mdl-shadow--4dp">
 							<div class="mdl-card__title">
     							<h2 class="mdl-card__title-text">${project.name}</h2>
+    							
     						</div>
-    						<div class="mdl-card__supporting-text">
-								${project.presentation}
+    						<div class="mdl-card__supporting-text ">
+								<!-- <h4>Par <b><em>${users[project.authorID-1].name}</em></b></h4> -->
+								<p>${project.presentation}</p>
 							</div>
 							<div class="mdl-card__actions mdl-card--border">
-    							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
+									<c:url value="/project">
+										<c:param name="id" value="${project.ID}"/>
+									</c:url> ">
       								Contribuer ! 
     							</a>
   							</div>
