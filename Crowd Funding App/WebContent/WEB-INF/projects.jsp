@@ -19,6 +19,7 @@
 			.mdl-card {
 				width: 60%;
 				margin: auto;
+				margin-bottom: 20px;
 			}
 			form {
 				padding-top: 25px;
@@ -32,7 +33,7 @@
 			<h1>Projets</h1>
 			<c:choose>
 				<c:when test="${ !empty projects }">
-					<c:forEach var="project" items="${projects}" >
+					<c:forEach var="project" items="${	projects}" >
 						<div class="mdl-card mdl-shadow--4dp">
 							<div class="mdl-card__title">
     							<h2 class="mdl-card__title-text">${project.name}</h2>
@@ -40,7 +41,7 @@
     						</div>
     						<div class="mdl-card__supporting-text ">
 								<!-- <h4>Par <b><em>${users[project.authorID-1].name}</em></b></h4> -->
-								<p>${project.presentation}</p>
+								${project.presentation}
 							</div>
 							<div class="mdl-card__actions mdl-card--border">
     							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
@@ -51,8 +52,6 @@
     							</a>
   							</div>
   						</div>	
-  						<!-- pas génial mais j'ai rien trouvé d'autre pour forcer un espace entre chaque projet -->
-  						<div><p></p></div>
 					</c:forEach>
 				</c:when>
 			</c:choose>
