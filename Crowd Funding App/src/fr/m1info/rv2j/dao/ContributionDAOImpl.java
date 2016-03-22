@@ -27,6 +27,8 @@ public class ContributionDAOImpl implements ContributionDAO {
 	
 	private static final String INSERT = "INSERT INTO contributions(contributor_id, project_id, donation, creation_date) VALUES (?, ?, ?, ?)";
 	
+	private static final String SUM_BY_PROJECT_ID = "SELECT SUM(donation) FROM contributions WHERE project_id = ?";
+	
 	public ContributionDAOImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
 	}
@@ -123,6 +125,30 @@ public class ContributionDAOImpl implements ContributionDAO {
 			silentCloses(resultSet, preparedStatement, connection);
 		}
 		return contributions;
+	}
+	
+	@Override
+	public int getTotalContributionsToProject(String project_id) throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		int sum = 0;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SUM_BY_PROJECT_ID, true, project_id);
+			resultSet = preparedStatement.executeQuery();
+			
+			resultSet.next();
+			sum = resultSet.getInt(1);
+			System.out.println(sum);
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return sum;
 	}
 	
 	private static Contribution map(ResultSet resultSet) throws SQLException {

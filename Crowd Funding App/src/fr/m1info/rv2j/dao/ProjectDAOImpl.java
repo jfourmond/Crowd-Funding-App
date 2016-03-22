@@ -211,7 +211,6 @@ public class ProjectDAOImpl implements ProjectDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			resultSet.next();
-			count = resultSet.getInt(1);
 			System.out.println(count);
 		} catch(SQLException E) {
 			throw new DAOException(E);

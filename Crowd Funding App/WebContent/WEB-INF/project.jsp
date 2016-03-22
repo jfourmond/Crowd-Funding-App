@@ -48,6 +48,15 @@
 							<div class="mdl-card__title mdl-card--border">
 								<h2 class="mdl-card__title-text">Les dernières contributions</h2>
 							</div>
+							<div class="mdl-card__title mdl-card--border">
+								<h4 class="mdl-card__subtitle-text">(${donation_progress} / ${project.goal} €)</h4>
+							</div>
+							<div id="progress" class="mdl-progress mdl-js-progress"></div>
+							<script>
+								document.querySelector('#progress').addEventListener('mdl-componentupgraded', function() {
+									this.MaterialProgress.setProgress(('${donation_progress}' * 100) / '${project.goal}');
+								});
+							</script>
 							<c:choose>
 								<c:when test="${ !empty contributions }">
 									<div class="mdl-card__supporting-text">

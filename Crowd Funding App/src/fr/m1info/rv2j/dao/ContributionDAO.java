@@ -36,4 +36,12 @@ public interface ContributionDAO {
 	 */
 	List<Contribution> getAllContributions() throws DAOException;
 	
+	/**
+	 * Calcul de la somme de toutes les contributions du projet portant l'id
+	 * @param project_id : id du projet à calculer
+	 * @return la somme de toutes les contributions
+	 * @throws DAOException
+	 */
+	int getTotalContributionsToProject(String project_id) throws DAOException;
+	
 }

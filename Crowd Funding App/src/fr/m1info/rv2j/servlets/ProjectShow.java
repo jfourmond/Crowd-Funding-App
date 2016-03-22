@@ -32,6 +32,7 @@ public class ProjectShow extends HttpServlet {
 	public final static String AUTHOR = "author";
 	public final static String PROJECT = "project";
 	public final static String CONTRIBUTIONS = "contributions";
+	public final static String DONATION = "donation_progress";
 	
 	public final static String ID = "id";
 	
@@ -42,6 +43,7 @@ public class ProjectShow extends HttpServlet {
 	private Project project;
 	private User user;
 	private List<Contribution> contributions;
+	private int donation_total;
 	
 	@Override
 	public void init() throws ServletException {
@@ -67,9 +69,11 @@ public class ProjectShow extends HttpServlet {
 				project = projectDAO.findByID(id_project);
 				user = userDAO.findByID(String.valueOf(project.getAuthorID()));
 				contributions = contributionDAO.findByProjectID(id_project);
+				donation_total = contributionDAO.getTotalContributionsToProject(id_project);
 				req.setAttribute(AUTHOR, user);
 				req.setAttribute(PROJECT, project);
 				req.setAttribute(CONTRIBUTIONS, contributions);
+				req.setAttribute(DONATION, donation_total);
 				this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 			}
 		}
