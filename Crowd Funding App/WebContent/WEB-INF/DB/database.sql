@@ -3,7 +3,7 @@ DROP USER 'crowdfunding'@'localhost';
 
 /* DROP DATABASE si existe */
 DROP DATABASE IF EXISTS fr_m1info_rv2j;
-CREATE DATABASE fr_m1info_rv2j;
+CREATE DATABASE fr_m1info_rv2j DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE fr_m1info_rv2j;
 
 /* DROP TABLE si existe */
@@ -23,6 +23,7 @@ CREATE TABLE users(
 	right_level INT(1) NOT NULL DEFAULT '1',
 	PRIMARY KEY (id)
 );
+ALTER TABLE users CONVERT TO CHARACTER SET 'UTF8';
 
 /* Table des projets */
 CREATE TABLE projects(
@@ -31,6 +32,7 @@ CREATE TABLE projects(
 	name TEXT NOT NULL,
 	presentation LONGTEXT,
 	goal INT(10) NOT NULL,
+	picture_path LONGTEXT,
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
