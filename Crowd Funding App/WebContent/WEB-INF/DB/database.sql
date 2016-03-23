@@ -23,6 +23,7 @@ CREATE TABLE users(
 	right_level INT(1) NOT NULL DEFAULT '1',
 	PRIMARY KEY (id)
 );
+ALTER TABLE users CONVERT TO CHARACTER SET 'UTF8';
 
 /* Table des projets */
 CREATE TABLE projects(
