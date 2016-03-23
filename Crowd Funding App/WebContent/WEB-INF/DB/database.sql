@@ -3,7 +3,7 @@ DROP USER 'crowdfunding'@'localhost';
 
 /* DROP DATABASE si existe */
 DROP DATABASE IF EXISTS fr_m1info_rv2j;
-CREATE DATABASE fr_m1info_rv2j;
+CREATE DATABASE fr_m1info_rv2j DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE fr_m1info_rv2j;
 
 /* DROP TABLE si existe */
