@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Listes des projets</title>
+		<title>Mes projets</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
 		<link rel="stylesheet" href="css/material.min.css">
 		<script src="js/material.min.js"></script>
@@ -30,7 +30,7 @@
 	<body>
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			<%@include file="/WEB-INF/headband.jsp" %>
-			<h1>Projets</h1>
+			<h1>Mes Projets</h1>
 			<c:choose>
 				<c:when test="${ !empty projects }">
 					<c:forEach var="project" items="${	projects}" >

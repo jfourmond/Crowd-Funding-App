@@ -1,7 +1,6 @@
 package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,36 +9,32 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.m1info.rv2j.beans.User;
-import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
 import fr.m1info.rv2j.dao.UserDAO;
+import fr.m1info.rv2j.forms.AdminProjectCreation;
 
-public class Projects extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
+public class AdminProjectAdd extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
+
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view = "/WEB-INF/projects.jsp";
+	public final static String view_form = "/WEB-INF/admin/project_add.jsp";
+	public final static String path_success = "projects_list";
 	
 	public final static String SESSION = "session_user";
 	
-	public final static String USERS = "users";
-	public final static String PROJECTS = "projects";
-	public final static String PROJECT = "project";
-	
+	public final static String USER = "user";
+	public final static String FORM = "form";
 	
 	private ProjectDAO projectDAO;
 	private UserDAO userDAO;
 	
-	private List<Project> projects;
-	private List<User> users;
-	
 	@Override
 	public void init() throws ServletException {
-		this.projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
-		this.userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
+		projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
+		userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 	}
 	
 	@Override
@@ -47,18 +42,24 @@ public class Projects extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
 		
-		if(user_session == null || user_session.getRightLevel() == 0) {
+		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
-			projects = projectDAO.getAllProjects();
-			users = userDAO.getAllUsers();
-			req.setAttribute(PROJECTS, projects);
-			req.setAttribute(USERS, users);
-			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		AdminProjectCreation form = new AdminProjectCreation(projectDAO, userDAO);
+		
+		form.createProject(req);
+		
+		if (form.getErrors().isEmpty())
+			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
+		else {
+			req.setAttribute(FORM, form);
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		}
 	}
 }

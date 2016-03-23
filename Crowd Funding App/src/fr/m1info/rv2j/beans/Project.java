@@ -1,6 +1,7 @@
 package fr.m1info.rv2j.beans;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,15 @@ public class Project {
 	private Date creation_date;
 	private Date last_update_date;
 	
+	public Project() {
+		contributors = new ArrayList<>();
+		compensations = new ArrayList<Compensation>();
+		commentaries = new ArrayList<Commentary>();
+		
+		creation_date = new Date(System.currentTimeMillis());
+		last_update_date = creation_date;
+	}
+	
 	/*	GETTERS	*/
 	public int getID() { return id; }
 	
@@ -27,7 +37,7 @@ public class Project {
 
 	public int getGoal() { return goal; }
 	
-	public int getAuthor_id() { return author_id; }
+	public int getAuthorID() { return author_id; }
 
 	public List<Integer> getContributors() { return contributors; }
 
@@ -48,7 +58,7 @@ public class Project {
 
 	public void setGoal(int g) { goal=g; }
 	
-	public void setAuthor_id(int id) { this.author_id = id; }
+	public void setAuthorID(int id) { this.author_id = id; }
 	
 	public void setContributors(List<Integer> contributors) { this.contributors = contributors; }
 	
@@ -59,4 +69,17 @@ public class Project {
 	public void setCreationDate(Date date) { this.creation_date = date; }
 
 	public void setLastUpdateDate(Date date) { this.last_update_date = date; }
+	
+	/*	AFFICHAGE	*/
+	@Override
+	public String toString() {
+		String ch = "Projet " + id + " : ";
+		ch += "\tNOM : " + name;
+		ch += "\tPRESENTATION : " + presentation;
+		ch += "\tBUT : " + goal;
+		ch += "\tAUTEUR : " + author_id;
+		ch += "\tDate de création : " + creation_date;
+		ch += "\tDate de modification : " + last_update_date;
+		return ch;
+	}
 }

@@ -1,6 +1,7 @@
 package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,58 +12,64 @@ import javax.servlet.http.HttpSession;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.UserDAO;
-import fr.m1info.rv2j.forms.AdminUserEdition;
 
-public class UserEdit extends HttpServlet {
+public class AdminUsersList extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view_form = "/WEB-INF/admin/user_edit.jsp";
-	public final static String path_success = "users_list";
+	public final static String view = "/WEB-INF/admin/users_list.jsp";
+	public final static String view_add = "/WEB-INF/admin/user_add.jsp";
+	public final static String view_edit = "/WEB-INF/admin/user_edit.jsp";
 	
 	public final static String SESSION = "session_user";
 	
+	public final static String USERS = "users";
 	public final static String USER = "user";
-	public final static String FORM = "form";
+	
 	
 	private UserDAO userDAO;
 	
+	private List<User> users;
+	
 	@Override
 	public void init() throws ServletException {
-		userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
+		this.userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
+		users = userDAO.getAllUsers();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
-		User user;
+		
 		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
-			user = (User) req.getAttribute(USER);
-			req.setAttribute(USER, user);
-			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+			users = userDAO.getAllUsers();
+			req.setAttribute(USERS, users);
+			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User user;
-		AdminUserEdition form = new AdminUserEdition(userDAO);
+		String delete = req.getParameter("delete");
+		String edit = req.getParameter("edit");
+		String add = req.getParameter("add");
 		
-		user = form.editUser(req);
-		
-		if (form.getErrors().isEmpty())
-			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
-			// this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
-		else {
+		if(delete != null) {
+			userDAO.deleteByID(delete);
+			this.doGet(req, resp);
+		}
+		if(edit != null) {
+			User user = userDAO.findByID(edit);
 			req.setAttribute(USER, user);
-			req.setAttribute(FORM, form);
-			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+			this.getServletContext().getRequestDispatcher(view_edit).forward(req, resp);
+		}
+		if(add != null) {
+			this.getServletContext().getRequestDispatcher(view_add).forward(req, resp);
 		}
 	}
-	
 }

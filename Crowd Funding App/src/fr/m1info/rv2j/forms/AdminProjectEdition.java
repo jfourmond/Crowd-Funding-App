@@ -39,7 +39,7 @@ public class AdminProjectEdition extends Forms {
 			nameProcessing(projectname, project);
 			presentationProcessing(presentation, project);
 			goalProcessing(goal, project);
-			last_updateProcessing(project);
+			lastUpdateProcessing(project);
 			
 			if (errors.isEmpty()) {
 				projectDAO.update(id, project);
@@ -59,6 +59,7 @@ public class AdminProjectEdition extends Forms {
 			checkName(name);
 			project.setName(name);
 		} catch (FormValidationException E) {
+			E.printStackTrace();
 			addErrors(PROJECTNAME_FIELD, E.getMessage());
 		}
 	}
@@ -73,6 +74,7 @@ public class AdminProjectEdition extends Forms {
 			checkPresentation(presentation);
 			project.setPresentation(presentation);
 		} catch (FormValidationException E) {
+			E.printStackTrace();
 			addErrors(PRESENTATION_FIELD, E.getMessage());
 		}
 	}
@@ -90,6 +92,7 @@ public class AdminProjectEdition extends Forms {
 			checkGoal(goal);
 			project.setGoal(Integer.parseInt(goal));
 		} catch (FormValidationException E) {
+			E.printStackTrace();
 			addErrors(GOAL_FIELD, E.getMessage());
 		}
 	}
@@ -99,7 +102,7 @@ public class AdminProjectEdition extends Forms {
 			throw new FormValidationException("Merci d'entrer un montant objectif.");
 	}
 	
-	private void last_updateProcessing(Project project) {
+	private void lastUpdateProcessing(Project project) {
 			project.setLastUpdateDate(new Date(System.currentTimeMillis()));
 	}
 }

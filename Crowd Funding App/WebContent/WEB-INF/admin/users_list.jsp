@@ -5,12 +5,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Listes des utilisateurs</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
-		<link rel="stylesheet" href="css/material.min.css">
-		<script src="js/material.min.js"></script>
+		<link rel="stylesheet" href="<c:url value="/css/material.min.css"/>" />
+		<script src="<c:url value="/js/material.min.js"/>" ></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
 			.mdl-layout {
-					align-items: center;
+				align-items: center;
 			}
 			.mdl-layout__content {
 				padding: 24px;
@@ -27,7 +27,7 @@
 	
 			<h1>Utilisateurs</h1>
 			<form action="users_list" method="post">
-				<table class="mdl-data-table mdl-js-data-table">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 					<thead>
 						<tr>
 							<th>ID</th>

@@ -5,12 +5,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Listes des projets</title>
 		<%@include file="/WEB-INF/favicon.jsp" %>
-		<link rel="stylesheet" href="css/material.min.css">
-		<script src="js/material.min.js"></script>
+		<link rel="stylesheet" href="<c:url value="/css/material.min.css"/>" />
+		<script src="<c:url value="/js/material.min.js"/>" ></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
 			.mdl-layout {
-					align-items: center;
+				align-items: center;
 			}
 			.mdl-layout__content {
 				padding: 24px;
@@ -26,7 +26,7 @@
 			<%@include file="/WEB-INF/headband.jsp" %>
 			<h1>Projets</h1>
 			<form action="projects_list" method="post">
-				<table class="mdl-data-table mdl-js-data-table">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -46,9 +46,16 @@
 								<c:forEach var="project" items="${projects}" >
 									<tr>
 										<td>${project.ID}</td>
-										<td>${project.author_id}</td>
-										<td class="mdl-data-table__cell--non-numeric">${project.name}</td>
-										<td class="mdl-data-table__cell--non-numeric">${project.presentation}</td>
+										<td>${project.authorID}</td>
+										<td class="mdl-data-table__cell--non-numeric">
+											<a href="
+												<c:url value="/project">
+													<c:param name="id" value="${project.ID}"/>
+												</c:url> ">
+												${project.name}
+											</a>
+										</td>
+										<td class="mdl-data-table__cell--non-numeric">${fn:substring(project.presentation,0,30)}</td>
 										<td>${project.goal}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.creationDate}</td>
 										<td class="mdl-data-table__cell--non-numeric">${project.lastUpdateDate}</td>

@@ -12,24 +12,23 @@ import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
-import fr.m1info.rv2j.forms.ProjectCreation;
+import fr.m1info.rv2j.forms.AdminProjectEdition;
 
-public class ProjectAdd extends HttpServlet{
-
+public class AdminProjectEdit extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view_form = "/WEB-INF/project_add.jsp";
-	public final static String view_success = "/WEB-INF/project.jsp";
+	public final static String view_form = "/WEB-INF/admin/project_edit.jsp";
+	public final static String path_success = "projects_list";
 	
 	public final static String SESSION = "session_user";
 	
-	public final static String AUTHOR = "author";
 	public final static String PROJECT = "project";
 	public final static String FORM = "form";
 	
-	ProjectDAO projectDAO;
+	private ProjectDAO projectDAO;
 	
 	@Override
 	public void init() throws ServletException {
@@ -40,32 +39,30 @@ public class ProjectAdd extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
-		
-		if(user_session == null || user_session.getRightLevel() == 0) {
+		Project project;
+		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
+			project = (Project) req.getAttribute(PROJECT);
+			req.setAttribute(PROJECT, project);
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		User user_session = (User) session.getAttribute(SESSION);
-		
 		Project project;
 		
-		ProjectCreation form = new ProjectCreation(projectDAO);
+		AdminProjectEdition form = new AdminProjectEdition(projectDAO);
 		
-		project = form.createProject(req);
-		
-		req.setAttribute(AUTHOR, user_session);
-		req.setAttribute(PROJECT, project);
-		req.setAttribute(FORM, form);
+		project = form.editProject(req);
 		
 		if (form.getErrors().isEmpty())
-			this.getServletContext().getRequestDispatcher(view_success).forward(req, resp);
-		else
+			resp.sendRedirect(resp.encodeRedirectURL(path_success)); 
+		else {
+			req.setAttribute(PROJECT, project);
+			req.setAttribute(FORM, form);
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		}
 	}
 }

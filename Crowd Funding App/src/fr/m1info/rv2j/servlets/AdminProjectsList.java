@@ -13,33 +13,29 @@ import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
-import fr.m1info.rv2j.dao.UserDAO;
 
-public class Projects extends HttpServlet {
+public class AdminProjectsList extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view = "/WEB-INF/projects.jsp";
+	public final static String view = "/WEB-INF/admin/projects_list.jsp";
+	public final static String view_add = "/WEB-INF/admin/project_add.jsp";
+	public final static String view_edit = "/WEB-INF/admin/project_edit.jsp";
 	
 	public final static String SESSION = "session_user";
 	
-	public final static String USERS = "users";
 	public final static String PROJECTS = "projects";
 	public final static String PROJECT = "project";
 	
-	
 	private ProjectDAO projectDAO;
-	private UserDAO userDAO;
 	
 	private List<Project> projects;
-	private List<User> users;
 	
 	@Override
 	public void init() throws ServletException {
 		this.projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
-		this.userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 	}
 	
 	@Override
@@ -47,18 +43,32 @@ public class Projects extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
 		
-		if(user_session == null || user_session.getRightLevel() == 0) {
+		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
 			projects = projectDAO.getAllProjects();
-			users = userDAO.getAllUsers();
 			req.setAttribute(PROJECTS, projects);
-			req.setAttribute(USERS, users);
 			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 		}
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String delete = req.getParameter("delete");
+		String edit = req.getParameter("edit");
+		String add = req.getParameter("add");
+		
+		if(delete != null) {
+			projectDAO.deleteByID(delete);
+			this.doGet(req, resp);
+		}
+		if(edit != null) {
+			Project project = projectDAO.findByID(edit);
+			req.setAttribute(PROJECT, project);
+			this.getServletContext().getRequestDispatcher(view_edit).forward(req, resp);
+		}
+		if(add != null) {
+			this.getServletContext().getRequestDispatcher(view_add).forward(req, resp);
+		}
 	}
 }
