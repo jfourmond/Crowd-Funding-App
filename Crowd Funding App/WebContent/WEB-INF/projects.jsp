@@ -27,7 +27,9 @@
 						<div class="mdl-card mdl-shadow--4dp">
 							<div class="mdl-card__title">
     							<h2 class="mdl-card__title-text">${project.name}</h2>
-    							
+    						</div>
+    						<div class="mdl-card__title">
+    							<h4 class="mdl-card__subtitle-text">"${users[project.authorID]}"</h4>
     						</div>
     						<div class="mdl-card__supporting-text ">
 								${project.presentation}
