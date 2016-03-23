@@ -19,6 +19,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private static final String NAME = "name";
 	private static final String PRESENTATION = "presentation";
 	private static final String GOAL = "goal";
+	private static final String PICTURE_PATH = "picture_path";
 	private static final String CREATION_DATE = "creation_date";
 	private static final String LAST_UPDATE = "last_update";
 	
