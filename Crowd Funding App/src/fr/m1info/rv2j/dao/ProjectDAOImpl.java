@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import fr.m1info.rv2j.beans.Project;
 
@@ -170,6 +172,31 @@ public class ProjectDAOImpl implements ProjectDAO {
 			while(resultSet.next()) {
 				project = map(resultSet);
 				projects.add(project);
+			}
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return projects;
+	}
+	
+	@Override
+	public Map<Integer, Project> mapProjects() throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		Map<Integer, Project> projects = new HashMap<Integer, Project>();
+		Project project = null;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SELECT_ALL, false);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				project = map(resultSet);
+				projects.put(project.getID(), project);
 			}
 		} catch(SQLException E) {
 			throw new DAOException(E);

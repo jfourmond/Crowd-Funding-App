@@ -29,10 +29,8 @@
 							<div class="mdl-card__title">
     							<h2 class="mdl-card__title-text">${project.name}</h2>
     						</div>
-    						<div class="mdl-card__title">
-    							<h4 class="mdl-card__subtitle-text">proposé par ${users[project.authorID].name}</h4>
-    						</div>
     						<div class="mdl-card__supporting-text ">
+								Proposé par ${users[project.authorID].name}
 								${project.presentation}
 							</div>
 							<div class="mdl-card__actions mdl-card--border">
