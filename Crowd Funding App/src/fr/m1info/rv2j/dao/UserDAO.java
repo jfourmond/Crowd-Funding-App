@@ -1,6 +1,7 @@
 package fr.m1info.rv2j.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import fr.m1info.rv2j.beans.User;
 
@@ -50,6 +51,13 @@ public interface UserDAO {
 	 * @throws DAOException
 	 */
 	List<User> getAllUsers() throws DAOException;
+	
+	/**
+	 * Récupération de tous les utilisateurs dans la base de données sous la forme d'un pair <id, utilisateurs>
+	 * @return map des utilisateurs
+	 * @throws DAOException
+	 */
+	Map<Integer, User> mapUsers() throws DAOException;
 	
 	/**
 	 * Suppression d'un utilisateur par son id 
