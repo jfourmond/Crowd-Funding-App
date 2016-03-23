@@ -15,7 +15,6 @@ import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
 
 public class MyProjects extends HttpServlet {
-
 	private static final long serialVersionUID = 1L;
 	
 	public final static String CONF_DAO_FACTORY = "daofactory";
