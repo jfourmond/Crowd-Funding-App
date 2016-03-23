@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<%@include file="../WEB-INF/entete.jsp" %>
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<meta http-equiv="Refresh" content="2;url=<c:url value="/home" />">
 		<title>Are you lost ?</title>
 		<style>

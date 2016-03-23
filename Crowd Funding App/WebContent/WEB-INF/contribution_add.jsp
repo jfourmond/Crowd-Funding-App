@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<%@include file="../WEB-INF/entete.jsp" %>
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<title>Contribution | ${projet.name}</title>
 		<style>
 			.mdl-layout {

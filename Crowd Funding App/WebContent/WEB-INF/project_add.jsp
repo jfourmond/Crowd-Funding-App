@@ -1,8 +1,8 @@
 <%@ page pageEncoding="UTF-8"%>
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 	<head>
-		<%@include file="../WEB-INF/entete.jsp" %>
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<title>Nouveau Projet</title>
 		<style>
 			.mdl-layout {

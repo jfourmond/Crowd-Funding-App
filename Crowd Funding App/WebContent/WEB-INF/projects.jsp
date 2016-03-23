@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<%@include file="../WEB-INF/entete.jsp" %>
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<title>Listes des projets</title>
 		<style>
 			.mdl-layout {
