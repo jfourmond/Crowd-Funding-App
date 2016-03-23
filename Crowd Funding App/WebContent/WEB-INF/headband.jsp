@@ -31,11 +31,25 @@
 		</nav>
 	</div>
 </header>
-<div class="mdl-layout__drawer">
-	<span class="mdl-layout-title">Menu</span>
-	<nav class="mdl-navigation">
-		<a class="mdl-navigation__link" href="<c:url value ="/account" />">Mon Compte</a>
-		<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes projets</a>
-		<a class="mdl-navigation__link" href="<c:url value="/project_add"/>">Nouveau Projet</a>
-	</nav>
-</div>
+<c:choose>
+	<c:when test="${sessionScope.session_user.rightLevel == 2}">
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Menu</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="<c:url value ="/account" />">Mon Compte</a>
+				<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes projets</a>
+				<a class="mdl-navigation__link" href="<c:url value="/project_add"/>">Nouveau Projet</a>
+			</nav>
+		</div>
+	</c:when>
+	<c:when test="${sessionScope.session_user.rightLevel == 1}">
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Menu</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="<c:url value ="/account" />">Mon Compte</a>
+				<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes projets</a>
+				<a class="mdl-navigation__link" href="<c:url value="/project_add"/>">Nouveau Projet</a>
+			</nav>
+		</div>
+	</c:when>
+</c:choose>
