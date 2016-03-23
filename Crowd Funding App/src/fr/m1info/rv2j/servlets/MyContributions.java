@@ -2,6 +2,7 @@ package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,12 +27,12 @@ public class MyContributions extends HttpServlet {
 	public final static String SESSION = "session_user";
 	
 	public final static String CONTRIBUTIONS = "contributions";
-	public final static String PROJECT = "project";
+	public final static String PROJECTS = "projects";
 	
 	private ContributionDAO contributionDAO;
 	private ProjectDAO projectDAO;
 	
-	private List<Project> my_projects;
+	private Map<Integer, Project> projects;
 	private List<Contribution> my_contributions;
 	
 	@Override
@@ -49,8 +50,9 @@ public class MyContributions extends HttpServlet {
 			resp.sendError(401);
 		} else {
 			my_contributions = contributionDAO.findByAuthorID(String.valueOf(user_session.getID()));
-			my_projects = projectDAO.findByAuthorID(String.valueOf(user_session.getID()));
+			projects = projectDAO.mapProjects();
 			req.setAttribute(CONTRIBUTIONS, my_contributions);
+			req.setAttribute(PROJECTS, projects);
 			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 		}
 	}
