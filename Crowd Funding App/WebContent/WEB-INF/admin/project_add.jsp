@@ -32,7 +32,7 @@
 						<h2 class="mdl-card__title-text">Projet</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
-						<form method="post" action="project_add">
+						<form method="post" action="project_add" enctype="multipart/form-data">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" id="name" name="name" pattern=".{5,}" required />
 								<label class="mdl-textfield__label" for="name">Nom de projet</label>
@@ -52,6 +52,10 @@
 								<input class="mdl-textfield__input" type="text" pattern="([0-9])+" id="goal" name="goal" required >
 								<label class="mdl-textfield__label" for="goal">Montant à atteindre</label>
 								<span class="mdl-textfield__error">${form.errors['goal']}</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield">
+								<label for="fichier">Emplacement de l'image</label>
+                				<input type="file" id="fichier" name="fichier" />
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
 								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>

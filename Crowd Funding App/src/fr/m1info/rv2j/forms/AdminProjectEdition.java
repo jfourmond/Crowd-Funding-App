@@ -13,6 +13,7 @@ public class AdminProjectEdition extends Forms {
 	public final static String PROJECTNAME_FIELD = "projectname";
 	public final static String PRESENTATION_FIELD = "presentation";
 	public final static String GOAL_FIELD = "goal";
+	public final static String PICTURE_FIELD = "picture_path";
 	
 	private ProjectDAO projectDAO;
 	
@@ -33,13 +34,16 @@ public class AdminProjectEdition extends Forms {
 		String projectname = getFieldValue(request, PROJECTNAME_FIELD);
 		String presentation = getFieldValue(request, PRESENTATION_FIELD);
 		String goal = getFieldValue(request, GOAL_FIELD);
+		String picture_path = getFieldValue(request, PICTURE_FIELD);
 		
 		try {
 			project.setID(Integer.parseInt(id));
 			nameProcessing(projectname, project);
 			presentationProcessing(presentation, project);
 			goalProcessing(goal, project);
+			//picturePathProcessing(picture_path, project);
 			lastUpdateProcessing(project);
+			
 			
 			if (errors.isEmpty()) {
 				projectDAO.update(id, project);
