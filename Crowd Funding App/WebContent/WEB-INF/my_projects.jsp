@@ -14,6 +14,7 @@
 			}
 			.mdl-card {
 				width: 60%;
+				margin-top: 20px;
 			}
 		</style>
 	</head>
