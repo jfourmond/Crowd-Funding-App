@@ -1,13 +1,14 @@
 package fr.m1info.rv2j.dao;
 
+import static fr.m1info.rv2j.dao.DAOUtility.initialisationPreparedRequest;
+import static fr.m1info.rv2j.dao.DAOUtility.silentCloses;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static fr.m1info.rv2j.dao.DAOUtility.*;
 
 import fr.m1info.rv2j.beans.Project;
 

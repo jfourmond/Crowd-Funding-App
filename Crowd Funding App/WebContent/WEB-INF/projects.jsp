@@ -14,12 +14,6 @@
 			}
 			.mdl-card {
 				width: 60%;
-				margin: auto;
-				margin-bottom: 20px;
-			}
-			form {
-				padding-top: 25px;
-				width: 100%;
 			}
 		</style>
 	</head>
