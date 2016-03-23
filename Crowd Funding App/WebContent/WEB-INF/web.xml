@@ -19,7 +19,7 @@
 		<error-code>401</error-code>
 		<location>/WEB-INF/error_401.jsp</location>
 	</error-page>
-
+	
 	<!-- Page d'erreur 404 -->
 	<jsp-config>
 		<jsp-property-group>
@@ -39,7 +39,17 @@
 		<servlet-name>Home</servlet-name>
 		 <url-pattern>/home</url-pattern> 
 	</servlet-mapping>
+		
+	<!-- Serlvet About -->
+	<servlet>
+		<servlet-name>About</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.About</servlet-class>
+	</servlet>
 	
+	<servlet-mapping>
+		<servlet-name>About</servlet-name>
+		 <url-pattern>/about</url-pattern> 
+	</servlet-mapping>
 	
 	<!-- Servlet Sign Up -->
 	<servlet>
