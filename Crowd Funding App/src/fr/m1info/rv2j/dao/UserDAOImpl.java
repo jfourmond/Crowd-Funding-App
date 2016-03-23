@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import fr.m1info.rv2j.beans.User;
 
@@ -166,6 +168,31 @@ public class UserDAOImpl implements UserDAO {
 			while(resultSet.next()) {
 				user = map(resultSet);
 				users.add(user);
+			}
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return users;
+	}
+	
+	@Override
+	public Map<Integer, User> mapUsers() throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		Map<Integer, User> users = new HashMap<Integer, User>();
+		User user = null;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SELECT_ALL, false);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				user = map(resultSet);
+				users.put(user.getID(), user);
 			}
 		} catch(SQLException E) {
 			throw new DAOException(E);

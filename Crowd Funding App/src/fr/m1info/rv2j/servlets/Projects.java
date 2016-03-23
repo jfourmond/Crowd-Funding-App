@@ -2,6 +2,7 @@ package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,7 @@ public class Projects extends HttpServlet {
 	private UserDAO userDAO;
 	
 	private List<Project> projects;
-	private List<User> users;
+	private Map<Integer, User> users;
 	
 	@Override
 	public void init() throws ServletException {
@@ -51,7 +52,7 @@ public class Projects extends HttpServlet {
 			resp.sendError(401);
 		} else {
 			projects = projectDAO.getAllProjects();
-			users = userDAO.getAllUsers();
+			users = userDAO.mapUsers();
 			req.setAttribute(PROJECTS, projects);
 			req.setAttribute(USERS, users);
 			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
