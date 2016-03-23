@@ -22,7 +22,7 @@ public class ContributionDAOImpl implements ContributionDAO {
 	private static final String CREATION_DATE = "creation_date";
 	
 	private static final String SELECT_ALL = "SELECT * FROM contributions";
-	private static final String SELECT_BY_AUTHOR_ID = "SELECT contributor_id, project_id, donation, creation_date FROM contributions WHERE author_id = ?";
+	private static final String SELECT_BY_AUTHOR_ID = "SELECT contributor_id, project_id, donation, creation_date FROM contributions WHERE contributor_id = ?";
 	private static final String SELECT_BY_PROJECT_ID = "SELECT contributor_id, project_id, donation, creation_date FROM contributions WHERE project_id = ?";
 	
 	private static final String INSERT = "INSERT INTO contributions(contributor_id, project_id, donation, creation_date) VALUES (?, ?, ?, ?)";

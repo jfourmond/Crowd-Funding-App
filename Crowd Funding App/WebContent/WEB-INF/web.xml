@@ -19,14 +19,35 @@
 		<error-code>401</error-code>
 		<location>/WEB-INF/error_401.jsp</location>
 	</error-page>
-
+	
 	<!-- Page d'erreur 404 -->
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
 			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
 		</jsp-property-group>
+		<jsp-property-group>
+			<description>Configuration de l'encodage des pages JSP</description>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
 	</jsp-config>
+	
+	
+	<filter>
+		<filter-name>encodingfilter</filter-name>
+		<filter-class>fr.m1info.rv2j.config.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	
+	
+	<filter-mapping>
+		<filter-name>encodingfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
 	<!-- Serlvet Home -->
 	<servlet>
@@ -39,7 +60,17 @@
 		<servlet-name>Home</servlet-name>
 		 <url-pattern>/home</url-pattern> 
 	</servlet-mapping>
+		
+	<!-- Serlvet About -->
+	<servlet>
+		<servlet-name>About</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.About</servlet-class>
+	</servlet>
 	
+	<servlet-mapping>
+		<servlet-name>About</servlet-name>
+		 <url-pattern>/about</url-pattern> 
+	</servlet-mapping>
 	
 	<!-- Servlet Sign Up -->
 	<servlet>
@@ -110,6 +141,17 @@
 	<servlet-mapping>
 		<servlet-name>MyProjects</servlet-name>
 		<url-pattern>/my_projects</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet MyContributions -->
+	<servlet>
+		<servlet-name>MyContributions</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.MyContributions</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MyContributions</servlet-name>
+		<url-pattern>/my_contributions</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Servlet Project -->

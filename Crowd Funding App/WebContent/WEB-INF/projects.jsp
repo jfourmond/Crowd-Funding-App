@@ -2,12 +2,8 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<title>Listes des projets</title>
-		<%@include file="/WEB-INF/favicon.jsp" %>
-		<link rel="stylesheet" href="css/material.min.css">
-		<script src="js/material.min.js"></script>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<style>
 			.mdl-layout {
 				align-items: center;
