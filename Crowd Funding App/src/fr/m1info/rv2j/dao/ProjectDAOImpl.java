@@ -19,7 +19,6 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private static final String NAME = "name";
 	private static final String PRESENTATION = "presentation";
 	private static final String GOAL = "goal";
-	private static final String PICTURE_PATH = "picture_path";
 	private static final String CREATION_DATE = "creation_date";
 	private static final String LAST_UPDATE = "last_update";
 	
@@ -31,9 +30,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 
 	private static final String SELECT_ALL = "SELECT * FROM projects";
 	
-	private static final String INSERT = "INSERT INTO projects(name, author_id, presentation, goal, creation_date, last_update) VALUES (?, ?, ?, ?, ?, ?)";
+	private static final String INSERT = "INSERT INTO projects(author_id, name, presentation, goal, creation_date, last_update) VALUES (?, ?, ?, ?, ?, ?)";
 	
-	private static final String UPDATE = "UPDATE projects SET name = ?, presentation = ?, goal = ?, last_update = ? WHERE id = ?";
+	private static final String UPDATE = "UPDATE projects SET author_id = ?, name = ?, presentation = ?, goal = ?, creation_date = ?, last_update = ? WHERE id = ?";
 	
 	private static final String DELETE = "DELETE FROM projects WHERE id = ? ";
 	
@@ -51,15 +50,15 @@ public class ProjectDAOImpl implements ProjectDAO {
 		
 		try {
 			connection = daoFactory.getConnection();
-			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, project.getName(), project.getAuthorID(), project.getPresentation(), project.getGoal(), project.getCreationDate(), project.getLastUpdateDate());
+			preparedStatement = initialisationPreparedRequest(connection, INSERT, true, project.getName(), project.getAuthorID(), project.getName(), project.getPresentation(), project.getCreationDate(), project.getLastUpdateDate());
 			int status = preparedStatement.executeUpdate();
 			if(status == 0)
-				throw new DAOException("Échec de la création du projet, aucune ligne ajoutée dans la table.");
+				throw new DAOException("Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table.");
 			values = preparedStatement.getGeneratedKeys();
 			if(values.next())
 				project.setID(values.getInt(1));
 			else
-				throw new DAOException("Échec de la création du projet, aucun ID auto-généré retourné.");
+				throw new DAOException("Échec de la création du projet en base, aucun ID auto-généré retourné.");
 		} catch (SQLException E) {
 			throw new DAOException(E);
 		} finally {
@@ -75,7 +74,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 		
 		try {
 			connection = daoFactory.getConnection();	
-			preparedStatement = initialisationPreparedRequest(connection, UPDATE, false, project.getName(), project.getPresentation(), project.getGoal(), project.getLastUpdateDate(), id);
+			preparedStatement = initialisationPreparedRequest(connection, UPDATE, false, project.getAuthorID(), project.getName(), project.getPresentation(), project.getGoal(), project.getCreationDate(), project.getLastUpdateDate(), id);
 			int status = preparedStatement.executeUpdate();
 			if(status == 0)
 				throw new DAOException("Échec de l'édition du projet, aucune ligne éditée dans la table.");
@@ -212,6 +211,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 			resultSet = preparedStatement.executeQuery();
 			
 			resultSet.next();
+			count = resultSet.getInt(1);
 			System.out.println(count);
 		} catch(SQLException E) {
 			throw new DAOException(E);
