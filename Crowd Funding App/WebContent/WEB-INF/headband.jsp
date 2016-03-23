@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 <header class="mdl-layout__header">
 	<div class="mdl-layout__header-row">
 		<!-- Title -->
@@ -13,14 +14,14 @@
 			<c:choose>
 				<c:when test="${sessionScope.session_user.rightLevel == 1}">
 					<a class="mdl-navigation__link" href="<c:url value="/projects"/>">Projets</a>
-					<a class="mdl-navigation__link" href="<c:url value="/about"/>">À Propos</a>
-					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
+					<a class="mdl-navigation__link" href="<c:url value="/about"/>">Ã€ Propos</a>
+					<a class="mdl-navigation__link" href="<c:url value="/logout" />">DÃ©connexion</a>
 				</c:when>
 				<c:when test="${sessionScope.session_user.rightLevel == 2}">
 					<a class="mdl-navigation__link" href="<c:url value="/admin/users_list"/>">Utilisateurs</a>
 					<a class="mdl-navigation__link" href="<c:url value="/admin/projects_list"/>">Projets</a>
 					<a class="mdl-navigation__link" href="<c:url value="/admin/contributions_list"/>">Contributions</a>
-					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
+					<a class="mdl-navigation__link" href="<c:url value="/logout" />">DÃ©connexion</a>
 				</c:when>
 				<c:otherwise>
 					<a class="mdl-navigation__link" href="<c:url value="/about"/>">A Propos</a>
@@ -37,7 +38,8 @@
 			<span class="mdl-layout-title">Menu</span>
 			<nav class="mdl-navigation">
 				<a class="mdl-navigation__link" href="<c:url value ="/account" />">Mon Compte</a>
-				<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes projets</a>
+				<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes Projets</a>
+				<a class="mdl-navigation__link" href="<c:url value="/my_contributions" />" >Mes Contributions</a>
 				<a class="mdl-navigation__link" href="<c:url value="/project_add"/>">Nouveau Projet</a>
 			</nav>
 		</div>
