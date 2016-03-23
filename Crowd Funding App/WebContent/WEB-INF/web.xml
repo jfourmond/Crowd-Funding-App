@@ -116,11 +116,6 @@
 		<url-pattern>/project_add</url-pattern>
 	</servlet-mapping>
 	
-	<servlet-mapping>
-		<servlet-name>LogOut</servlet-name>
-		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
-	
 	<!-- Servlet Projects -->	
 	<servlet>
 		<servlet-name>Projects</servlet-name>
@@ -181,6 +176,11 @@
 		<servlet-name>LogOut</servlet-name>
 		<servlet-class>fr.m1info.rv2j.servlets.LogOut</servlet-class>
 	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
 	
 	<!-- SERVLETS ADMIN -->
 		<!-- Servlet UsersList -->
