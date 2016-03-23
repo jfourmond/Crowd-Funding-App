@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<%@include file="../WEB-INF/entete.jsp" %>
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<title>Accueil</title>
 		<link type="text/css" rel="stylesheet" href="style.css" />
 	</head>

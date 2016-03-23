@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<%@include file="../WEB-INF/entete.jsp" %>
+		<%@include file="/WEB-INF/entete.jsp" %>
 		<title>Mes projets</title>
 		<style>
 			.mdl-layout {
@@ -14,12 +14,6 @@
 			}
 			.mdl-card {
 				width: 60%;
-				margin: auto;
-				margin-bottom: 20px;
-			}
-			form {
-				padding-top: 25px;
-				width: 100%;
 			}
 		</style>
 	</head>
