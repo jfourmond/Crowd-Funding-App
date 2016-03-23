@@ -13,7 +13,7 @@
 			<c:choose>
 				<c:when test="${sessionScope.session_user.rightLevel == 1}">
 					<a class="mdl-navigation__link" href="<c:url value="/projects"/>">Projets</a>
-					<a class="mdl-navigation__link" href="<c:url value="/about"/>">A Propos</a>
+					<a class="mdl-navigation__link" href="<c:url value="/about"/>">À Propos</a>
 					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
 				</c:when>
 				<c:when test="${sessionScope.session_user.rightLevel == 2}">
