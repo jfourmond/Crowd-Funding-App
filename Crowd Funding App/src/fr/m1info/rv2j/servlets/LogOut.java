@@ -12,7 +12,7 @@ public class LogOut extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-	public final static String view = "/home.jsp";
+	public final static String path = "home";
 	
 	public final static String SESSION = "session_user";
 	
@@ -21,6 +21,6 @@ public class LogOut extends HttpServlet{
 		HttpSession session = req.getSession();
 
 		session.setAttribute(SESSION, null);
-		this.getServletContext().getRequestDispatcher(view).forward(req, resp);
+		resp.sendRedirect(resp.encodeRedirectURL(path)); 
 	}
 }
