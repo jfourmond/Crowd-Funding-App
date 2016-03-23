@@ -31,6 +31,7 @@ CREATE TABLE projects(
 	name TEXT NOT NULL,
 	presentation LONGTEXT,
 	goal INT(10) NOT NULL,
+	picture_path LONGTEXT,
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
