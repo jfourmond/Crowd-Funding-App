@@ -13,6 +13,12 @@ public class Commentary {
 	private Date creation_date;
 	private Date last_update;
 	
+	/*	CONSTRUCTEURS	*/
+	public Commentary() {
+		creation_date = new Date(System.currentTimeMillis());
+		last_update = creation_date;
+	}
+	
 	/*	GETTERS	*/
 	public int getID() { return id; }
 	
