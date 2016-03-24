@@ -36,6 +36,7 @@ public class ProjectShow extends HttpServlet {
 	public final static String PROJECT = "project";
 	public final static String CONTRIBUTIONS = "contributions";
 	public final static String DONATION = "donation_progress";
+	public final static String COMMENTARIES = "commentaries";
 	
 	public final static String ID = "id";
 	public final static String FORM = "form";
@@ -49,6 +50,7 @@ public class ProjectShow extends HttpServlet {
 	private Project project;
 	private User user;
 	private List<Contribution> contributions;
+	private List<Commentary> commentaries;
 	private int donation_total;
 	
 	@Override
@@ -77,10 +79,12 @@ public class ProjectShow extends HttpServlet {
 				user = userDAO.findByID(String.valueOf(project.getAuthorID()));
 				contributions = contributionDAO.findByProjectID(id_project);
 				donation_total = contributionDAO.getTotalContributionsToProject(id_project);
+				commentaries = commentaryDAO.findByProjectID(id_project);
 				req.setAttribute(AUTHOR, user);
 				req.setAttribute(PROJECT, project);
 				req.setAttribute(CONTRIBUTIONS, contributions);
 				req.setAttribute(DONATION, donation_total);
+				req.setAttribute(COMMENTARIES, commentaries);
 				this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 			}
 		}

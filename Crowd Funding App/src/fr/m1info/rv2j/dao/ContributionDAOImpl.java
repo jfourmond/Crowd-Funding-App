@@ -17,7 +17,7 @@ public class ContributionDAOImpl implements ContributionDAO {
 	
 	private static final String AUTHOR_ID = "contributor_id";
 	private static final String PROJECT_ID = "project_id";
-	private static final String COMPENSATION_id = "compensation_id";
+	private static final String COMPENSATION_ID = "compensation_id";
 	private static final String DONATION = "donation";
 	private static final String CREATION_DATE = "creation_date";
 	

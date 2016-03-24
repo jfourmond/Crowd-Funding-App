@@ -30,6 +30,14 @@ public interface CommentaryDAO {
 	Commentary findByID(String id) throws DAOException;
 	
 	/**
+	 * Récupération des commentaires par l'id du projet
+	 * @param id : id du projet
+	 * @return une liste de commentaires
+	 * @throws DAOException
+	 */
+	List<Commentary> findByProjectID(String id) throws DAOException;
+	
+	/**
 	 * Récupération de tous les commentaires dans la base
 	 * @return une liste de commentaires
 	 * @throws DAOException

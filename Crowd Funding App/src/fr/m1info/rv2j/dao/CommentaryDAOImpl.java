@@ -31,7 +31,8 @@ public class CommentaryDAOImpl implements CommentaryDAO {
 	private static final String LAST_UPDATE = "last_update";
 	
 	private static final String SELECT_BY_ID = "SELECT id, author_id, project_id, text, creation_date, last_update FROM commentaries where id = ? ";
-
+	private static final String SELECT_BY_AUTHOR_ID = "SELECT id, author_id, project_id, text, creation_date, last_update FROM commentaries where project_id = ? ";
+	
 	private static final String SELECT_ALL = "SELECT * FROM commentaries";
 	
 	private static final String INSERT = "INSERT INTO commentaries(author_id, project_id, text, creation_date, last_update) VALUES (?, ?, ?, ?, ?)";
@@ -111,6 +112,31 @@ public class CommentaryDAOImpl implements CommentaryDAO {
 		return commentary;
 	}
 
+	@Override
+	public List<Commentary> findByProjectID(String id) throws DAOException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		List<Commentary> commentaries = new ArrayList<Commentary>();
+		Commentary commentary = null;
+		
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = initialisationPreparedRequest(connection, SELECT_BY_AUTHOR_ID, false, id);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				commentary = map(resultSet);
+				commentaries.add(commentary);
+			}
+		} catch(SQLException E) {
+			throw new DAOException(E);
+		} finally {
+			silentCloses(resultSet, preparedStatement, connection);
+		}
+		return commentaries;
+	}
+	
 	@Override
 	public List<Commentary> getAllCommentary() throws DAOException {
 		Connection connection = null;
