@@ -37,4 +37,7 @@ Il pourrait être nécessaire de source le fichier [database.sql](https://github
 		
 		source [path-to-sql-file]
 		
-
+La base de données utilisée ici est composée de différentes tables :
+	**users**			contenant des utilisateurs
+	**projects**		contenant des projets
+	**contributions**	contenant des contributions
