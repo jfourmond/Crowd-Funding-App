@@ -41,19 +41,19 @@
   						</div>	
 					</c:forEach>
 				</c:when>
+				<c:otherwise>
+					<div class="mdl-card mdl-shadow--4dp">
+						<div class="mdl-card__title">
+	    					<h2 class="mdl-card__title-text">Pas de contribution ?</h2>
+						</div>
+						<div class="mdl-card__actions mdl-card--border">
+	    					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<c:url value="/projects" />" >
+	      						Consultez les projets et lancez-vous !
+	    					</a>
+	  					</div>
+	  				</div>
+				</c:otherwise>
 			</c:choose>
-			<c:otherwise>
-				<div class="mdl-card mdl-shadow--4dp">
-					<div class="mdl-card__title">
-    					<h2 class="mdl-card__title-text">Pas de contribution ?</h2>
-					</div>
-					<div class="mdl-card__actions mdl-card--border">
-    					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<c:url value="/projects" />" >
-      						Consultez les projets et lancez-vous !
-    					</a>
-  					</div>
-  				</div>	
-			</c:otherwise>
 		</div>
 	</body>
 </html>
