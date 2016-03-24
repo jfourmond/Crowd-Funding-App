@@ -11,6 +11,7 @@ public class Commentary {
 	private int project_id;
 	private int author_id;
 	private Date creation_date;
+	private Date last_update;
 	
 	/*	GETTERS	*/
 	public int getID() { return id; }
@@ -23,6 +24,8 @@ public class Commentary {
 	
 	public Date getCreationDate() { return creation_date; }
 	
+	public Date getLastUpdate() { return last_update; }
+	
 	/*	SETTERS	*/
 	public void setID(int id) { this.id = id; }
 	
@@ -33,4 +36,6 @@ public class Commentary {
 	public void setAuthorID(int id) { this.author_id = id; }
 	
 	public void setCreationDate(Date date ) { this.creation_date = date; }
+	
+	public void setLastUpdate(Date date) { this.last_update = date; }
 }
