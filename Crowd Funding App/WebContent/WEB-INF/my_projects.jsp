@@ -44,6 +44,18 @@
   						</div>	
 					</c:forEach>
 				</c:when>
+				<c:otherwise>
+					<div class="mdl-card mdl-shadow--4dp">
+						<div class="mdl-card__title">
+    						<h2 class="mdl-card__title-text">Pas de projet ?</h2>
+						</div>
+						<div class="mdl-card__actions mdl-card--border">
+    						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<c:url value="/project_add" />" >
+      							Créez en un !
+    						</a>
+  						</div>
+  					</div>	
+				</c:otherwise>
 			</c:choose>
 		</div>
 	</body>
