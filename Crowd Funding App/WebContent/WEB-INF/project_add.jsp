@@ -39,7 +39,7 @@
 								<label class="mdl-textfield__label" for="presentation">Présentation</label>
 								<span class="mdl-textfield__error">${form.errors['presentation']}</span>
 							</div>
-							<div class="mdl-textfield mdl-js-textfield">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="number" pattern="([0-9])+" id="goal" name="goal" value="${project.goal}" required >
 								<label class="mdl-textfield__label" for="goal">Montant à atteindre</label>
 								<span class="mdl-textfield__error">${form.errors['goal']}</span>
