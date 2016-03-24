@@ -77,4 +77,8 @@ public class DAOFactory {
 	public ContributionDAO getContributionDao() {
 		return new ContributionDAOImpl(this);
 	}
+	
+	public CommentaryDAO getCommentaryDao() {
+		return new CommentaryDAOImpl(this);
+	}
 }
