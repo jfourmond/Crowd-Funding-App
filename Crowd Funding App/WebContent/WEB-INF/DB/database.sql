@@ -40,7 +40,7 @@ CREATE TABLE projects(
 );
 
 /* Table des commentaires */
-CREATE TABLE commentary(
+CREATE TABLE commentaries(
 	id INT(10) NOT NULL AUTO_INCREMENT,
 	author_id INT(10) NOT NULL,
 	project_id INT(10) NOT NULL,
