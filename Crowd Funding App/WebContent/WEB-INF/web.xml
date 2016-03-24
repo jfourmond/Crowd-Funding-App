@@ -149,6 +149,17 @@
 		<url-pattern>/my_contributions</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Servlet MyContributions -->
+	<servlet>
+		<servlet-name>MyContributors</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.MyContributors</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MyContributors</servlet-name>
+		<url-pattern>/my_contributors</url-pattern>
+	</servlet-mapping>
+	
 	<!-- Servlet Project -->
 	<servlet>
 		<servlet-name>ProjectShow</servlet-name>
