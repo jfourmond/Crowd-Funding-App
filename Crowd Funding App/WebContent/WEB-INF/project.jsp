@@ -12,6 +12,9 @@
 			.mdl-card {
 				width: 80%;
 			}
+			.full-width {
+				width: 100%;
+			}
 		</style>
 	</head>
 	<body>
@@ -92,6 +95,27 @@
 						</div>
 					</div>
 				</div>
+				
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col"></div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-card mdl-shadow--6dp">
+							<div class="mdl-card__supporting-text">
+								<form method="post" action="commentaries_add">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+										<textarea class="mdl-textfield__input" type="text" id="comment" name="comment" rows="5" ></textarea>
+										<label class="mdl-textfield__label" for="comment">Un avis à donner ?</label>
+									</div>
+									<div class="mdl-card__actions mdl-card--border ">
+										<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Commenter !</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--4-col"></div>
+				</div>
+				
 			</main>
 		</div>
 	</body>
