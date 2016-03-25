@@ -37,7 +37,7 @@ public class CommentaryDAOImpl implements CommentaryDAO {
 	
 	private static final String INSERT = "INSERT INTO commentaries(author_id, project_id, text, creation_date, last_update) VALUES (?, ?, ?, ?, ?)";
 	
-	private static final String UPDATE = "UPDATE commentaries SET text = ?, last_update = NOW() WHERE id = ?";
+	private static final String UPDATE = "UPDATE commentaries SET text = ?, last_update = ? WHERE id = ?";
 	
 	private static final String DELETE = "DELETE FROM commentaries WHERE id = ? ";
 	

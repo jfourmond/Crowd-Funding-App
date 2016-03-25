@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.m1info.rv2j.beans.Commentary;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.CommentaryDAO;
 import fr.m1info.rv2j.dao.DAOFactory;
@@ -42,7 +43,7 @@ public class AdminCommentaryEdit extends HttpServlet {
 		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
-			commentary = (User) req.getAttribute(COMMENTARY);
+			commentary = (Commentary) req.getAttribute(COMMENTARY);
 			req.setAttribute(COMMENTARY, commentary);
 			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
 		}
@@ -50,11 +51,11 @@ public class AdminCommentaryEdit extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User user;
+		Commentary commentary;
 		
 		AdminCommentaryEdition form = new AdminCommentaryEdition(commentaryDAO);
 		
-		form.editCommentary(req);
+		commentary = form.editCommentary(req);
 		
 		if (form.getErrors().isEmpty())
 			resp.sendRedirect(resp.encodeRedirectURL(path_success));

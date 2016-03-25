@@ -32,12 +32,12 @@
 						<h2 class="mdl-card__title-text">Edition de commentaire</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
-						<form method="post" action="project_add">
+						<form method="post" action="commentary_edit">
 							<input value="${commentary.ID}" type="hidden" id="id" name="id" required />
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<textarea class="mdl-textfield__input" type="text" rows= "3" id="comment" name="comment" required>${commentary.text}</textarea>
+								<textarea class="mdl-textfield__input" type="text" rows= "3" id="text" name="text" required>${commentary.text}</textarea>
 								<label class="mdl-textfield__label" for="presentation">Texte du commentaire</label>
-								<span class="mdl-textfield__error">${form.errors['comment']}</span>
+								<span class="mdl-textfield__error">${form.errors['text']}</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
 								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>
