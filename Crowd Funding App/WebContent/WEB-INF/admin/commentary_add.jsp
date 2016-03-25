@@ -32,7 +32,7 @@
 						<h2 class="mdl-card__title-text">Commentaire</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
-						<form method="post" action="project_add">
+						<form method="post" action="commentary_add">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" id="id_user" name="id_user" pattern="([0-9])+" required />
 								<label class="mdl-textfield__label" for="id_user">ID de l'auteur</label>
