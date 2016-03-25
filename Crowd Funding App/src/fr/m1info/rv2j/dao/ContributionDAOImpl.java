@@ -13,6 +13,12 @@ import java.util.List;
 import fr.m1info.rv2j.beans.Contribution;
 
 public class ContributionDAOImpl implements ContributionDAO {
+	/**	Structure de la table		**/
+	/**		contributor_id INT(10)	**/
+	/**		project_id INT(10)		**/
+	/**		donation INT(10)		**/
+	/**		creation_date DATE		**/
+	
 	private DAOFactory daoFactory;
 	
 	private static final String AUTHOR_ID = "contributor_id";

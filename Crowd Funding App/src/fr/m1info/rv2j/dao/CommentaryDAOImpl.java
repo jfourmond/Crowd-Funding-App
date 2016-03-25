@@ -13,7 +13,7 @@ import java.util.List;
 import fr.m1info.rv2j.beans.Commentary;
 
 public class CommentaryDAOImpl implements CommentaryDAO {
-	/**	Structure la table		**/
+	/**	Structure de la table	**/
 	/**		id INT(10) 			**/
 	/**		author_id INT(10)	**/
 	/**		project_id INT(10)	**/

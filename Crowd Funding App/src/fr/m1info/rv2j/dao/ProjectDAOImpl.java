@@ -15,6 +15,16 @@ import java.util.Map;
 import fr.m1info.rv2j.beans.Project;
 
 public class ProjectDAOImpl implements ProjectDAO {
+	/** Structure de la table		**/
+	/**		id INT(10)				**/
+	/**		author_id INT(10)		**/
+	/**		name TEXT				**/
+	/**		presentation LONGTEXT	**/
+	/**		goal INT(10)			**/
+	/**		picture_path LONGTEXT	**/
+	/**		creation_date DATE		**/
+	/**		last_update DATE		**/
+	
 	private DAOFactory daoFactory;
 	
 	private static final String ID = "id";
