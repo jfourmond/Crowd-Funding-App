@@ -43,7 +43,19 @@ La base de données utilisée ici est composée de différentes tables :
 	**contributions**	contenant des contributions
 	**commentaries**	contenant des commentaires
 
-Quatre **administrateurs** sont crées lors du source de la base de données : 
+Quatre **administrateurs** sont crées lors du source de la base de données :
+
+<table>
+	<th>
+		<td> Username <td>
+		<td> Password <td>
+	</th>
+    <tr>
+        <td> Jerome </td>
+        <td> Jeje </td>
+    </tr>
+</table>
+
 * username	mdp	mail
 * Jerome	jeje	jerome@example.fr
 * Johan	johan	johan@example.fr
