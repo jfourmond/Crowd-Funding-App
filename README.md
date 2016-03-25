@@ -32,7 +32,7 @@ Le projet a pour caractéristiques :
 Le site a été produit en **J2EE** en utilisant pour _Frontend_ : **Material Design Lite**. Aucun framework n'a été utilisé, chaque membre du groupe découvrant le **J2EE** il nous a semblé inadéquat d'utiliser directement des frameworks dans notre apprentissage sans en comprendre le fonctionnement, ou le fonctionnement de l'application.
 
 Le site utilise une base de données **mysql** soutenue par une structure _DAO_.
-Il pourrait être nécessaire de source le fichier [database.sql](https://github.com/jfourmond/Crowd-Funding-App/blob/master/Crowd%20Funding%20App/WebContent/WEB-INF/DB/database.sql) dans mysql pour avoir une application au fonctionnement optimal.
+Il pourrait être nécessaire de source le fichier [database.sql](https://github.com/jfourmond/Crowd-Funding-App/blob/master/Crowd%20Funding%20App/WebContent/WEB-INF/DB/database.sql) (*copy path dans git_hub*) dans mysql pour avoir une application au fonctionnement optimal.
 	La commande, une fois dans l'invite de console **mysql** en tant qu'administrateur de la base de données :
 		
 		source [path-to-sql-file]
