@@ -35,7 +35,7 @@ CREATE TABLE projects(
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (author_id) REFERENCES users(id)
+	FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE 
 );
 
 /* Table des commentaires */
@@ -47,8 +47,8 @@ CREATE TABLE commentaries(
 	creation_date DATE NOT NULL,
 	last_update DATE NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (author_id) REFERENCES users(id),
-	FOREIGN KEY (project_id) REFERENCES projects(id)
+	FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 );
 
 /* Table des contributions */
@@ -57,8 +57,8 @@ CREATE TABLE contributions(
 	project_id INT(10) NOT NULL,
 	donation INT(10) NOT NULL,
 	creation_date DATE NOT NULL,
-	FOREIGN KEY (contributor_id) REFERENCES users(id),
-	FOREIGN KEY (project_id) REFERENCES projects(id)
+	FOREIGN KEY (contributor_id) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (project_id) REFERENCES projects(id)  ON DELETE CASCADE
 );
 
 /*	CREATE USER FOR DATABASE	*/
