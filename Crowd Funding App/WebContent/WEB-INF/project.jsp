@@ -15,6 +15,12 @@
 			.full-width {
 				width: 100%;
 			}
+			table, th, td {
+				border-collapse: collapse;
+			}
+			th, td {
+				padding: 10px;
+			}
 		</style>
 	</head>
 	<body>
@@ -95,7 +101,6 @@
 						</div>
 					</div>
 				</div>
-				
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--4-col"></div>
 					<div class="mdl-cell mdl-cell--6-col">
@@ -104,7 +109,7 @@
 								<form method="post" action="commentaries_add">
 									<input value="${project.ID}" type="hidden" id="id" name="id" required />
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
-										<textarea class="mdl-textfield__input" type="text" id="comment" name="comment" rows="5" >${commentary.text}</textarea>
+										<textarea class="mdl-textfield__input" type="text" id="comment" name="comment" rows="1" >${commentary.text}</textarea>
 										<label class="mdl-textfield__label" for="comment">Un avis à donner ?</label>
 									</div>
 									<div class="mdl-card__actions mdl-card--border ">
@@ -112,11 +117,35 @@
 									</div>
 								</form>
 							</div>
+							<c:choose>
+								<c:when test="${ !empty commentaries }">
+									<div class="mdl-card__supporting-text">
+										<table class="full-width">
+											<thead>
+												<tr>
+													<th></th>
+													<th></th>
+												</tr>
+											<tbody>
+												<c:forEach var="commentary" items="${commentaries}">
+													<tr>
+														<td>
+															<h5>Par ${users[commentary.authorID].name}</h5>
+														</td>
+														<td>
+															${commentary.text} 
+														</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</c:when>
+							</c:choose>
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--4-col"></div>
 				</div>
-				
 			</main>
 		</div>
 	</body>

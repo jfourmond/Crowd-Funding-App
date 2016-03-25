@@ -31,7 +31,7 @@
 							<input value="${project.ID}" type="hidden" id="id" name="id" required />
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="number" id="donation" name="donation" pattern=".{1,}" value="${project.name}" required />
-								<label class="mdl-textfield__label" for="name">Montant</label>
+								<label class="mdl-textfield__label" for="name">Montant (€)</label>
 								<span class="mdl-textfield__error">${form.errors['donation']}</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
