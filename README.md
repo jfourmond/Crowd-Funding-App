@@ -46,10 +46,10 @@ La base de données utilisée ici est composée de différentes tables :
 Quatre **administrateurs** sont crées lors du source de la base de données :
 
 <table>
-	<th>
+	<tr>
 		<td> Username </td>
 		<td> Password </td>
-	</th>
+	</tr>
 	<tr>
 		<td> Jerome </td>
 		<td> Jeje </td>
