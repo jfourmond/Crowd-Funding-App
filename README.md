@@ -33,7 +33,7 @@ Le site a été produit en **J2EE** en utilisant pour _Frontend_ : **Material De
 
 Le site utilise une base de données **mysql** soutenue par une structure _DAO_.
 Il pourrait être nécessaire de source le fichier [database.sql](https://github.com/jfourmond/Crowd-Funding-App/blob/master/Crowd%20Funding%20App/WebContent/WEB-INF/DB/database.sql) dans mysql pour avoir une application au fonctionnement optimal.
-	La commande, une fois dans l'invite de console **mysql** :
+	La commande, une fois dans l'invite de console **mysql** en tant qu'administrateur de la base de données :
 		
 		source [path-to-sql-file]
 		
@@ -42,3 +42,10 @@ La base de données utilisée ici est composée de différentes tables :
 	**projects**		contenant des projets
 	**contributions**	contenant des contributions
 	**commentaries**	contenant des commentaires
+
+Quatre **administrateurs** sont crées lors du source de la base de données : 
+* username	mdp	mail
+* Jerome	jeje	jerome@example.fr
+* Johan	johan	johan@example.fr
+* Valerian	valou	valerian@example.fr
+* Robin	roro	robin@example.fr
