@@ -106,10 +106,10 @@
 					<div class="mdl-cell mdl-cell--6-col">
 						<div class="mdl-card mdl-shadow--6dp">
 							<div class="mdl-card__supporting-text">
-								<form method="post" action="commentaries_add">
+								<form method="post" action="commentary_add">
 									<input value="${project.ID}" type="hidden" id="id" name="id" required />
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
-										<textarea class="mdl-textfield__input" type="text" id="comment" name="comment" rows="1" pattern=".{10,}" >${commentary.text}</textarea>
+										<textarea class="mdl-textfield__input" type="text" id="comment" name="comment" rows="1" pattern=".{10,}" required >${commentary.text}</textarea>
 										<label class="mdl-textfield__label" for="comment">Un avis à donner ?</label>
 									</div>
 									<div class="mdl-card__actions mdl-card--border ">

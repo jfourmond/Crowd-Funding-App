@@ -101,14 +101,15 @@ public class ProjectShow extends HttpServlet {
 		
 		Commentary commentary = form.createCommentary(req);
 
+		String id_project = (String) req.getParameter(ID);
+		
 		req.setAttribute(ID, project.getID());
 		req.setAttribute(FORM, form);
 		
 		if (form.getErrors().isEmpty())
 			this.doGet(req, resp);
 		else {
-			req.setAttribute(COMMENTARY, commentary);
-			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
+			this.doGet(req, resp);
 		}
 	}
 }
