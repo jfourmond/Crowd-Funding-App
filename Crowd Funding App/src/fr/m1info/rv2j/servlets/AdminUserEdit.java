@@ -44,17 +44,15 @@ public class AdminUserEdit extends HttpServlet {
 		} else {
 			user = (User) req.getAttribute(USER);
 			req.setAttribute(USER, user);
-			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
-		}
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp); 
+		}  
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		User user;
 		AdminUserEdition form = new AdminUserEdition(userDAO);
-		
 		user = form.editUser(req);
-		
 		if (form.getErrors().isEmpty())
 			resp.sendRedirect(resp.encodeRedirectURL(path_success));
 		else {
