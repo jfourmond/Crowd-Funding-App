@@ -2,6 +2,7 @@ package fr.m1info.rv2j.servlets;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,7 @@ public class ProjectShow extends HttpServlet {
 	
 	public final static String AUTHOR = "author";
 	public final static String PROJECT = "project";
+	public final static String USERS = "users";
 	public final static String CONTRIBUTIONS = "contributions";
 	public final static String DONATION = "donation_progress";
 	public final static String COMMENTARIES = "commentaries";
@@ -49,6 +51,7 @@ public class ProjectShow extends HttpServlet {
 	
 	private Project project;
 	private User user;
+	private Map<Integer, User> users;
 	private List<Contribution> contributions;
 	private List<Commentary> commentaries;
 	private int donation_total;
@@ -77,11 +80,13 @@ public class ProjectShow extends HttpServlet {
 			else {
 				project = projectDAO.findByID(id_project);
 				user = userDAO.findByID(String.valueOf(project.getAuthorID()));
+				users = userDAO.mapUsers();
 				contributions = contributionDAO.findByProjectID(id_project);
 				donation_total = contributionDAO.getTotalContributionsToProject(id_project);
 				commentaries = commentaryDAO.findByProjectID(id_project);
 				req.setAttribute(AUTHOR, user);
 				req.setAttribute(PROJECT, project);
+				req.setAttribute(USERS, users);
 				req.setAttribute(CONTRIBUTIONS, contributions);
 				req.setAttribute(DONATION, donation_total);
 				req.setAttribute(COMMENTARIES, commentaries);

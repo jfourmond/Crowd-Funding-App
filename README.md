@@ -41,3 +41,4 @@ La base de données utilisée ici est composée de différentes tables :
 	**users**			contenant des utilisateurs
 	**projects**		contenant des projets
 	**contributions**	contenant des contributions
+	**commentaries**	contenant des commentaires

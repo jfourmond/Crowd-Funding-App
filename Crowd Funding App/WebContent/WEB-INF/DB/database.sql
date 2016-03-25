@@ -7,9 +7,8 @@ CREATE DATABASE fr_m1info_rv2j DEFAULT CHARACTER SET utf8 COLLATE utf8_general_c
 USE fr_m1info_rv2j;
 
 /* DROP TABLE si existe */
-DROP TABLE IF EXISTS contributors;
-DROP TABLE IF EXISTS compensations;
-DROP TABLE IF EXISTS commentary;
+DROP TABLE IF EXISTS contributions;
+DROP TABLE IF EXISTS commentaries;
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS users;
 
@@ -52,26 +51,13 @@ CREATE TABLE commentaries(
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
-/* Table des compensations */
-CREATE TABLE compensations(
-	id INT(10) NOT NULL AUTO_INCREMENT,
-	threshold FLOAT(10) NOT NULL,
-	project_id INT(10) NOT NULL,
-	text VARCHAR(250) NOT NULL,
-	contributor_limit INT(10) NOT NULL, 	/* 0 = illimité */
-	PRIMARY KEY (id),
-	FOREIGN KEY (project_id) REFERENCES projects(id)
-);
-
 /* Table des contributions */
 CREATE TABLE contributions(
 	contributor_id INT(10) NOT NULL,
 	project_id INT(10) NOT NULL,
-	compensation_id INT(10),
 	donation INT(10) NOT NULL,
 	creation_date DATE NOT NULL,
 	FOREIGN KEY (contributor_id) REFERENCES users(id),
-	FOREIGN KEY (compensation_id) REFERENCES compensations(id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
 
