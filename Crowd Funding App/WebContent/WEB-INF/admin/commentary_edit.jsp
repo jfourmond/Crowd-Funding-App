@@ -32,9 +32,9 @@
 						<h2 class="mdl-card__title-text">Edition de commentaire</h2>
 					</div>
 					<div class="mdl-card__supporting-text">
-						<form method="post" action="project_add">
+						<form method="post" action="commentary_add">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<textarea class="mdl-textfield__input" type="text" rows= "3" id="comment" name="comment" required>${project.comment}</textarea>
+								<textarea class="mdl-textfield__input" type="text" rows= "3" id="comment" name="comment" required>${commentary.comment}</textarea>
 								<label class="mdl-textfield__label" for="presentation">Texte du commentaire</label>
 								<span class="mdl-textfield__error">${form.errors['comment']}</span>
 							</div>
