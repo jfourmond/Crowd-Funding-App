@@ -38,7 +38,7 @@
 							<th><!-- BOUTON DE SUPPRESSION --></th>
 						</tr>
 					</thead>
-	<!--			<tbody>
+					<tbody>
 						<c:choose>
 							<c:when test="${ !empty commentaries }">
 								<c:forEach var="commentary" items="${commentaries}" >
@@ -54,14 +54,14 @@
 										</td>
 										<td class="mdl-data-table__cell--non-numeric">${fn:substring(commentary.comment,0,30)}</td>
 										<td class="mdl-data-table__cell--non-numeric">${commentary.creationDate}</td>
-										<td class="mdl-data-table__cell--non-numeric">${commentary.lastUpdateDate}</td>
+										<td class="mdl-data-table__cell--non-numeric">${commentary.lastUpdate}</td>
 										<td><button class="mdl-button mdl-js-button mdl-button--raised" type="submit" name="edit" value="${commentary.ID}">Editer</button></td>
 										<td><button class="mdl-button mdl-js-button mdl-button--raised" type="submit" name="delete" value="${commentary.ID}">Supprimer</button></td>
 									</tr>
 								</c:forEach>
 							</c:when>
 						</c:choose>
-					</tbody>  -->	
+					</tbody>
 				</table>
 			</form>
 			<form action="commentaries_list" method="post">

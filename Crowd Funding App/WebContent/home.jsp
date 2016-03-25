@@ -44,7 +44,7 @@
 									${projects[0].presentation}
 									<br/>
 								</p>
-							</div>
+							</div>	
 						</div>
 					</main>			
 				</c:when>
