@@ -40,7 +40,7 @@
 								<span class="mdl-textfield__error">${form.errors['text']}</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
-								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>
+								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Editer</button>
 							</div>
 						</form>
 					</div>
