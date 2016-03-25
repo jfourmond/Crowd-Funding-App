@@ -31,7 +31,7 @@ Le projet a pour caractéristiques :
 ### Présentation et rapport
 Le site a été produit en **J2EE** en utilisant pour _Frontend_ : **Material Design Lite**. Aucun framework n'a été utilisé, chaque membre du groupe découvrant le **J2EE** il nous a semblé inadéquat d'utiliser directement des frameworks dans notre apprentissage sans en comprendre le fonctionnement, ou le fonctionnement de l'application.
 
-Un _.war_ de l'application est disponible dans le répertoire [github](https://github.com/jfourmond/Crowd-Funding-App/blob/master/rv2j-j2ee.war).
+Un [.war](https://github.com/jfourmond/Crowd-Funding-App/blob/master/rv2j-j2ee.war) de l'application est disponible dans le répertoire github.
 Il est possible de l'ajouter dans le répertoire **webapps** de votre **tomcat** local.
 
 Le site utilise une base de données **mysql** soutenue par une structure _DAO_.
