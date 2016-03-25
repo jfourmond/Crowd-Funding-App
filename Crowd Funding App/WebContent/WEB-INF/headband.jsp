@@ -21,6 +21,7 @@
 					<a class="mdl-navigation__link" href="<c:url value="/admin/users_list"/>">Utilisateurs</a>
 					<a class="mdl-navigation__link" href="<c:url value="/admin/projects_list"/>">Projets</a>
 					<a class="mdl-navigation__link" href="<c:url value="/admin/contributions_list"/>">Contributions</a>
+					<a class="mdl-navigation__link" href="<c:url value="/admin/commentaries_list"/>">Commentaires</a>
 					<a class="mdl-navigation__link" href="<c:url value="/logout" />">Déconnexion</a>
 				</c:when>
 				<c:otherwise>

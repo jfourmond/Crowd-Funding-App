@@ -232,6 +232,39 @@
 		<url-pattern>/admin/user_edit</url-pattern>
 	</servlet-mapping>
 	
+		<!-- Servlet CommentariesList -->
+	<servlet>
+		<servlet-name>AdminCommentariesList</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminCommentariesList</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminCommentariesList</servlet-name>
+		<url-pattern>/admin/commentaries_list</url-pattern>
+	</servlet-mapping>
+	
+		<!-- Servlet CommentaryAdd -->
+	<servlet>
+		<servlet-name>AdminCommentaryAdd</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminCommentaryAdd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminCommentaryAdd</servlet-name>
+		<url-pattern>/admin/commentary_add</url-pattern>
+	</servlet-mapping>
+	
+		<!-- Servlet CommentariesEdit -->
+	<servlet>
+		<servlet-name>AdminCommentaryEdit</servlet-name>
+		<servlet-class>fr.m1info.rv2j.servlets.AdminCommentaryEdit</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AdminCommentaryEdit</servlet-name>
+		<url-pattern>/admin/commentary_edit</url-pattern>
+	</servlet-mapping>
+	
 		<!--  Servlet ProjectsList -->	
 	<servlet>
 		<servlet-name>AdminProjectsList</servlet-name>
