@@ -15,6 +15,14 @@ import java.util.Map;
 import fr.m1info.rv2j.beans.User;
 
 public class UserDAOImpl implements UserDAO {
+	/**	Structure de la table		**/
+	/**		id INT(10)				**/
+	/**		name VARCHAR(20)		**/
+	/**		pw VARCHAR(20)			**/
+	/**		email VARCHAR(50)		**/
+	/**		inscription_date DATE	**/
+	/**		right_level INT(1)		**/
+	
 	private DAOFactory daoFactory;
 	
 	private static final String ID = "id";
