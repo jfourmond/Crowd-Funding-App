@@ -138,7 +138,7 @@ public class CommentaryDAOImpl implements CommentaryDAO {
 	}
 	
 	@Override
-	public List<Commentary> getAllCommentary() throws DAOException {
+	public List<Commentary> getAllCommentaries() throws DAOException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;

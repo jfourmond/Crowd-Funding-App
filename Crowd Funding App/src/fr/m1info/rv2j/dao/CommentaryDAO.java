@@ -42,7 +42,7 @@ public interface CommentaryDAO {
 	 * @return une liste de commentaires
 	 * @throws DAOException
 	 */
-	List<Commentary> getAllCommentary() throws DAOException;
+	List<Commentary> getAllCommentaries() throws DAOException;
 	
 	/**
 	 * Suppression d'un commentaire par son id
