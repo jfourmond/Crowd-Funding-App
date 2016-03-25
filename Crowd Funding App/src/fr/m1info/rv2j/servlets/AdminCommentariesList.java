@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.m1info.rv2j.beans.Commentary;
+import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.CommentaryDAO;
 import fr.m1info.rv2j.dao.DAOFactory;
@@ -20,9 +21,14 @@ public class AdminCommentariesList extends HttpServlet {
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
 	public final static String view = "/WEB-INF/admin/commentaries_list.jsp";
+	public final static String view_add = "/WEB-INF/admin/commentary_add.jsp";
+	public final static String view_edit = "/WEB-INF/admin/commentary_edit.jsp";
 	
 	public final static String SESSION = "session_user";
 	public final static String COMMENTARIES = "commentaries";
+	
+	public final static String COMMENTARY = "commentary";
+	
 	private CommentaryDAO commentaryDAO;
 	
 	private List<Commentary> commentaries;
@@ -48,5 +54,17 @@ public class AdminCommentariesList extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String delete = req.getParameter("delete");
+		String edit = req.getParameter("edit");
+		
+		if(delete != null) {
+			commentaryDAO.deleteByID(delete);
+			this.doGet(req, resp);
+		}
+		if(edit != null) {
+			Commentary commentary = commentaryDAO.findByID(edit);
+			req.setAttribute(COMMENTARY, commentary);
+			this.getServletContext().getRequestDispatcher(view_edit).forward(req, resp);
+		}
 	}
 }

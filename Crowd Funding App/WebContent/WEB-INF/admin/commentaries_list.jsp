@@ -31,6 +31,7 @@
 						<tr>
 							<th>ID</th>
 							<th>ID Auteur</th>
+							<th>ID Projet</th>
 							<th class="mdl-data-table__cell--non-numeric">Texte</th>
 							<th class="mdl-data-table__cell--non-numeric">Date de création</th>
 							<th class="mdl-data-table__cell--non-numeric">Date de dernière mise à jour</th>
@@ -47,12 +48,13 @@
 										<td>${commentary.authorID}</td>
 										<td class="mdl-data-table__cell--non-numeric">
 											<a href="
-												<c:url value="/commentary">
-													<c:param name="id" value="${commentary.ID}"/>
+												<c:url value="/project">
+													<c:param name="id" value="${commentary.projectID}"/>
 												</c:url> ">
+												${commentary.projectID}
 											</a>
 										</td>
-										<td class="mdl-data-table__cell--non-numeric">${fn:substring(commentary.comment,0,30)}</td>
+										<td class="mdl-data-table__cell--non-numeric">${fn:substring(commentary.text,0,30)}</td>
 										<td class="mdl-data-table__cell--non-numeric">${commentary.creationDate}</td>
 										<td class="mdl-data-table__cell--non-numeric">${commentary.lastUpdate}</td>
 										<td><button class="mdl-button mdl-js-button mdl-button--raised" type="submit" name="edit" value="${commentary.ID}">Editer</button></td>
@@ -63,11 +65,6 @@
 						</c:choose>
 					</tbody>
 				</table>
-			</form>
-			<form action="commentaries_list" method="post">
-				<button class="mdl-button mdl-js-button mdl-button--fab" type="submit" name="add">
-					<i class="material-icons">add</i>
-				</button>
 			</form>
 		</div>
 	</body>
