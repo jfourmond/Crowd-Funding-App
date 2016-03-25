@@ -47,17 +47,23 @@ Quatre **administrateurs** sont crées lors du source de la base de données :
 
 <table>
 	<th>
-		<td> Username <td>
-		<td> Password <td>
+		<td> Username </td>
+		<td> Password </td>
 	</th>
-    <tr>
-        <td> Jerome </td>
-        <td> Jeje </td>
-    </tr>
+	<tr>
+		<td> Jerome </td>
+		<td> Jeje </td>
+	</tr>
+	<tr>
+		<td> Johan </td>
+		<td> johan </td>
+	</tr>
+	<tr>
+		<td> Robin </td>
+		<td> roro </td>
+	</tr>
+	<tr>
+		<td> Valerian </td>
+		<td> valou </td>
+	</tr>
 </table>
-
-* username	mdp	mail
-* Jerome	jeje	jerome@example.fr
-* Johan	johan	johan@example.fr
-* Valerian	valou	valerian@example.fr
-* Robin	roro	robin@example.fr
