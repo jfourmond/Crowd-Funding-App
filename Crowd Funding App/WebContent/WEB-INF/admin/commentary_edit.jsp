@@ -33,20 +33,11 @@
 					</div>
 					<div class="mdl-card__supporting-text">
 						<form method="post" action="project_add">
+							<input value="${commentary.ID}" type="hidden" id="id" name="id" required />
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<textarea class="mdl-textfield__input" type="text" rows= "3" id="comment" name="comment" required>${project.comment}</textarea>
 								<label class="mdl-textfield__label" for="presentation">Texte du commentaire</label>
 								<span class="mdl-textfield__error">${form.errors['comment']}</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="creation_date" name="creation_date" required >
-								<label class="mdl-textfield__label" for="goal">Date de création</label>
-								<span class="mdl-textfield__error">${form.errors['creation_date']}</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="last_update" name="last_update" required >
-								<label class="mdl-textfield__label" for="goal">Dernière mise à jour</label>
-								<span class="mdl-textfield__error">${form.errors['last_update']}</span>
 							</div>
 							<div class="mdl-card__actions mdl-card--border ">
 								<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Ajouter</button>
