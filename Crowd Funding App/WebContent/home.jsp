@@ -44,18 +44,7 @@
 									${projects[0].presentation}
 									<br/>
 								</p>
-								</div>	
-							<div class="mdl-card__title mdl-card--border">
 							</div>
-							<div class="mdl-card__supporting-text mdl-card--border">
-								<br/>
-								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="
-									<c:url value="/project">
-										<c:param name="id" value="${projects[0].ID}"/>
-									</c:url> ">
-      								En savoir plus 
-    							</a>
-							</div>	
 						</div>
 					</main>			
 				</c:when>
