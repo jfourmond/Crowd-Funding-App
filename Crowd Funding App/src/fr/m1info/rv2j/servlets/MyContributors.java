@@ -16,27 +16,34 @@ import fr.m1info.rv2j.beans.User;
 import fr.m1info.rv2j.dao.ContributionDAO;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
+import fr.m1info.rv2j.dao.UserDAO;
 
-public class MyContributions extends HttpServlet {
+public class MyContributors extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public final static String CONF_DAO_FACTORY = "daofactory";
 	
-	public final static String view = "/WEB-INF/my_contributions.jsp";
+	public final static String view = "/WEB-INF/my_contributors.jsp";
 	
 	public final static String SESSION = "session_user";
 	
+	public final static String USERS = "users";
 	public final static String CONTRIBUTIONS = "contributions";
 	public final static String PROJECTS = "projects";
 	
+
+	private UserDAO userDAO;
 	private ContributionDAO contributionDAO;
 	private ProjectDAO projectDAO;
 	
-	private Map<Integer, Project> projects;
-	private List<Contribution> my_contributions;
+
+	private Map<Integer, User> users;
+	private List<Contribution> contributions;
+	private List<Project> my_projects;
 	
 	@Override
 	public void init() throws ServletException {
+		this.userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 		this.projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
 		this.contributionDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getContributionDao();
 	}
@@ -49,10 +56,12 @@ public class MyContributions extends HttpServlet {
 		if(user_session == null || user_session.getRightLevel() == 0) {
 			resp.sendError(401);
 		} else {
-			my_contributions = contributionDAO.findByAuthorID(String.valueOf(user_session.getID()));
-			projects = projectDAO.mapProjects();
-			req.setAttribute(CONTRIBUTIONS, my_contributions);
-			req.setAttribute(PROJECTS, projects);
+			users = userDAO.mapUsers();
+			contributions = contributionDAO.getAllContributions();
+			my_projects = projectDAO.findByAuthorID(Integer.toString(user_session.getID()));
+			req.setAttribute(USERS, users);
+			req.setAttribute(CONTRIBUTIONS, contributions);
+			req.setAttribute(PROJECTS, my_projects);
 			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 		}
 	}

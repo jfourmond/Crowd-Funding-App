@@ -40,6 +40,7 @@
 				<a class="mdl-navigation__link" href="<c:url value ="/account" />">Mon Compte</a>
 				<a class="mdl-navigation__link" href="<c:url value="/my_projects" />" >Mes Projets</a>
 				<a class="mdl-navigation__link" href="<c:url value="/my_contributions" />" >Mes Contributions</a>
+				<a class="mdl-navigation__link" href="<c:url value="/my_contributors" />" >Mes Contributeurs</a>
 				<a class="mdl-navigation__link" href="<c:url value="/project_add"/>">Nouveau Projet</a>
 			</nav>
 		</div>

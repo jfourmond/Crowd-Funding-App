@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.m1info.rv2j.beans.Commentary;
 import fr.m1info.rv2j.beans.Contribution;
 import fr.m1info.rv2j.beans.Project;
 import fr.m1info.rv2j.beans.User;
+import fr.m1info.rv2j.dao.CommentaryDAO;
 import fr.m1info.rv2j.dao.ContributionDAO;
 import fr.m1info.rv2j.dao.DAOFactory;
 import fr.m1info.rv2j.dao.ProjectDAO;
 import fr.m1info.rv2j.dao.UserDAO;
+import fr.m1info.rv2j.forms.CommentaryCreation;
 
 public class ProjectShow extends HttpServlet {
 
@@ -33,16 +36,21 @@ public class ProjectShow extends HttpServlet {
 	public final static String PROJECT = "project";
 	public final static String CONTRIBUTIONS = "contributions";
 	public final static String DONATION = "donation_progress";
+	public final static String COMMENTARIES = "commentaries";
 	
 	public final static String ID = "id";
+	public final static String FORM = "form";
+	public final static String COMMENTARY = "commentary";
 	
 	private ProjectDAO projectDAO;
 	private UserDAO userDAO;
 	private ContributionDAO contributionDAO;
+	private CommentaryDAO commentaryDAO;
 	
 	private Project project;
 	private User user;
 	private List<Contribution> contributions;
+	private List<Commentary> commentaries;
 	private int donation_total;
 	
 	@Override
@@ -50,6 +58,7 @@ public class ProjectShow extends HttpServlet {
 		projectDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getProjectDao();
 		userDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 		contributionDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getContributionDao();
+		commentaryDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getCommentaryDao();
 	}
 	
 	@Override
@@ -70,10 +79,12 @@ public class ProjectShow extends HttpServlet {
 				user = userDAO.findByID(String.valueOf(project.getAuthorID()));
 				contributions = contributionDAO.findByProjectID(id_project);
 				donation_total = contributionDAO.getTotalContributionsToProject(id_project);
+				commentaries = commentaryDAO.findByProjectID(id_project);
 				req.setAttribute(AUTHOR, user);
 				req.setAttribute(PROJECT, project);
 				req.setAttribute(CONTRIBUTIONS, contributions);
 				req.setAttribute(DONATION, donation_total);
+				req.setAttribute(COMMENTARIES, commentaries);
 				this.getServletContext().getRequestDispatcher(view).forward(req, resp);
 			}
 		}
@@ -81,5 +92,18 @@ public class ProjectShow extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		CommentaryCreation form = new CommentaryCreation(commentaryDAO);
+		
+		Commentary commentary = form.createCommentary(req);
+
+		req.setAttribute(ID, project.getID());
+		req.setAttribute(FORM, form);
+		
+		if (form.getErrors().isEmpty())
+			this.doGet(req, resp);
+		else {
+			req.setAttribute(COMMENTARY, commentary);
+			this.getServletContext().getRequestDispatcher(view).forward(req, resp);
+		}
 	}
 }

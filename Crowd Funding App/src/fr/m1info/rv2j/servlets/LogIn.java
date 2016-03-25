@@ -22,7 +22,8 @@ public class LogIn extends HttpServlet {
 	public final static String view_form = "/WEB-INF/login.jsp";
 	
 	public final static String path_success = "account";
-
+	public final static String path_connected = "home";
+	
 	public final static String USERNAME = "username";
 	public final static String FORM = "form";
 	public final static String SESSION = "session_user";
@@ -36,7 +37,13 @@ public class LogIn extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		HttpSession session = req.getSession();
+		User user_session = (User) session.getAttribute(SESSION);
+		
+		if(user_session == null)
+			this.getServletContext().getRequestDispatcher(view_form).forward(req, resp);
+		else
+			resp.sendRedirect(resp.encodeRedirectURL(path_connected)); 
 	}
 	
 	@Override

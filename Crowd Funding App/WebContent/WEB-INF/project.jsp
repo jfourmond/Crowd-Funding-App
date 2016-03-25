@@ -12,6 +12,9 @@
 			.mdl-card {
 				width: 80%;
 			}
+			.full-width {
+				width: 100%;
+			}
 		</style>
 	</head>
 	<body>
@@ -45,7 +48,7 @@
 								<h2 class="mdl-card__title-text">Les dernières contributions</h2>
 							</div>
 							<div class="mdl-card__title mdl-card--border">
-								<h4 class="mdl-card__subtitle-text">${donation_progress} / ${project.goal} €</h4>
+								<h4 class="mdl-card__subtitle-text"><c:out value="${donation_progress}" default="0" /> / ${project.goal} €</h4>
 							</div>
 							<div id="progress" class="mdl-progress mdl-js-progress"></div>
 							<script>
@@ -92,6 +95,28 @@
 						</div>
 					</div>
 				</div>
+				
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col"></div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-card mdl-shadow--6dp">
+							<div class="mdl-card__supporting-text">
+								<form method="post" action="commentaries_add">
+									<input value="${project.ID}" type="hidden" id="id" name="id" required />
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+										<textarea class="mdl-textfield__input" type="text" id="comment" name="comment" rows="5" >${commentary.text}</textarea>
+										<label class="mdl-textfield__label" for="comment">Un avis à donner ?</label>
+									</div>
+									<div class="mdl-card__actions mdl-card--border ">
+										<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Commenter !</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--4-col"></div>
+				</div>
+				
 			</main>
 		</div>
 	</body>

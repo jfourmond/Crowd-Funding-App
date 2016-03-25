@@ -1,6 +1,8 @@
 package fr.m1info.rv2j.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import fr.m1info.rv2j.beans.Project;
 
 public interface ProjectDAO {
@@ -43,6 +45,13 @@ public interface ProjectDAO {
 	 * @throws DAOException
 	 */
 	List<Project> getAllProjects() throws DAOException;
+	
+	/**
+	 * Récupération de tous les projets dans la base de données sous la forme d'un pair <id, projets>
+	 * @return map des projets
+	 * @throws DAOException
+	 */
+	Map<Integer, Project> mapProjects() throws DAOException;
 	
 	/**
 	 * Suppression du projet dans la base de données portant l'id
