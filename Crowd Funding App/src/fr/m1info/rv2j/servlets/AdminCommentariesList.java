@@ -42,7 +42,6 @@ public class AdminCommentariesList extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		User user_session = (User) session.getAttribute(SESSION);
-		
 		if(user_session == null || user_session.getRightLevel() != 2) {
 			resp.sendError(401);
 		} else {
